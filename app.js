@@ -88,6 +88,50 @@ function initNavbar() {
   }
 
   if (navToggle && navMenu) {
+    // Inject mobile drawer helper items if not present
+    if (!navMenu.querySelector('.mobile-drawer-divider')) {
+      const divider = document.createElement('div');
+      divider.className = 'mobile-drawer-divider';
+      navMenu.appendChild(divider);
+
+      // Mobile Theme Switcher
+      const themeRow = document.createElement('div');
+      themeRow.className = 'mobile-theme-row';
+      const isDarkInit = document.documentElement.getAttribute('data-theme') === 'dark';
+      themeRow.innerHTML = `<span>🌓 Theme: <b class="mobile-theme-text">${isDarkInit ? 'Dark' : 'Light'}</b></span><span>Tap to Toggle</span>`;
+      themeRow.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDark) {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('icts-theme', 'light');
+          themeRow.querySelector('.mobile-theme-text').textContent = 'Light';
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('icts-theme', 'dark');
+          themeRow.querySelector('.mobile-theme-text').textContent = 'Dark';
+        }
+      });
+      navMenu.appendChild(themeRow);
+
+      // Mobile Register CTA
+      const regLink = document.createElement('a');
+      regLink.href = 'https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform';
+      regLink.target = '_blank';
+      regLink.rel = 'noopener';
+      regLink.className = 'mobile-register-cta';
+      regLink.textContent = 'Register Course →';
+      navMenu.appendChild(regLink);
+
+      // Mobile WhatsApp CTA
+      const waLink = document.createElement('a');
+      waLink.href = 'https://wa.me/923229223022?text=Hello%20ICTS%20Team,%20I%20would%20like%20to%20inquire%20about%20your%20services';
+      waLink.target = '_blank';
+      waLink.rel = 'noopener';
+      waLink.className = 'mobile-wa-cta';
+      waLink.textContent = '💬 WhatsApp Us';
+      navMenu.appendChild(waLink);
+    }
+
     navToggle.addEventListener('click', (e) => {
       e.stopPropagation();
       toggleMenu();
@@ -108,6 +152,26 @@ function initNavbar() {
         toggleMenu(true);
       }
     });
+
+    // Swipe-to-close gesture for mobile drawer
+    let touchStartX = 0;
+    let touchCurrentX = 0;
+    navMenu.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    navMenu.addEventListener('touchmove', (e) => {
+      touchCurrentX = e.touches[0].clientX;
+    }, { passive: true });
+
+    navMenu.addEventListener('touchend', () => {
+      const swipeDistance = touchCurrentX - touchStartX;
+      if (swipeDistance > 60 && navMenu.classList.contains('open')) {
+        toggleMenu(true);
+      }
+      touchStartX = 0;
+      touchCurrentX = 0;
+    }, { passive: true });
   }
 }
 
@@ -617,7 +681,7 @@ function initHeroVideo() {
     playPromise.catch(() => {
       // Browser autoplay policy might need first interaction
       const resumeOnAction = () => {
-        video.play().catch(() => {});
+        video.play().catch(() => { });
         document.removeEventListener('click', resumeOnAction);
         document.removeEventListener('scroll', resumeOnAction);
       };
@@ -634,7 +698,7 @@ function initHeroVideo() {
         if (textElem) textElem.textContent = 'Video Playing';
         if (pauseIcon) pauseIcon.style.display = 'block';
         if (playIcon) playIcon.style.display = 'none';
-      }).catch(() => {});
+      }).catch(() => { });
     } else {
       video.pause();
       controlPill.classList.add('paused');
@@ -1187,5 +1251,15 @@ Connecting businesses across the China-Pakistan economic corridor:
         if (q) handleUserInput(q);
       });
     });
+  }
+}
+
+/* ==========================================================================
+   17. DYNAMIC COPYRIGHT YEAR
+   ========================================================================== */
+function updateCopyright() {
+  const yearSpan = document.getElementById('copyrightYear');
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
   }
 }

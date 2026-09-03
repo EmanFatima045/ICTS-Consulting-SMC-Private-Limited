@@ -478,14 +478,14 @@ ol {
 .brand-lockup {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
 .brand-logo-img {
-  height: 72px;
-  max-height: 72px;
+  height: 56px;
+  max-height: 56px;
   width: auto;
   display: block;
   border: none !important;
@@ -497,7 +497,7 @@ ol {
 }
 
 .brand-lockup:hover .brand-logo-img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .brand-tag-text {
@@ -509,7 +509,7 @@ ol {
 .brand-name {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 22px;
+  font-size: 19px;
   letter-spacing: 0.01em;
   color: var(--bg-cream) !important;
   line-height: 1.15;
@@ -518,7 +518,7 @@ ol {
 
 .brand-sub {
   font-family: var(--font-display);
-  font-size: 12px;
+  font-size: 11px;
   color: var(--yellow-main) !important;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -528,8 +528,16 @@ ol {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: clamp(8px, 1.1vw, 18px);
+  gap: clamp(4px, 0.8vw, 14px);
   flex-wrap: nowrap;
+}
+
+/* Mobile drawer helper elements MUST be hidden on desktop navbar */
+.mobile-drawer-divider,
+.mobile-theme-row,
+.mobile-register-cta,
+.mobile-wa-cta {
+  display: none !important;
 }
 
 .nav-item {
@@ -538,17 +546,18 @@ ol {
 
 .nav-link {
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 14.5px;
   font-weight: 800;
   color: var(--bg-cream) !important;
-  padding: 8px 12px;
+  padding: 6px 10px;
   display: inline-flex;
   align-items: center;
   gap: 4px;
   border-radius: var(--radius-sm);
   transition: all 0.2s;
   position: relative;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 .nav-link::after {
@@ -1735,7 +1744,7 @@ h3 i {
 .service-card-cover {
   position: relative;
   width: 100%;
-  height: 165px;
+  height: 210px;
   overflow: hidden;
   background: var(--charcoal-dark);
 }
@@ -1744,6 +1753,7 @@ h3 i {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
   transition: transform 0.6s var(--e-out);
 }
@@ -2659,8 +2669,8 @@ h3 i {
    ========================================================================== */
 .who-we-serve-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
   margin-top: 36px;
 }
 
@@ -3664,22 +3674,11 @@ a.channel-card:hover {
   line-height: 1;
 }
 
-/* Responsive */
-@media (max-width: 1200px) {
-  .who-we-serve-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .methodology-cards-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .about-split-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 1024px) {
+  .who-we-serve-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
   }
@@ -3708,14 +3707,23 @@ a.channel-card:hover {
     grid-template-columns: 1fr 1fr;
   }
 
-  .nav-menu,
-  .nav-actions .btn-outline,
-  .nav-actions .btn-red {
+  /* On mobile and tablet, hide top CTA button, show theme toggle and hamburger */
+  .nav-menu {
     display: none;
   }
 
+  .nav-actions .btn {
+    display: none !important;
+  }
+
+  .nav-actions .theme-toggle-btn {
+    display: inline-flex !important;
+    width: 36px;
+    height: 36px;
+  }
+
   .nav-toggle {
-    display: flex;
+    display: flex !important;
   }
 
   /* Luxury Mobile Drawer */
@@ -3723,22 +3731,22 @@ a.channel-card:hover {
     position: fixed;
     top: 0;
     right: -100%;
-    width: min(86vw, 340px);
+    width: min(88vw, 360px);
     height: 100vh;
-    background: #000000;
+    background: #0d0e12;
     border-left: 3.5px solid var(--yellow-main);
-    box-shadow: -15px 0 45px rgba(0, 0, 0, 0.75);
+    box-shadow: -15px 0 45px rgba(0, 0, 0, 0.85);
     flex-direction: column;
     align-items: stretch;
-    padding: 85px 22px 36px;
-    gap: 10px;
+    padding: 75px 20px 36px;
+    gap: 8px;
     z-index: 1050;
     overflow-y: auto;
     transition: right 0.38s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .nav-menu.open {
-    display: flex;
+    display: flex !important;
     right: 0;
   }
 
@@ -3764,6 +3772,78 @@ a.channel-card:hover {
 
   .nav-menu .nav-link::after {
     display: none;
+  }
+
+  /* Mobile Drawer Actions & Theme Switcher */
+  .mobile-drawer-divider {
+    height: 1px;
+    background: rgba(241, 207, 84, 0.2);
+    margin: 12px 0 8px;
+  }
+
+  .mobile-theme-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(241, 207, 84, 0.25);
+    color: #FFFCEF;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 6px;
+  }
+
+  .mobile-theme-row:hover {
+    border-color: var(--yellow-main);
+    background: rgba(241, 207, 84, 0.1);
+  }
+
+  .mobile-register-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 18px;
+    background: var(--yellow-main);
+    color: #000000 !important;
+    font-weight: 800;
+    font-size: 14.5px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    text-align: center;
+    margin-top: 6px;
+    box-shadow: 0 4px 14px rgba(241, 207, 84, 0.35);
+    transition: all 0.25s ease;
+  }
+
+  .mobile-register-cta:hover {
+    background: #e2c045;
+    transform: translateY(-2px);
+  }
+
+  .mobile-wa-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 18px;
+    background: #25D366;
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    text-align: center;
+    margin-top: 4px;
+    transition: all 0.25s ease;
+  }
+
+  .mobile-wa-cta:hover {
+    background: #20ba5a;
+    transform: translateY(-2px);
   }
 
   .nav-backdrop {
@@ -4036,14 +4116,14 @@ textarea:focus-visible {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  opacity: 0.78 !important;
-  filter: brightness(0.85) contrast(1.15) saturate(1.1);
+  opacity: 0.95 !important;
+  filter: brightness(0.92) contrast(1.1) saturate(1.15);
   transition: opacity 0.5s ease;
 }
 
 [data-theme="dark"] .hero-bg-video {
-  opacity: 0.85 !important;
-  filter: brightness(0.8) contrast(1.2);
+  opacity: 0.9 !important;
+  filter: brightness(0.88) contrast(1.15) saturate(1.1);
 }
 
 .hero-video-overlay {
@@ -4052,12 +4132,12 @@ textarea:focus-visible {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(10, 13, 20, 0.78) 0%, rgba(185, 28, 28, 0.35) 50%, rgba(10, 13, 20, 0.72) 100%);
+  background: linear-gradient(135deg, rgba(10, 13, 20, 0.45) 0%, rgba(185, 28, 28, 0.18) 50%, rgba(10, 13, 20, 0.48) 100%);
   pointer-events: none;
 }
 
 [data-theme="dark"] .hero-video-overlay {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.82) 0%, rgba(185, 28, 28, 0.3) 50%, rgba(0, 0, 0, 0.85) 100%);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.55) 0%, rgba(185, 28, 28, 0.2) 50%, rgba(0, 0, 0, 0.58) 100%);
 }
 
 .hero-title {
@@ -5063,5 +5143,976 @@ textarea:focus-visible {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   COMPREHENSIVE MOBILE & TABLET RESPONSIVE OPTIMIZATION
+   ========================================================================== */
+
+/* ---- Tablet: 1024px — Show hamburger, collapse nav ---- */
+@media (max-width: 1024px) {
+  /* Hide Register Course CTA on tablet/mobile header */
+  .nav-actions .btn-yellow.btn-sm {
+    display: none;
+  }
+
+  /* Live Workshop Broadcast Banner stacking */
+  .live-workshop-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 0;
+  }
+
+  .live-workshop-right {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .live-contact-link {
+    font-size: 11px;
+  }
+
+  /* Pillar Slider Tabs — 2 columns on tablet */
+  .pillars-tabs-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pillar-slide-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pillar-slides-track {
+    min-height: auto;
+  }
+
+  .pillar-media-img {
+    height: 260px;
+  }
+
+  /* Footer two columns */
+  .footer-top-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ---- 860px — Stack more grids ---- */
+@media (max-width: 860px) {
+  .live-workshop-bar {
+    padding: 10px 0;
+  }
+
+  .live-workshop-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .live-workshop-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .live-workshop-right {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .live-center-btn,
+  .live-join-btn {
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Stat Banner row stacking */
+  .stat-banner-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ---- 768px — Mobile styles ---- */
+@media (max-width: 768px) {
+  /* Header padding reduction */
+  .navbar {
+    padding: 6px 0;
+    gap: 8px;
+  }
+
+  .brand-logo-img {
+    height: 52px;
+    max-height: 52px;
+  }
+
+  .brand-name {
+    font-size: 17px !important;
+  }
+
+  .brand-sub {
+    font-size: 10px;
+  }
+
+  /* Mobile nav toggle sizing */
+  .nav-toggle {
+    width: 38px;
+    height: 38px;
+    padding: 7px 6px;
+  }
+
+  /* Ensure nav menu CTA link appears inside mobile drawer */
+  .nav-menu.open::after {
+    content: '';
+  }
+
+  /* Live Workshop Banner — compact mobile */
+  .live-workshop-bar {
+    padding: 8px 0;
+  }
+
+  .live-badge-glow {
+    font-size: 10px;
+    padding: 2px 10px;
+  }
+
+  .live-workshop-title {
+    font-size: 11px;
+  }
+
+  .live-workshop-schedule {
+    font-size: 11px;
+  }
+
+  .live-center-btn,
+  .live-join-btn {
+    font-size: 10.5px;
+    padding: 3px 10px;
+  }
+
+  .live-contact-link {
+    font-size: 10.5px;
+  }
+
+  /* Hero section mobile */
+  .hero-section {
+    padding: 32px 0 40px !important;
+  }
+
+  .hero-badge-pill {
+    font-size: 10px;
+    padding: 5px 12px;
+    margin-bottom: 14px;
+  }
+
+  .hero-title {
+    font-size: 26px !important;
+    margin-bottom: 12px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px !important;
+    margin-bottom: 18px;
+  }
+
+  .hero-card-stack {
+    animation: none;
+  }
+
+  .hero-card-main img {
+    height: 200px !important;
+  }
+
+  .hero-card-secondary {
+    padding: 12px 14px !important;
+  }
+
+  /* Hero video control pill */
+  .hero-video-control-pill {
+    bottom: 10px;
+    right: 14px;
+    padding: 4px 10px;
+    font-size: 10px;
+  }
+
+  /* Pillar Slider Mobile */
+  .pillars-tabs-nav {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .pillar-tab-btn {
+    padding: 10px 6px;
+    font-size: 12px;
+  }
+
+  .pillar-tab-btn span.tab-num {
+    font-size: 9.5px;
+  }
+
+  .pillar-tab-btn span.tab-label {
+    font-size: 11.5px;
+  }
+
+  .pillar-slide {
+    padding: 18px 16px;
+  }
+
+  .pillar-slide-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .pillar-slides-track {
+    min-height: auto;
+  }
+
+  .pillar-slide-title {
+    font-size: 22px;
+  }
+
+  .pillar-slide-tagline {
+    font-size: 14px;
+  }
+
+  .pillar-slide-desc {
+    font-size: 13px;
+  }
+
+  .pillar-media-img {
+    height: 220px;
+  }
+
+  .pillar-slider-controls {
+    padding: 10px 14px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .pillar-nav-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  /* Course Feature Cards */
+  .service-feature-card h4 {
+    font-size: 17px;
+  }
+
+  .service-card-cover {
+    height: 140px;
+  }
+
+  /* Live Workshop Card */
+  .live-workshop-card {
+    padding: 20px 16px;
+    margin: 24px 0;
+  }
+
+  .live-card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .live-card-info h3 {
+    font-size: 20px;
+  }
+
+  .live-tags {
+    gap: 6px;
+  }
+
+  .live-tag {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+
+  .live-tag svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .schedule-box {
+    padding: 16px;
+  }
+
+  .time-clock {
+    font-size: 24px;
+  }
+
+  .live-countdown-strip {
+    gap: 8px;
+  }
+
+  .cd-num {
+    font-size: 22px;
+  }
+
+  .session-duration-pill {
+    font-size: 11px !important;
+  }
+
+  /* About Split Section */
+  .about-split-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+
+  .about-stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Certificate Frame */
+  .certificate-frame-wrapper {
+    padding: 20px 16px;
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .cert-flip-box {
+    height: 280px;
+  }
+
+  /* Contact Grid */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .channels-cards-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-channels-box {
+    padding: 22px 18px;
+  }
+
+  .reg-form-card {
+    padding: 22px 18px;
+  }
+
+  /* Calculator */
+  .calc-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .calc-wrapper {
+    padding: 22px 18px;
+  }
+
+  /* Gallery */
+  .gallery-large-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Programs Grid */
+  .programs-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Fee Banner Strip */
+  .fee-banner-strip {
+    flex-direction: column;
+    padding: 18px 16px;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .fee-banner-left {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .fee-banner-text h4 {
+    font-size: 18px;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px;
+  }
+
+  .footer-top-banner {
+    padding: 18px 16px;
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  /* Section padding mobile */
+  .section-pad {
+    padding: clamp(36px, 5vw, 54px) 0;
+  }
+
+  .sec-title {
+    font-size: clamp(22px, 5vw, 32px) !important;
+  }
+
+  .sec-desc {
+    font-size: 14px;
+  }
+
+  /* Buttons larger tap targets on mobile */
+  .btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .btn-sm {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .btn-lg {
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+
+  /* Event Slider */
+  .event-slider-track {
+    height: 260px !important;
+  }
+
+  .event-slide-caption {
+    padding: 14px 16px;
+  }
+
+  .event-slide-title {
+    font-size: 15px !important;
+  }
+
+  .event-slide-tag {
+    font-size: 10px;
+    padding: 3px 10px;
+  }
+
+  .slider-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+  .slider-btn.prev {
+    left: 10px;
+  }
+
+  .slider-btn.next {
+    right: 10px;
+  }
+
+  /* Floating buttons mobile */
+  .floating-whatsapp {
+    bottom: 20px;
+    left: 16px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .floating-whatsapp svg {
+    width: 26px !important;
+    height: 26px !important;
+    max-width: 26px !important;
+    max-height: 26px !important;
+  }
+
+  .scroll-top-btn {
+    bottom: 78px;
+    right: 16px;
+    width: 38px;
+    height: 38px;
+  }
+
+  /* AI Chatbot mobile */
+  .ai-guwen-wrapper {
+    bottom: 20px;
+    right: 16px;
+  }
+
+  .ai-guwen-launcher {
+    width: 56px;
+    height: 56px;
+  }
+
+  .ai-guwen-badge-label {
+    font-size: 8.5px;
+    padding: 1px 6px;
+  }
+
+  .ai-guwen-chat-window {
+    right: 8px;
+    bottom: 84px;
+    width: calc(100vw - 16px);
+    height: min(520px, calc(100vh - 120px));
+    border-radius: var(--radius-lg);
+  }
+
+  .ai-guwen-tooltip {
+    right: -4px;
+    width: min(260px, calc(100vw - 40px));
+    bottom: 72px;
+    font-size: 12px;
+    padding: 12px 14px;
+  }
+
+  /* Who We Serve Grid */
+  .who-we-serve-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Methodology Cards */
+  .methodology-cards-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Journey Flow */
+  .journey-flow {
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 14px;
+  }
+
+  .journey-step {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .journey-arrow {
+    transform: rotate(90deg);
+  }
+
+  /* Page Hero */
+  .page-hero {
+    padding: 32px 0 26px !important;
+  }
+
+  .page-hero-title {
+    font-size: 24px !important;
+  }
+
+  .page-hero-subtitle {
+    font-size: 14px;
+  }
+
+  .breadcrumb-nav {
+    font-size: 11px;
+    gap: 6px;
+  }
+}
+
+/* ---- Small Mobile: 480px ---- */
+@media (max-width: 480px) {
+  /* Header ultra-compact */
+  .brand-logo-img {
+    height: 44px;
+    max-height: 44px;
+  }
+
+  .brand-name {
+    font-size: 15px !important;
+  }
+
+  .brand-sub {
+    font-size: 9px;
+    letter-spacing: 0.04em;
+  }
+
+  .brand-lockup {
+    gap: 8px;
+  }
+
+  /* Nav toggle compact */
+  .nav-toggle {
+    width: 36px;
+    height: 36px;
+    padding: 7px 6px;
+    gap: 4px;
+  }
+
+  .hamburger-bar {
+    width: 20px;
+    height: 2px;
+  }
+
+  /* Theme toggle compact */
+  .theme-toggle-btn,
+  .nav-actions .theme-toggle-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* Hero ultra-compact */
+  .hero-section {
+    padding: 24px 0 32px !important;
+  }
+
+  .hero-title {
+    font-size: 22px !important;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: 13px !important;
+    line-height: 1.55;
+  }
+
+  .hero-badge-pill {
+    font-size: 9px;
+    padding: 4px 10px;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-stats-row {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  .hero-stat-item {
+    padding: 10px 8px;
+  }
+
+  .hero-stat-number {
+    font-size: 18px !important;
+  }
+
+  .hero-stat-label {
+    font-size: 9.5px;
+  }
+
+  .hero-cta-group {
+    gap: 8px;
+  }
+
+  .hero-cta-group .btn {
+    font-size: 13px;
+    padding: 12px 16px;
+  }
+
+  /* Live workshop banner hide less important items */
+  .live-contact-link {
+    display: none;
+  }
+
+  .live-workshop-right {
+    gap: 6px;
+  }
+
+  /* Section titles smaller */
+  .sec-title {
+    font-size: 20px !important;
+  }
+
+  .sec-desc {
+    font-size: 13px;
+  }
+
+  /* Pillar tabs single column */
+  .pillars-tabs-nav {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .pillar-tab-btn {
+    padding: 8px 4px;
+  }
+
+  .pillar-tab-btn span.tab-num {
+    font-size: 8.5px;
+  }
+
+  .pillar-tab-btn span.tab-label {
+    font-size: 10.5px;
+  }
+
+  .pillar-slide {
+    padding: 14px 12px;
+  }
+
+  .pillar-slide-badge {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+
+  .pillar-slide-title {
+    font-size: 19px;
+  }
+
+  .pillar-slide-tagline {
+    font-size: 12.5px;
+  }
+
+  .pillar-slide-desc {
+    font-size: 12.5px;
+  }
+
+  .pillar-feature-item {
+    font-size: 12px;
+  }
+
+  .pillar-media-img {
+    height: 180px;
+  }
+
+  .pillar-slider-controls {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  /* Course cards */
+  .service-card-cover {
+    height: 120px;
+  }
+
+  .service-card-content {
+    padding: 14px 16px 16px;
+  }
+
+  .service-feature-card h4 {
+    font-size: 16px;
+  }
+
+  /* Live Workshop Card */
+  .live-workshop-card {
+    padding: 16px 14px;
+    margin: 18px 0;
+  }
+
+  .live-card-info h3 {
+    font-size: 18px;
+  }
+
+  .live-card-info p {
+    font-size: 13px;
+  }
+
+  .schedule-box {
+    padding: 14px 12px;
+  }
+
+  .time-clock {
+    font-size: 22px;
+  }
+
+  .time-days {
+    font-size: 12px;
+  }
+
+  .time-tz {
+    font-size: 9px;
+  }
+
+  .cd-num {
+    font-size: 20px;
+  }
+
+  /* Event Slider compact */
+  .event-slider-track {
+    height: 220px !important;
+  }
+
+  .slider-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+  }
+
+  .event-slide-caption {
+    padding: 12px 14px;
+  }
+
+  .event-slide-title {
+    font-size: 14px !important;
+  }
+
+  .event-slide-tag {
+    font-size: 9px;
+  }
+
+  /* Chatbot compact */
+  .ai-guwen-launcher {
+    width: 50px;
+    height: 50px;
+  }
+
+  .ai-guwen-chat-window {
+    right: 4px;
+    width: calc(100vw - 8px);
+    height: min(480px, calc(100vh - 100px));
+    bottom: 76px;
+  }
+
+  /* Footer compact */
+  .site-footer {
+    padding-top: 36px;
+  }
+
+  .footer-logo-img {
+    height: 48px;
+    max-height: 48px;
+  }
+
+  .footer-col h4,
+  .footer-col-title {
+    font-size: 13px;
+  }
+
+  .footer-col a {
+    font-size: 12.5px;
+  }
+
+  .footer-bottom-bar {
+    font-size: 11.5px;
+    padding: 14px 0;
+  }
+
+  /* Floating buttons further adjusted */
+  .floating-whatsapp {
+    bottom: 16px;
+    left: 12px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .floating-whatsapp svg {
+    width: 22px !important;
+    height: 22px !important;
+    max-width: 22px !important;
+    max-height: 22px !important;
+  }
+
+  .scroll-top-btn {
+    bottom: 70px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Partner Hero Box */
+  .partner-hero-box {
+    padding: 22px 16px;
+  }
+
+  /* Calc Result */
+  .calc-result-box {
+    padding: 20px 16px;
+  }
+
+  .calc-res-amount {
+    font-size: 28px !important;
+  }
+
+  /* Page Hero */
+  .page-hero {
+    padding: 26px 0 22px !important;
+  }
+
+  .page-hero-title {
+    font-size: 21px !important;
+  }
+
+  .page-hero-subtitle {
+    font-size: 13px;
+  }
+
+  .page-hero-badge {
+    font-size: 9.5px;
+    padding: 4px 12px;
+  }
+}
+
+/* ---- Mobile Drawer — Register CTA inside drawer ---- */
+@media (max-width: 1024px) {
+  .nav-menu.open {
+    display: flex;
+  }
+
+  /* Register Course CTA injected by JS into mobile drawer */
+  .mobile-register-cta {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 900;
+    color: #000000;
+    background: var(--yellow-main);
+    text-align: center;
+    padding: 14px 20px;
+    border-radius: var(--radius-md);
+    margin-top: 14px;
+    border: 2px solid #000000;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .mobile-register-cta:hover {
+    background: #000000;
+    color: var(--yellow-main) !important;
+    border-color: var(--yellow-main);
+  }
+}
+
+/* ---- Safe Area for iOS notch ---- */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .site-header {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .site-footer {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .floating-whatsapp {
+    bottom: calc(20px + env(safe-area-inset-bottom));
+  }
+
+  .ai-guwen-wrapper {
+    bottom: calc(20px + env(safe-area-inset-bottom));
+  }
+
+  .scroll-top-btn {
+    bottom: calc(78px + env(safe-area-inset-bottom));
+  }
+}
+
+/* ---- Touch device optimizations ---- */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  .nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .btn {
+    min-height: 44px;
+  }
+
+  .faq-trigger {
+    min-height: 52px;
+  }
+
+  /* Disable hover transforms on touch */
+  .service-feature-card:hover,
+  .who-card:hover,
+  .pillar-card:hover,
+  .program-card:hover,
+  .methodology-card:hover {
+    transform: none !important;
+  }
+
+  /* Remove 3D tilt on touch */
+  .service-feature-card,
+  .who-card,
+  .pillar-card {
+    transform: none !important;
   }
 }
