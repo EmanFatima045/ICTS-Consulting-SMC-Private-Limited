@@ -4,7 +4,10 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initTheme();
+  // Enforce Light Theme across the entire application
+  localStorage.removeItem('icts-theme');
+  document.documentElement.removeAttribute('data-theme');
+
   initNavbar();
   initCountdown();
   initCalculator();
@@ -22,35 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initAiGuwenChatbot();
   updateCopyright();
 });
-
-/* ==========================================================================
-   0. DARK & LIGHT THEME TOGGLE CONTROLLER
-   ========================================================================== */
-function initTheme() {
-  const savedTheme = localStorage.getItem('icts-theme');
-  const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const currentTheme = savedTheme ? savedTheme : (systemPrefersDark ? 'dark' : 'light');
-
-  if (currentTheme === 'dark') {
-    document.documentElement.setAttribute('data-theme', 'dark');
-  } else {
-    document.documentElement.removeAttribute('data-theme');
-  }
-
-  const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
-  toggleBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      if (isDark) {
-        document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('icts-theme', 'light');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('icts-theme', 'dark');
-      }
-    });
-  });
-}
 
 /* ==========================================================================
    1. NAVBAR & MOBILE MENU
@@ -88,30 +62,33 @@ function initNavbar() {
   }
 
   if (navToggle && navMenu) {
-    // Inject mobile drawer helper items if not present
+    // Inject mobile drawer top header with close button if not present
+    if (!navMenu.querySelector('.mobile-drawer-header')) {
+      const drawerHeader = document.createElement('div');
+      drawerHeader.className = 'mobile-drawer-header';
+      drawerHeader.innerHTML = `
+        <div class="mobile-drawer-brand">
+          <img src="assests/icts_logo_clean.png" alt="ICTS" class="mobile-drawer-logo">
+          <div>
+            <div style="font-weight:900; font-size:15px; color:#B91C1C; line-height:1.2;">ICTS CONSULTING</div>
+            <div style="font-size:10px; font-weight:800; color:#4B5563; text-transform:uppercase; letter-spacing:0.04em;">(SMC-Private) Limited</div>
+          </div>
+        </div>
+        <button class="mobile-drawer-close" id="closeMobileDrawer" aria-label="Close menu">✕</button>
+      `;
+      navMenu.insertBefore(drawerHeader, navMenu.firstChild);
+
+      drawerHeader.querySelector('#closeMobileDrawer').addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu(true);
+      });
+    }
+
+    // Inject mobile drawer CTA items if not present
     if (!navMenu.querySelector('.mobile-drawer-divider')) {
       const divider = document.createElement('div');
       divider.className = 'mobile-drawer-divider';
       navMenu.appendChild(divider);
-
-      // Mobile Theme Switcher
-      const themeRow = document.createElement('div');
-      themeRow.className = 'mobile-theme-row';
-      const isDarkInit = document.documentElement.getAttribute('data-theme') === 'dark';
-      themeRow.innerHTML = `<span>🌓 Theme: <b class="mobile-theme-text">${isDarkInit ? 'Dark' : 'Light'}</b></span><span>Tap to Toggle</span>`;
-      themeRow.addEventListener('click', () => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        if (isDark) {
-          document.documentElement.removeAttribute('data-theme');
-          localStorage.setItem('icts-theme', 'light');
-          themeRow.querySelector('.mobile-theme-text').textContent = 'Light';
-        } else {
-          document.documentElement.setAttribute('data-theme', 'dark');
-          localStorage.setItem('icts-theme', 'dark');
-          themeRow.querySelector('.mobile-theme-text').textContent = 'Dark';
-        }
-      });
-      navMenu.appendChild(themeRow);
 
       // Mobile Register CTA
       const regLink = document.createElement('a');
