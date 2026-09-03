@@ -62,53 +62,6 @@ function initNavbar() {
   }
 
   if (navToggle && navMenu) {
-    // Inject mobile drawer top header with close button if not present
-    if (!navMenu.querySelector('.mobile-drawer-header')) {
-      const drawerHeader = document.createElement('div');
-      drawerHeader.className = 'mobile-drawer-header';
-      drawerHeader.innerHTML = `
-        <div class="mobile-drawer-brand">
-          <img src="assests/icts_logo_clean.png" alt="ICTS" class="mobile-drawer-logo">
-          <div>
-            <div style="font-weight:900; font-size:15px; color:#B91C1C; line-height:1.2;">ICTS CONSULTING</div>
-            <div style="font-size:10px; font-weight:800; color:#4B5563; text-transform:uppercase; letter-spacing:0.04em;">(SMC-Private) Limited</div>
-          </div>
-        </div>
-        <button class="mobile-drawer-close" id="closeMobileDrawer" aria-label="Close menu">✕</button>
-      `;
-      navMenu.insertBefore(drawerHeader, navMenu.firstChild);
-
-      drawerHeader.querySelector('#closeMobileDrawer').addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleMenu(true);
-      });
-    }
-
-    // Inject mobile drawer CTA items if not present
-    if (!navMenu.querySelector('.mobile-drawer-divider')) {
-      const divider = document.createElement('div');
-      divider.className = 'mobile-drawer-divider';
-      navMenu.appendChild(divider);
-
-      // Mobile Register CTA
-      const regLink = document.createElement('a');
-      regLink.href = 'https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform';
-      regLink.target = '_blank';
-      regLink.rel = 'noopener';
-      regLink.className = 'mobile-register-cta';
-      regLink.textContent = 'Register Course →';
-      navMenu.appendChild(regLink);
-
-      // Mobile WhatsApp CTA
-      const waLink = document.createElement('a');
-      waLink.href = 'https://wa.me/923229223022?text=Hello%20ICTS%20Team,%20I%20would%20like%20to%20inquire%20about%20your%20services';
-      waLink.target = '_blank';
-      waLink.rel = 'noopener';
-      waLink.className = 'mobile-wa-cta';
-      waLink.textContent = '💬 WhatsApp Us';
-      navMenu.appendChild(waLink);
-    }
-
     navToggle.addEventListener('click', (e) => {
       e.stopPropagation();
       toggleMenu();
