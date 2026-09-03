@@ -59,16 +59,21 @@
 
       <!-- Nav Actions -->
       <div class="nav-actions">
-        <!-- Theme Toggle Switch -->
+        <!-- Theme Toggle Switch with Clean SVG Icons -->
         <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark/light theme" title="Toggle theme">
-          <span class="theme-icon sun-icon" aria-hidden="true">☀️</span>
-          <span class="theme-icon moon-icon" aria-hidden="true">🌙</span>
+          <svg class="theme-icon sun-icon icon-stroke" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="theme-icon moon-icon icon-stroke" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
 
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform" target="_blank" rel="noopener" class="btn btn-yellow btn-sm">
-          Register Course →
+          <span>Register Course</span>
+          <svg class="icon-stroke" width="13" height="13" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">☰</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
       </div>
     </div>
   </header>
@@ -367,19 +372,31 @@
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
           <div class="card" style="background: var(--surface-card); border: 1.5px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 24px;">
-            <h3 style="font-size: 18px; color: var(--charcoal-dark); margin-bottom: 8px;">🇬🇧 English Language</h3>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span style="font-size: 11px; font-weight: 900; background: var(--yellow-main); color: #000000; padding: 2px 8px; border-radius: 99px;">EN</span>
+              <h3 style="font-size: 18px; color: var(--charcoal-dark); margin: 0;">English Language</h3>
+            </div>
             <p style="font-size: 14px; color: var(--umber-body);">IELTS preparation, Business English communication, and executive report writing.</p>
           </div>
           <div class="card" style="background: var(--surface-card); border: 1.5px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 24px;">
-            <h3 style="font-size: 18px; color: var(--charcoal-dark); margin-bottom: 8px;">🇸🇦 Arabic Language</h3>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span style="font-size: 11px; font-weight: 900; background: var(--yellow-main); color: #000000; padding: 2px 8px; border-radius: 99px;">AR</span>
+              <h3 style="font-size: 18px; color: var(--charcoal-dark); margin: 0;">Arabic Language</h3>
+            </div>
             <p style="font-size: 14px; color: var(--umber-body);">Gulf business Arabic, formal grammar, and translation for overseas employment.</p>
           </div>
           <div class="card" style="background: var(--surface-card); border: 1.5px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 24px;">
-            <h3 style="font-size: 18px; color: var(--charcoal-dark); margin-bottom: 8px;">🇩🇪 German Language</h3>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span style="font-size: 11px; font-weight: 900; background: var(--yellow-main); color: #000000; padding: 2px 8px; border-radius: 99px;">DE</span>
+              <h3 style="font-size: 18px; color: var(--charcoal-dark); margin: 0;">German Language</h3>
+            </div>
             <p style="font-size: 14px; color: var(--umber-body);">Goethe-Institut A1–B2 certification for engineering studies and working visas.</p>
           </div>
           <div class="card" style="background: var(--surface-card); border: 1.5px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 24px;">
-            <h3 style="font-size: 18px; color: var(--charcoal-dark); margin-bottom: 8px;">🇯🇵 Japanese &amp; 🇰🇷 Korean</h3>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span style="font-size: 11px; font-weight: 900; background: var(--yellow-main); color: #000000; padding: 2px 8px; border-radius: 99px;">JP / KR</span>
+              <h3 style="font-size: 18px; color: var(--charcoal-dark); margin: 0;">Japanese &amp; Korean</h3>
+            </div>
             <p style="font-size: 14px; color: var(--umber-body);">JLPT &amp; TOPIK exam preparation for international technology and industrial careers.</p>
           </div>
         </div>
@@ -402,10 +419,19 @@
           <p class="footer-desc">
             Integrated professional services in Project Management, ICT &amp; Digital Solutions, Foreign Language Training, and Business Promotion Consultancy.
           </p>
-          <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; margin-top: 14px; color: #D9B29C;">
-            <div>📞 Landline: <a href="tel:+924235450375" style="color: #FFFCEF; font-weight: 700;">+92 423 5450375</a></div>
-            <div>💬 WhatsApp: <a href="https://wa.me/923229223022" target="_blank" rel="noopener" style="color: #FFFCEF; font-weight: 700;">+92 322 9223022</a></div>
-            <div>📍 WAPDA Town Phase-I, Lahore, Pakistan</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; margin-top: 14px; color: #D9B29C;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24" style="color: var(--yellow-main);"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>Landline: <a href="tel:+924235450375" style="color: #FFFCEF; font-weight: 700;">+92 423 5450375</a></span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24" style="color: var(--yellow-main);"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.3A8.4 8.4 0 1 1 21 11.5z"></path></svg>
+              <span>WhatsApp: <a href="https://wa.me/923229223022" target="_blank" rel="noopener" style="color: #FFFCEF; font-weight: 700;">+92 322 9223022</a></span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24" style="color: var(--yellow-main);"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>WAPDA Town Phase-I, Lahore, Pakistan</span>
+            </div>
           </div>
         </div>
 

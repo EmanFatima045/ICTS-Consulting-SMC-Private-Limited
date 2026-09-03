@@ -58,29 +58,51 @@ function initNavbar() {
   const navMenu = document.getElementById('navMenu');
   const navLinks = document.querySelectorAll('.nav-link');
 
+  // Create backdrop if not existing
+  let backdrop = document.querySelector('.nav-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+  }
+
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
+    if (window.scrollY > 30) {
+      header && header.classList.add('scrolled');
     } else {
-      header.classList.remove('scrolled');
+      header && header.classList.remove('scrolled');
     }
   }, { passive: true });
 
+  function toggleMenu(forceClose) {
+    if (!navToggle || !navMenu) return;
+    const shouldOpen = forceClose === undefined ? !navMenu.classList.contains('open') : !forceClose;
+    navMenu.classList.toggle('open', shouldOpen);
+    navToggle.classList.toggle('active', shouldOpen);
+    backdrop.classList.toggle('open', shouldOpen);
+    navToggle.setAttribute('aria-expanded', shouldOpen);
+    document.body.style.overflow = shouldOpen ? 'hidden' : '';
+  }
+
   if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', navMenu.classList.contains('open'));
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    backdrop.addEventListener('click', () => {
+      toggleMenu(true);
     });
 
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
+        toggleMenu(true);
       });
     });
 
-    document.addEventListener('click', (e) => {
-      if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-        navMenu.classList.remove('open');
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        toggleMenu(true);
       }
     });
   }

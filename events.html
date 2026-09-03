@@ -59,16 +59,21 @@
 
       <!-- Nav Actions -->
       <div class="nav-actions">
-        <!-- Theme Toggle Switch -->
+        <!-- Theme Toggle Switch with Clean SVG Icons -->
         <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark/light theme" title="Toggle theme">
-          <span class="theme-icon sun-icon" aria-hidden="true">☀️</span>
-          <span class="theme-icon moon-icon" aria-hidden="true">🌙</span>
+          <svg class="theme-icon sun-icon icon-stroke" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="theme-icon moon-icon icon-stroke" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
 
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform" target="_blank" rel="noopener" class="btn btn-yellow btn-sm">
-          Register Course →
+          <span>Register Course</span>
+          <svg class="icon-stroke" width="13" height="13" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">☰</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
       </div>
     </div>
   </header>
@@ -150,18 +155,32 @@
               <p>Join our <b>Free Live Zoom Interactive Workshop</b>. We share practical communication methods, student mobilization, institutional exam prep, and the business commission model for partner centres across Pakistan.</p>
 
               <div class="live-tags">
-                <span class="live-tag">🎙️ Live Zoom Interactive Session</span>
-                <span class="live-tag">⏱️ 40 Minutes Focus</span>
-                <span class="live-tag">💼 Business &amp; Language Roadmap</span>
-                <span class="live-tag">🇵🇰 800+ Partner Outreach Nodes</span>
+                <span class="live-tag">
+                  <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                  <span>Live Zoom Interactive Session</span>
+                </span>
+                <span class="live-tag">
+                  <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <span>40 Minutes Focus</span>
+                </span>
+                <span class="live-tag">
+                  <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Business &amp; Language Roadmap</span>
+                </span>
+                <span class="live-tag">
+                  <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <span>800+ Partner Outreach Nodes</span>
+                </span>
               </div>
 
               <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px;">
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSf1kWwmZvChlBLqlaJB-rnXnzKOUajsQUT1aKnx-uHdvF6wLw/viewform" target="_blank" rel="noopener" class="btn btn-red btn-lg">
-                  Join Free Zoom Workshop (10 PM) →
+                  <span>Join Free Zoom Workshop (10 PM)</span>
+                  <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
                 <a href="https://wa.me/923229223022?text=Hello%20ICTS%20Team,%20I%20want%20to%20attend%20the%20Free%2010%20PM%20Zoom%20Workshop" target="_blank" rel="noopener" class="btn btn-outline btn-lg">
-                  Inquire on WhatsApp
+                  <svg class="icon-stroke" width="16" height="16" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.3A8.4 8.4 0 1 1 21 11.5z"></path></svg>
+                  <span>Inquire on WhatsApp</span>
                 </a>
               </div>
             </div>
@@ -190,8 +209,9 @@
                 </div>
               </div>
 
-              <div class="session-duration-pill">
-                <span>⏱️ Live Duration: 40 Minutes Focus Session</span>
+              <div class="session-duration-pill" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Live Duration: 40 Minutes Focus Session</span>
               </div>
             </div>
           </div>
@@ -319,10 +339,19 @@
           <p class="footer-desc">
             Integrated professional services in Project Management, ICT &amp; Digital Solutions, Foreign Language Training, and Business Promotion Consultancy.
           </p>
-          <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; margin-top: 14px; color: #D9B29C;">
-            <div>📞 Landline: <a href="tel:+924235450375" style="color: #FFFCEF; font-weight: 700;">+92 423 5450375</a></div>
-            <div>💬 WhatsApp: <a href="https://wa.me/923229223022" target="_blank" rel="noopener" style="color: #FFFCEF; font-weight: 700;">+92 322 9223022</a></div>
-            <div>📍 WAPDA Town Phase-I, Lahore, Pakistan</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; margin-top: 14px; color: #D9B29C;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24" style="color: var(--yellow-main);"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>Landline: <a href="tel:+924235450375" style="color: #FFFCEF; font-weight: 700;">+92 423 5450375</a></span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24" style="color: var(--yellow-main);"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.3A8.4 8.4 0 1 1 21 11.5z"></path></svg>
+              <span>WhatsApp: <a href="https://wa.me/923229223022" target="_blank" rel="noopener" style="color: #FFFCEF; font-weight: 700;">+92 322 9223022</a></span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24" style="color: var(--yellow-main);"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>WAPDA Town Phase-I, Lahore, Pakistan</span>
+            </div>
           </div>
         </div>
 
@@ -355,10 +384,10 @@
           <p style="font-size: 13px; color: #D9B29C; margin-bottom: 14px;">Follow our official community pages for daily Mandarin vocabulary, schedule alerts, and corporate updates:</p>
           <div style="display: flex; flex-direction: column; gap: 8px;">
             <a href="https://www.facebook.com/share/1GzAapXuzi/" target="_blank" rel="noopener" class="btn btn-sm" style="background: #000000; color: #FFFCEF; justify-content: flex-start; border: 1.5px solid #D9B29C;">
-              📘 Follow ICTS Facebook Page →
+              Company Facebook Page →
             </a>
             <a href="https://www.facebook.com/chineselanguagecenter/" target="_blank" rel="noopener" class="btn btn-sm" style="background: #E54C44; color: #FFFCEF; justify-content: flex-start; border: 1.5px solid #000000;">
-              🏮 Chinese Learning Facebook →
+              Chinese Learning Facebook →
             </a>
           </div>
         </div>

@@ -110,16 +110,21 @@
 
       <!-- Nav CTA Actions with Dark/Light Theme Switcher -->
       <div class="nav-actions">
-        <!-- Theme Toggle Button -->
+        <!-- Theme Toggle Button with Clean SVG Icons -->
         <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark/light theme" title="Toggle theme">
-          <span class="theme-icon sun-icon" aria-hidden="true">☀️</span>
-          <span class="theme-icon moon-icon" aria-hidden="true">🌙</span>
+          <svg class="theme-icon sun-icon icon-stroke" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="theme-icon moon-icon icon-stroke" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
 
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform" target="_blank" rel="noopener" class="btn btn-yellow btn-sm">
-          Register Course →
+          <span>Register Course</span>
+          <svg class="icon-stroke" width="13" height="13" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">☰</button>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
       </div>
     </div>
   </header>
@@ -186,7 +191,8 @@
                 <div style="position: relative;">
                   <img src="assests/event.jpeg" alt="Young Pakistani Students Learning Chinese under Lanterns and Fu Blessing" style="width: 100%; height: 260px; object-fit: cover; display: block;">
                   <div style="position: absolute; top: 12px; left: 12px; background: #E54C44; color: #FFFCEF; padding: 4px 12px; border-radius: 99px; font-size: 11.5px; font-weight: 800; display: flex; align-items: center; gap: 6px; border: 1.5px solid #F1CF54;">
-                    <span>🏮</span> <span>学中文 · 通未来</span>
+                    <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24"><path d="M9 2h6"></path><path d="M8 6h8"></path><path d="M6 10c0 4.4 2.7 8 6 8s6-3.6 6-8c0-2.2-.9-4-2-4H8c-1.1 0-2 1.8-2 4z"></path><line x1="12" y1="18" x2="12" y2="22"></line></svg>
+                    <span>学中文 · 通未来</span>
                   </div>
                   <div style="position: absolute; top: 12px; right: 12px; background: #F1CF54; color: #000000; padding: 4px 10px; border-radius: 99px; font-size: 11px; font-weight: 900; border: 1.5px solid #000000;">
                     福 · FU 2026
@@ -208,8 +214,10 @@
 
               <!-- Quick Mini Card -->
               <div class="hero-card hero-card-secondary" style="background: #000000; color: #FFFCEF; border: 2.5px solid #000000; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45); border-radius: var(--radius-lg);">
-                <div style="display: flex; align-items: center; gap: 8px;">
-                  <span style="font-size: 18px;">🎙️</span>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span style="width: 32px; height: 32px; border-radius: 50%; background: #E54C44; color: #FFFCEF; display: grid; place-items: center; flex-shrink: 0;">
+                    <svg class="icon-stroke" width="16" height="16" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                  </span>
                   <div>
                     <div style="font-weight: 900; font-size: 13.5px; color: #F1CF54;">Free Live Zoom Daily (Mon-Thu)</div>
                     <div style="font-size: 12px; color: #FFFCEF; margin-top: 2px;">10:00 PM PKT · Call: +92 423 5450375</div>
@@ -226,8 +234,10 @@
     <section class="section-pad bg-cream" id="services-overview">
       <div class="container">
         <div style="text-align: center; max-width: 800px; margin: 0 auto 48px;" class="reveal">
-          <span class="pillar-badge-tag" style="background: #F1CF54; color: #000000; border: 2px solid #000000; font-weight: 900; box-shadow: 0 4px 16px rgba(241, 207, 84, 0.45);">
-            ⭐ COMPREHENSIVE CAPABILITIES ⭐
+          <span class="pillar-badge-tag" style="background: #F1CF54; color: #000000; border: 2px solid #000000; font-weight: 900; box-shadow: 0 4px 16px rgba(241, 207, 84, 0.45); display: inline-flex; align-items: center; gap: 8px;">
+            <svg class="icon-svg" width="13" height="13" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>COMPREHENSIVE CAPABILITIES</span>
+            <svg class="icon-svg" width="13" height="13" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
           </span>
           <h2 class="sec-title" style="margin-top: 12px; color: #000000;">Our 4 Core Pillars of Service</h2>
           <p class="sec-desc">A unified ecosystem connecting project governance, cutting-edge technology, foreign languages, and international business trade linkages.</p>
@@ -240,13 +250,16 @@
               <span class="pillar-number">01 · PMO</span>
               <span style="font-size: 11px; font-weight: 900; color: #000000; background: #D9B29C; padding: 3px 10px; border-radius: 99px; border: 1px solid #000000;">PMI &amp; EVM</span>
             </div>
-            <div class="pillar-card-icon" style="background: #FFFCEF; width: 54px; height: 54px; border-radius: 12px; display: grid; place-items: center; border: 1.5px solid #D9B29C;">📊</div>
+            <div class="pillar-card-icon" style="background: #FFFCEF; width: 54px; height: 54px; border-radius: 12px; display: grid; place-items: center; border: 1.5px solid #D9B29C; color: #000000;">
+              <svg class="icon-stroke" width="26" height="26" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
             <h3 class="pillar-card-title">Project Management Services</h3>
             <p class="pillar-card-desc">
               Feasibility studies, Earned Value Management (EVM), Primavera P6 and MS Project baselines, PMO setup, and risk mitigation aligned with PMI standards.
             </p>
             <a href="services.html#project-management" class="btn btn-yellow btn-sm" style="margin-top: auto; justify-content: center; font-weight: 900;">
-              Explore Project Services →
+              <span>Explore Project Services</span>
+              <svg class="icon-stroke" width="13" height="13" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
 
@@ -256,13 +269,16 @@
               <span class="pillar-number">02 · TECH</span>
               <span style="font-size: 11px; font-weight: 900; color: #000000; background: #D9B29C; padding: 3px 10px; border-radius: 99px; border: 1px solid #000000;">Enterprise ICT</span>
             </div>
-            <div class="pillar-card-icon" style="background: #FFFCEF; width: 54px; height: 54px; border-radius: 12px; display: grid; place-items: center; border: 1.5px solid #D9B29C;">💻</div>
+            <div class="pillar-card-icon" style="background: #FFFCEF; width: 54px; height: 54px; border-radius: 12px; display: grid; place-items: center; border: 1.5px solid #D9B29C; color: #000000;">
+              <svg class="icon-stroke" width="26" height="26" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="2" y1="20" x2="22" y2="20"></line></svg>
+            </div>
             <h3 class="pillar-card-title">ICT &amp; Digital Services</h3>
             <p class="pillar-card-desc">
               Modern corporate websites, cloud infrastructures, web portals, automated business systems, cybersecurity, and digital transformation architectures.
             </p>
             <a href="services.html#ict-digital" class="btn btn-yellow btn-sm" style="margin-top: auto; justify-content: center; font-weight: 900;">
-              Explore Digital Solutions →
+              <span>Explore Digital Solutions</span>
+              <svg class="icon-stroke" width="13" height="13" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
 
@@ -272,13 +288,16 @@
               <span class="pillar-number" style="background: #F1CF54; color: #000000;">03 · MANDARIN</span>
               <span style="font-size: 11px; font-weight: 900; color: #FFFCEF; background: #E54C44; padding: 3px 10px; border-radius: 99px; border: 1px solid #000000;">HSK 1-6 &amp; YCT</span>
             </div>
-            <div class="pillar-card-icon" style="background: #FFFCEF; width: 54px; height: 54px; border-radius: 12px; display: grid; place-items: center; border: 1.5px solid #E54C44;">🇨🇳</div>
+            <div class="pillar-card-icon" style="background: #FFFCEF; width: 54px; height: 54px; border-radius: 12px; display: grid; place-items: center; border: 1.5px solid #E54C44; color: #E54C44;">
+              <svg class="icon-stroke" width="26" height="26" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            </div>
             <h3 class="pillar-card-title">Foreign Languages (Mandarin)</h3>
             <p class="pillar-card-desc">
               Accredited Mandarin training (HSK 1–6, YCT for Kids, BCT for Business) with authentic Wo Hui HSK Mock platform exam prep and certified teachers.
             </p>
             <a href="courses.html" class="btn btn-red btn-sm" style="margin-top: auto; justify-content: center; font-weight: 900; box-shadow: 0 4px 14px rgba(229, 76, 68, 0.4);">
-              View Courses &amp; Fees →
+              <span>View Courses &amp; Fees</span>
+              <svg class="icon-stroke" width="13" height="13" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
 
@@ -288,13 +307,16 @@
               <span class="pillar-number">04 · TRADE</span>
               <span style="font-size: 11px; font-weight: 900; color: #000000; background: #D9B29C; padding: 3px 10px; border-radius: 99px; border: 1px solid #000000;">800+ Nodes</span>
             </div>
-            <div class="pillar-card-icon" style="background: #FFFCEF; width: 54px; height: 54px; border-radius: 12px; display: grid; place-items: center; border: 1.5px solid #D9B29C;">🤝</div>
+            <div class="pillar-card-icon" style="background: #FFFCEF; width: 54px; height: 54px; border-radius: 12px; display: grid; place-items: center; border: 1.5px solid #D9B29C; color: #000000;">
+              <svg class="icon-stroke" width="26" height="26" viewBox="0 0 24 24"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"></path><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.8-2.8L15 14"></path></svg>
+            </div>
             <h3 class="pillar-card-title">Business Promotion Consultancy</h3>
             <p class="pillar-card-desc">
               China-Pakistan trade linkages, supplier vetting, commercial negotiations, institutional partner recruitment across 800+ nodes, and brand elevation.
             </p>
             <a href="services.html#business-promotion" class="btn btn-yellow btn-sm" style="margin-top: auto; justify-content: center; font-weight: 900;">
-              Explore Trade Promotion →
+              <span>Explore Trade Promotion</span>
+              <svg class="icon-stroke" width="13" height="13" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
         </div>
@@ -385,18 +407,32 @@
               <p>Join our <b>Free Live Zoom Interactive Workshop</b> every Monday to Thursday. Discover practical language acquisition, institutional exam preparation, and partner center earning opportunities.</p>
 
               <div class="live-tags">
-                <span class="live-tag">🎙️ Live Zoom Interactive Session</span>
-                <span class="live-tag">⏱️ 40 Minutes Focus</span>
-                <span class="live-tag">💼 Business &amp; Language Roadmap</span>
-                <span class="live-tag">🇵🇰 800+ Partner CIT Centres</span>
+                <span class="live-tag">
+                  <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                  <span>Live Zoom Interactive Session</span>
+                </span>
+                <span class="live-tag">
+                  <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <span>40 Minutes Focus</span>
+                </span>
+                <span class="live-tag">
+                  <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                  <span>Business &amp; Language Roadmap</span>
+                </span>
+                <span class="live-tag">
+                  <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  <span>800+ Partner CIT Centres</span>
+                </span>
               </div>
 
               <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px;">
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSf1kWwmZvChlBLqlaJB-rnXnzKOUajsQUT1aKnx-uHdvF6wLw/viewform" target="_blank" rel="noopener" class="btn btn-red btn-lg">
-                  Join Free Zoom Workshop (10 PM) →
+                  <span>Join Free Zoom Workshop (10 PM)</span>
+                  <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </a>
                 <a href="https://wa.me/923229223022?text=Hello%20ICTS%20Team,%20I%20want%20to%20attend%20the%20Free%2010%20PM%20Zoom%20Workshop" target="_blank" rel="noopener" class="btn btn-outline btn-lg">
-                  Inquire on WhatsApp
+                  <svg class="icon-stroke" width="16" height="16" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 01-12.6 7.3L3 20.5l1.8-5.3A8.4 8.4 0 1121 11.5z"></path></svg>
+                  <span>Inquire on WhatsApp</span>
                 </a>
               </div>
             </div>
@@ -425,8 +461,9 @@
                 </div>
               </div>
 
-              <div class="session-duration-pill">
-                <span>⏱️ Live Duration: 40 Minutes Focus Session</span>
+              <div class="session-duration-pill" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Live Duration: 40 Minutes Focus Session</span>
               </div>
             </div>
           </div>
@@ -467,37 +504,23 @@
       </div>
     </section>
 
-        <!-- Featured Top Banner: Students Actively Writing Chinese Calligraphy & Characters (Yellow Canvas) -->
-        <div class="card" style="overflow: hidden; border-radius: var(--radius-xl); border: 3.5px solid #000000; box-shadow: 0 20px 48px rgba(0,0,0,0.18); background: #F1CF54; margin-bottom: 32px;">
-          <div class="about-split-grid" style="align-items: center; gap: 0;">
-            <div style="position: relative; overflow: hidden;">
-              <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80" alt="Pakistani Students Actively Learning and Writing Chinese Characters with Traditional Calligraphy Brushes" style="width: 100%; height: 350px; object-fit: cover; display: block;">
-              <div style="position: absolute; top: 14px; left: 14px; background: #000000; color: #FFFCEF; padding: 6px 14px; border-radius: 99px; font-size: 11.5px; font-weight: 900; border: 1.5px solid #F1CF54; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
-                <span>🖌️</span> <span>学写汉字 · Writing Chinese Characters</span>
-              </div>
-              <div style="position: absolute; bottom: 14px; right: 14px; background: #F1CF54; color: #000000; padding: 4px 12px; border-radius: 99px; font-size: 11px; font-weight: 900; border: 1.5px solid #000000;">
-                福 · FU &amp; 学 · XUE
-              </div>
-            </div>
-            <div style="padding: 32px 36px; background: #F1CF54;">
-              <span class="pillar-badge-tag" style="background: #000000; color: #F1CF54; border: 1.5px solid #000000; position: static; display: inline-block; margin-bottom: 12px; font-weight: 900; font-size: 11px;">
-                ⭐ Hands-On Classroom Immersion ⭐
+        <!-- Real Classroom Photo Showcase: Students Actively Writing Chinese (No Theory, Just the Picture & Clean Badge) -->
+        <div class="card" style="overflow: hidden; border-radius: var(--radius-xl); border: 3.5px solid #000000; box-shadow: 0 20px 48px rgba(0,0,0,0.18); background: #000000; margin-bottom: 32px; position: relative;">
+          <img src="assests/event6.jpeg" alt="Pakistani Students Actively Practicing and Writing Chinese Characters in Classroom" style="width: 100%; height: clamp(280px, 46vw, 480px); object-fit: cover; display: block; filter: brightness(0.96);">
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: clamp(14px, 3vw, 24px) clamp(16px, 4vw, 32px); background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.6) 65%, transparent 100%); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; background: #F1CF54; color: #000000; flex-shrink: 0; box-shadow: 0 4px 14px rgba(241, 207, 84, 0.5);">
+                <svg class="icon-stroke" width="20" height="20" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
               </span>
-              <h3 style="font-size: 24px; font-weight: 900; color: #000000; margin-bottom: 12px; line-height: 1.25;">
-                Pakistani Students Actively Writing Chinese Characters
-              </h3>
-              <p style="font-size: 14.5px; color: #000000; line-height: 1.7; margin-bottom: 22px; font-weight: 500;">
-                Our classes emphasize active, practical Mandarin literacy. Students master stroke order, radical memorization, and brush calligraphy on traditional grid paper, achieving real reading and writing competence from day one.
-              </p>
-              <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-                <a href="courses.html" class="btn btn-red btn-lg" style="font-weight: 900; box-shadow: 0 6px 18px rgba(229, 76, 68, 0.45); border-radius: var(--radius-pill); border: 2px solid #000000;">
-                  Enroll into Mandarin Track →
-                </a>
-                <a href="events.html" class="btn btn-dark btn-lg" style="border-radius: var(--radius-pill); border: 2px solid #000000; font-weight: 800;">
-                  View Events Slideshow →
-                </a>
+              <div>
+                <span style="font-size: 11px; font-weight: 900; letter-spacing: 0.1em; color: #F1CF54; text-transform: uppercase; display: block;">Real Classroom Immersion</span>
+                <span style="color: #FFFCEF; font-size: clamp(15px, 2vw, 20px); font-weight: 900; display: block;">Pakistani Students Actively Practicing &amp; Writing Chinese</span>
               </div>
             </div>
+            <a href="events.html" class="btn btn-red" style="border-radius: var(--radius-pill); border: 1.5px solid #000000; font-weight: 900; box-shadow: 0 6px 18px rgba(229, 76, 68, 0.45);">
+              <span>View All Activity Photos</span>
+              <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
           </div>
         </div>
 
@@ -506,8 +529,9 @@
           <div class="card stagger-item" style="overflow: hidden; border-radius: var(--radius-xl); border: 2px solid #D9B29C; border-top: 4px solid #E54C44; box-shadow: var(--shadow-md); background: #FFFCEF; transition: transform 0.3s ease;">
             <div style="position: relative;">
               <img src="assests/event.jpeg" alt="Pakistani Children Celebrating Chinese Learning with Lanterns" style="width: 100%; height: 220px; object-fit: cover;">
-              <div style="position: absolute; top: 10px; left: 10px; background: #E54C44; color: #FFFCEF; padding: 4px 10px; border-radius: 99px; font-size: 11px; font-weight: 800; border: 1px solid #000000;">
-                🏮 福 · Prosperity &amp; Study
+              <div style="position: absolute; top: 10px; left: 10px; background: #E54C44; color: #FFFCEF; padding: 4px 10px; border-radius: 99px; font-size: 11px; font-weight: 800; border: 1px solid #000000; display: inline-flex; align-items: center; gap: 6px;">
+                <svg class="icon-stroke" width="13" height="13" viewBox="0 0 24 24"><path d="M9 2h6"></path><path d="M8 6h8"></path><path d="M6 10c0 4.4 2.7 8 6 8s6-3.6 6-8c0-2.2-.9-4-2-4H8c-1.1 0-2 1.8-2 4z"></path><line x1="12" y1="18" x2="12" y2="22"></line></svg>
+                <span>福 · Prosperity &amp; Study</span>
               </div>
             </div>
             <div style="padding: 18px;">
@@ -570,8 +594,9 @@
       <div class="container">
         <!-- Section Header -->
         <div style="text-align: center; max-width: 840px; margin: 0 auto 36px;" class="reveal">
-          <span class="pillar-badge-tag" style="background: #F1CF54; color: #000000; border: 2px solid #000000; font-weight: 900; box-shadow: 0 4px 14px rgba(241, 207, 84, 0.4);">
-            📞 ADMISSIONS HOTLINE &amp; ADVISORY DESK · 联系我们 📞
+          <span class="pillar-badge-tag" style="background: #F1CF54; color: #000000; border: 2px solid #000000; font-weight: 900; box-shadow: 0 4px 14px rgba(241, 207, 84, 0.4); display: inline-flex; align-items: center; gap: 8px;">
+            <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>ADMISSIONS HOTLINE &amp; ADVISORY DESK · 联系我们</span>
           </span>
           <h2 class="sec-title" style="margin-top: 12px; color: #000000;">Contact Us &amp; Admissions Desk</h2>
           <p class="sec-desc">
@@ -590,10 +615,12 @@
           </div>
           <div style="display: flex; gap: 14px; flex-wrap: wrap;">
             <a href="tel:+924235450375" class="btn btn-dark btn-lg" style="box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35); font-weight: 900; border-radius: var(--radius-pill); border: 2px solid #000000;">
-              📞 Call +92 423 5450375
+              <svg class="icon-stroke" width="16" height="16" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>Call +92 423 5450375</span>
             </a>
             <a href="https://wa.me/923229223022?text=Hello%20ICTS%20Admissions%20Desk,%20I%20have%20an%20inquiry" target="_blank" rel="noopener" class="btn btn-red btn-lg" style="box-shadow: 0 6px 20px rgba(229, 76, 68, 0.5); font-weight: 900; border-radius: var(--radius-pill); border: 2px solid #000000;">
-              💬 WhatsApp +92 322 9223022
+              <svg class="icon-stroke" width="16" height="16" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.3A8.4 8.4 0 1 1 21 11.5z"></path></svg>
+              <span>WhatsApp +92 322 9223022</span>
             </a>
           </div>
         </div>
@@ -613,7 +640,9 @@
               <!-- Landline Card -->
               <div style="background: #FFFCEF; border: 2px solid #D9B29C; border-left: 5px solid #E54C44; border-radius: var(--radius-md); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;">
                 <div style="display: flex; align-items: center; gap: 14px;">
-                  <div style="width: 46px; height: 46px; border-radius: 50%; background: #E54C44; color: #FFFCEF; display: grid; place-items: center; font-size: 20px; flex-shrink: 0; box-shadow: 0 4px 12px rgba(229, 76, 68, 0.35);">📞</div>
+                  <div style="width: 46px; height: 46px; border-radius: 50%; background: #E54C44; color: #FFFCEF; display: grid; place-items: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(229, 76, 68, 0.35);">
+                    <svg class="icon-stroke" width="20" height="20" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  </div>
                   <div>
                     <span style="display: block; font-size: 11px; font-weight: 900; text-transform: uppercase; color: #E54C44;">Official Landline</span>
                     <span style="display: block; font-size: 18px; font-weight: 900; color: #000000;">+92 423 5450375</span>
@@ -626,7 +655,9 @@
               <!-- WhatsApp Card -->
               <div style="background: #FFFCEF; border: 2px solid #D9B29C; border-left: 5px solid #F1CF54; border-radius: var(--radius-md); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;">
                 <div style="display: flex; align-items: center; gap: 14px;">
-                  <div style="width: 46px; height: 46px; border-radius: 50%; background: #F1CF54; color: #000000; display: grid; place-items: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 12px rgba(241, 207, 84, 0.35); border: 1.5px solid #000000;">💬</div>
+                  <div style="width: 46px; height: 46px; border-radius: 50%; background: #F1CF54; color: #000000; display: grid; place-items: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(241, 207, 84, 0.35); border: 1.5px solid #000000;">
+                    <svg class="icon-stroke" width="20" height="20" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.3A8.4 8.4 0 1 1 21 11.5z"></path></svg>
+                  </div>
                   <div>
                     <span style="display: block; font-size: 11px; font-weight: 900; text-transform: uppercase; color: #000000;">WhatsApp Admissions Hotline</span>
                     <span style="display: block; font-size: 18px; font-weight: 900; color: #000000;">+92 322 9223022</span>
@@ -638,7 +669,9 @@
 
               <!-- Head Office Card -->
               <div style="background: #FFFCEF; border: 2px solid #D9B29C; border-left: 5px solid #D9B29C; border-radius: var(--radius-md); padding: 16px 20px; display: flex; align-items: center; gap: 14px;">
-                <div style="width: 46px; height: 46px; border-radius: 50%; background: #000000; color: #FFFCEF; display: grid; place-items: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);">📍</div>
+                <div style="width: 46px; height: 46px; border-radius: 50%; background: #000000; color: #FFFCEF; display: grid; place-items: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);">
+                  <svg class="icon-stroke" width="20" height="20" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
                 <div>
                   <span style="display: block; font-size: 11px; font-weight: 900; text-transform: uppercase; color: #000000;">Head Office Location</span>
                   <span style="display: block; font-size: 16px; font-weight: 900; color: #000000;">WAPDA Town Phase-I, Lahore</span>
@@ -667,7 +700,10 @@
               <span class="program-photo-tag" style="background: #F1CF54; color: #000000; border: 1px solid #000000; position: static; display: inline-block; font-weight: 900;">
                 Online Admission Desk
               </span>
-              <span style="font-size: 12px; font-weight: 800; color: #E54C44;">⚡ Direct WhatsApp Routing</span>
+              <span style="font-size: 12px; font-weight: 800; color: #E54C44; display: inline-flex; align-items: center; gap: 4px;">
+                <svg class="icon-stroke" width="13" height="13" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                <span>Direct WhatsApp Routing</span>
+              </span>
             </div>
             <h3 style="font-size: 22px; font-weight: 900; color: var(--charcoal-dark); margin: 6px 0 6px;">Send Course or Service Request</h3>
             <p style="font-size: 13.5px; color: var(--umber-body); margin-bottom: 20px;">Complete this form. It opens directly in WhatsApp with your inquiry pre-filled for immediate response.</p>
@@ -714,8 +750,10 @@
                 <textarea class="form-textarea" id="formMessage" placeholder="Ask about schedules, fees, institutional partnership, or corporate training..."></textarea>
               </div>
 
-              <button type="submit" class="btn btn-yellow btn-lg" style="width: 100%; justify-content: center; padding: 15px; font-size: 16px; font-weight: 900; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.5);">
-                🚀 Send Inquiry to WhatsApp (+92 322 9223022) →
+              <button type="submit" class="btn btn-yellow btn-lg" style="width: 100%; justify-content: center; padding: 15px; font-size: 16px; font-weight: 900; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.5); gap: 10px;">
+                <svg class="icon-stroke" width="18" height="18" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                <span>Send Inquiry to WhatsApp (+92 322 9223022)</span>
+                <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </button>
             </form>
           </div>
@@ -740,10 +778,19 @@
           <p class="footer-desc">
             Integrated professional services in Project Management, ICT &amp; Digital Solutions, Foreign Language Training, and Business Promotion Consultancy.
           </p>
-          <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13.5px; margin-top: 14px; color: #D9B29C;">
-            <div>📞 Landline: <a href="tel:+924235450375" style="color: #FFFCEF; font-weight: 700;">+92 423 5450375</a></div>
-            <div>💬 WhatsApp: <a href="https://wa.me/923229223022" target="_blank" rel="noopener" style="color: #FFFCEF; font-weight: 700;">+92 322 9223022</a></div>
-            <div>📍 WAPDA Town Phase-I, Lahore, Pakistan</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; margin-top: 14px; color: #D9B29C;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24" style="color: var(--yellow-main);"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>Landline: <a href="tel:+924235450375" style="color: #FFFCEF; font-weight: 700;">+92 423 5450375</a></span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24" style="color: var(--yellow-main);"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.3A8.4 8.4 0 1 1 21 11.5z"></path></svg>
+              <span>WhatsApp: <a href="https://wa.me/923229223022" target="_blank" rel="noopener" style="color: #FFFCEF; font-weight: 700;">+92 322 9223022</a></span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24" style="color: var(--yellow-main);"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>WAPDA Town Phase-I, Lahore, Pakistan</span>
+            </div>
           </div>
         </div>
 
