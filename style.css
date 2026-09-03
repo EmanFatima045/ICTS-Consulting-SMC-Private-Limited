@@ -442,7 +442,8 @@ ol {
   flex-wrap: nowrap;
 }
 
-/* Mobile drawer helper elements MUST be hidden on desktop navbar */
+/* Mobile drawer helper elements MUST be completely hidden on desktop navbar */
+.mobile-drawer-header,
 .mobile-drawer-divider,
 .mobile-theme-row,
 .mobile-register-cta,
