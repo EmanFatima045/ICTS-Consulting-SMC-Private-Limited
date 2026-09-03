@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
   initNavbar();
   initCountdown();
   initCalculator();
@@ -14,8 +15,39 @@ document.addEventListener('DOMContentLoaded', () => {
   initFlipCards();
   initScrollReveal();
   initCardTiltAnimations();
+  initStatsCounterAnimation();
+  initEventSlider();
   updateCopyright();
 });
+
+/* ==========================================================================
+   0. DARK & LIGHT THEME TOGGLE CONTROLLER
+   ========================================================================== */
+function initTheme() {
+  const savedTheme = localStorage.getItem('icts-theme');
+  const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const currentTheme = savedTheme ? savedTheme : (systemPrefersDark ? 'dark' : 'light');
+
+  if (currentTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+  }
+
+  const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('icts-theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('icts-theme', 'dark');
+      }
+    });
+  });
+}
 
 /* ==========================================================================
    1. NAVBAR & MOBILE MENU
@@ -62,6 +94,8 @@ function initCountdown() {
   const cdMinutes = document.getElementById('cdMinutes');
   const cdSeconds = document.getElementById('cdSeconds');
   const liveTimeClock = document.getElementById('liveTimeClock');
+
+  if (!cdHours) return;
 
   function getNextSession() {
     const now = new Date();
@@ -293,10 +327,10 @@ function initForm() {
 • *Selected Service / Track:* ${track}
 ${message ? `• *Notes:* ${message}` : ''}`;
 
-      const whatsappUrl = `https://wa.me/923214223022?text=${encodeURIComponent(whatsappText)}`;
+      const whatsappUrl = `https://wa.me/923229223022?text=${encodeURIComponent(whatsappText)}`;
       window.open(whatsappUrl, '_blank');
 
-      alert(`Thank you, ${name}! Your request for "${track}" has been prepared. Opening WhatsApp (+92 321 4223022) to connect directly with the ICTS Team.`);
+      alert(`Thank you, ${name}! Your request for "${track}" has been prepared. Opening WhatsApp (+92 322 9223022) to connect directly with the ICTS Team.`);
       form.reset();
     });
   }
@@ -402,11 +436,139 @@ function initCardTiltAnimations() {
 }
 
 /* ==========================================================================
-   11. COPYRIGHT YEAR
+   11. STATS NUMBER SMOOTH COUNT-UP ANIMATION
+   ========================================================================== */
+function initStatsCounterAnimation() {
+  const statNumbers = document.querySelectorAll('.hero-stat-number, .about-stat-number');
+  if (!statNumbers.length) return;
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const originalText = el.textContent.trim();
+        const targetNum = parseInt(originalText.replace(/[^0-9]/g, ''), 10);
+        const suffix = originalText.replace(/[0-9]/g, '');
+
+        if (!isNaN(targetNum) && targetNum > 0) {
+          let current = 0;
+          const duration = 1200;
+          const steps = 30;
+          const increment = Math.ceil(targetNum / steps);
+          const intervalTime = Math.floor(duration / steps);
+
+          const counter = setInterval(() => {
+            current += increment;
+            if (current >= targetNum) {
+              current = targetNum;
+              clearInterval(counter);
+            }
+            el.textContent = current + suffix;
+          }, intervalTime);
+        }
+        obs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.6 });
+
+  statNumbers.forEach(stat => observer.observe(stat));
+}
+
+/* ==========================================================================
+   12. COPYRIGHT YEAR
    ========================================================================== */
 function updateCopyright() {
   const yearElem = document.getElementById('copyrightYear');
   if (yearElem) {
     yearElem.textContent = new Date().getFullYear();
   }
+}
+
+/* ==========================================================================
+   13. AUTOMATIC EVENT SLIDESHOW (AUTOPLAY + PAUSE ON HOVER + CONTROLS)
+   ========================================================================== */
+function initEventSlider() {
+  const slider = document.getElementById('eventSlider');
+  if (!slider) return;
+
+  const slides = slider.querySelectorAll('.event-slide');
+  const dotsContainer = document.getElementById('sliderDots');
+  const prevBtn = document.getElementById('sliderPrev');
+  const nextBtn = document.getElementById('sliderNext');
+
+  if (!slides.length) return;
+
+  let currentIndex = 0;
+  let autoplayTimer = null;
+  const slideDuration = 3500; // Auto-slides every 3.5 seconds
+
+  // Build dots
+  if (dotsContainer) {
+    dotsContainer.innerHTML = '';
+    slides.forEach((_, idx) => {
+      const dot = document.createElement('button');
+      dot.className = 'slider-dot' + (idx === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+      dot.addEventListener('click', () => {
+        goToSlide(idx);
+        restartAutoplay();
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  function goToSlide(index) {
+    slides[currentIndex].classList.remove('active');
+    const dots = dotsContainer ? dotsContainer.querySelectorAll('.slider-dot') : [];
+    if (dots[currentIndex]) dots[currentIndex].classList.remove('active');
+
+    currentIndex = (index + slides.length) % slides.length;
+
+    slides[currentIndex].classList.add('active');
+    if (dots[currentIndex]) dots[currentIndex].classList.add('active');
+  }
+
+  function nextSlide() {
+    goToSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    goToSlide(currentIndex - 1);
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      nextSlide();
+      restartAutoplay();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      prevSlide();
+      restartAutoplay();
+    });
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = setInterval(nextSlide, slideDuration);
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  function restartAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+
+  slider.addEventListener('mouseenter', stopAutoplay);
+  slider.addEventListener('mouseleave', startAutoplay);
+
+  startAutoplay();
 }
