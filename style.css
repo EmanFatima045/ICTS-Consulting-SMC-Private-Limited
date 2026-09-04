@@ -6821,3 +6821,102 @@ html {
     width: 100%;
   }
 }
+
+/* ---- Strategic Collaborations Portal Banner (Responsive & Mobile-Optimized) ---- */
+.strategic-portal-banner {
+  background: var(--yellow-main);
+  border: 3.5px solid #000000;
+  border-radius: var(--radius-xl);
+  padding: 36px 32px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
+  box-sizing: border-box;
+}
+
+.strategic-portal-tag {
+  background: #000000;
+  color: #FFFCEF;
+  position: static;
+  display: inline-block;
+  margin-bottom: 14px;
+  font-weight: 800;
+  border: 1.5px solid #000000;
+  font-size: 11.5px;
+  padding: 6px 14px;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-pill);
+}
+
+.strategic-portal-title {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.5vw, 24px);
+  font-weight: 900;
+  color: #000000;
+  margin-bottom: 14px;
+  line-height: 1.25;
+}
+
+.strategic-portal-desc {
+  font-size: clamp(14px, 1.2vw, 15.5px);
+  color: #000000;
+  line-height: 1.7;
+  max-width: 740px;
+  margin: 0 auto 24px;
+  font-weight: 500;
+}
+
+.strategic-portal-btn {
+  border-radius: var(--radius-pill);
+  border: 2px solid #000000;
+  font-weight: 900;
+  box-shadow: 0 6px 20px rgba(229, 76, 68, 0.45);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.35;
+  max-width: 100%;
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+@media (max-width: 768px) {
+  .strategic-portal-banner {
+    padding: 24px 18px;
+    border-width: 2.5px;
+  }
+  .strategic-portal-title {
+    font-size: 18.5px;
+  }
+  .strategic-portal-desc {
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .strategic-portal-btn {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .strategic-portal-banner {
+    padding: 20px 14px;
+  }
+  .strategic-portal-title {
+    font-size: 16.5px;
+  }
+  .strategic-portal-desc {
+    font-size: 13px;
+    line-height: 1.55;
+    margin-bottom: 18px;
+  }
+  .strategic-portal-btn {
+    padding: 11px 14px;
+    font-size: 12.5px;
+  }
+}
