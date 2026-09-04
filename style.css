@@ -5990,3 +5990,207 @@ textarea:focus-visible {
     backdrop-filter: none;
   }
 }
+
+/* ==========================================================================
+   MOBILE FIX — Direct Office Channels / Contact Desk Section
+   Overrides inline styles that break layout on small screens
+   (Keep this block at the END of the file so it wins on specificity order)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+  #contact-desk,
+  #contact-desk * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  #contact-desk p,
+  #contact-desk span,
+  #contact-desk div {
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  /* Yellow "Speak With Our Lahore Admissions Desk" banner */
+  #contact-desk .card {
+    padding: 20px 16px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+
+  #contact-desk .card>div:last-child {
+    width: 100% !important;
+    flex-direction: column !important;
+  }
+
+  #contact-desk .card .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Contact channels box + form card */
+  .contact-channels-box,
+  .reg-form-card {
+    padding: 20px 16px !important;
+  }
+
+  /* Header rows inside cards (badge + timing text, badge + WhatsApp label) */
+  .contact-channels-box>div[style*="justify-content: space-between"],
+  .reg-form-card>div[style*="justify-content: space-between"] {
+    flex-wrap: wrap !important;
+    row-gap: 8px !important;
+  }
+
+  /* Individual channel cards (landline / whatsapp / office) */
+  .contact-channels-box>div>div[style*="border-left"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .contact-channels-box>div>div[style*="border-left"] .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Facebook community buttons */
+  .contact-channels-box div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Form type toggle buttons */
+  .type-toggle-group {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  /* Form rows (Name/Phone, City/Track) */
+  #quickRegForm .form-row {
+    display: block !important;
+  }
+
+  #quickRegForm .form-row .form-field {
+    margin-bottom: 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .contact-channels-box,
+  .reg-form-card {
+    padding: 16px 14px !important;
+  }
+
+  #contact-desk h3 {
+    font-size: 19px !important;
+  }
+
+  #contact-desk .card>div:first-child>div:nth-child(2) {
+    font-size: 20px !important;
+  }
+}
+
+/* ==========================================================================
+   MOBILE FIX #2 — Contact Page Form + Collaboration Page Partnership Grid
+   (Append at the END of the file so it wins on source order)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+  /* ---- Fix header rows (badge + label) that don't wrap on any page
+         reusing .contact-channels-box / .reg-form-card classes ---- */
+  .contact-channels-box>div[style*="justify-content: space-between"],
+  .reg-form-card>div[style*="justify-content: space-between"] {
+    flex-wrap: wrap !important;
+    row-gap: 8px !important;
+  }
+
+  .contact-channels-box,
+  .reg-form-card {
+    padding: 20px 16px !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .contact-channels-box *,
+  .reg-form-card * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  /* Individual channel rows (landline / whatsapp / office) — stack cleanly */
+  .contact-channels-box div[style*="border-left"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  .contact-channels-box div[style*="border-left"] .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* ---- Submit button overflowing off-screen ---- */
+  #quickRegForm button[type="submit"],
+  .reg-form-card button[type="submit"] {
+    flex-wrap: wrap !important;
+    white-space: normal !important;
+    text-align: center !important;
+    height: auto !important;
+    line-height: 1.4 !important;
+    font-size: 14px !important;
+    padding: 14px 16px !important;
+  }
+
+  /* ---- Form rows (Name/Phone, City/Track) stack on mobile ---- */
+  .form-row {
+    display: block !important;
+  }
+
+  .form-row .form-field {
+    margin-bottom: 12px !important;
+    width: 100% !important;
+  }
+
+  .form-input,
+  .form-textarea,
+  select.form-input {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ---- Collaboration page: CIT | Joining Hands | ICTS 3-col grid ---- */
+  div[style*="grid-template-columns: 1fr auto 1fr"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  /* ---- Any generic 2-column inline grids (Responsibilities cards etc.) ---- */
+  div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .contact-channels-box,
+  .reg-form-card {
+    padding: 16px 14px !important;
+  }
+
+  #quickRegForm button[type="submit"],
+  .reg-form-card button[type="submit"] {
+    font-size: 13px !important;
+  }
+}
+
+/* ---- Global safety net: stop any accidental horizontal page scroll ---- */
+html {
+  overflow-x: hidden;
+  max-width: 100%;
+}

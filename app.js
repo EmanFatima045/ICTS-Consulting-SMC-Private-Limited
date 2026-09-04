@@ -35,13 +35,12 @@ function initNavbar() {
   const navMenu = document.getElementById('navMenu');
   const navLinks = document.querySelectorAll('.nav-link');
 
-  // FIX: iOS Safari renders position:fixed children of a position:sticky
-  // ancestor incorrectly (blurred paint, broken touch hit-testing).
-  // Detach the mobile drawer from the sticky header and attach it
-  // directly to <body> so it composites independently.
-  if (navMenu && navMenu.parentElement !== document.body) {
-    document.body.appendChild(navMenu);
-  }
+  if (!navMenu) return;
+
+  // Marker comment left in the original DOM spot so we can restore
+  // navMenu back into the header when the viewport becomes desktop-sized.
+  const navMenuPlaceholder = document.createComment('nav-menu-placeholder');
+  navMenu.parentElement.insertBefore(navMenuPlaceholder, navMenu);
 
   // Create backdrop if not existing
   let backdrop = document.querySelector('.nav-backdrop');
@@ -51,9 +50,39 @@ function initNavbar() {
     document.body.appendChild(backdrop);
   }
 
-  // Keep backdrop directly before navMenu in the DOM so stacking stays sane
-  if (navMenu) {
-    document.body.insertBefore(backdrop, navMenu);
+  const mq = window.matchMedia('(max-width: 1024px)');
+
+  // FIX: iOS Safari renders position:fixed children of a position:sticky
+  // ancestor incorrectly (blurred paint, broken touch hit-testing).
+  // On MOBILE we detach the drawer to <body> so it composites independently.
+  // On DESKTOP we restore it to its original spot inside the navbar so the
+  // inline nav links display normally in the header.
+  function applyLayout(e) {
+    const isMobile = e.matches;
+
+    if (isMobile) {
+      if (navMenu.parentElement !== document.body) {
+        document.body.appendChild(navMenu);
+      }
+      document.body.insertBefore(backdrop, navMenu);
+    } else {
+      if (navMenuPlaceholder.parentElement) {
+        navMenuPlaceholder.parentElement.insertBefore(navMenu, navMenuPlaceholder);
+      }
+      // Reset any open mobile drawer state when switching to desktop
+      navMenu.classList.remove('open');
+      navToggle && navToggle.classList.remove('active');
+      backdrop.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  applyLayout(mq);
+  if (mq.addEventListener) {
+    mq.addEventListener('change', applyLayout);
+  } else if (mq.addListener) {
+    // Safari < 14 fallback
+    mq.addListener(applyLayout);
   }
 
   window.addEventListener('scroll', () => {
@@ -120,7 +149,6 @@ function initNavbar() {
     }, { passive: true });
   }
 }
-
 /* ==========================================================================
    2. LIVE ZOOM WORKSHOP REALTIME COUNTDOWN (MON-THU 10:00 PM PKT)
    ========================================================================== */
