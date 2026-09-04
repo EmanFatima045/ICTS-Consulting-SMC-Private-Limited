@@ -214,7 +214,7 @@ ol {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 10000;
   background: #B91C1C;
   background: linear-gradient(135deg, #B91C1C 0%, #D03B33 50%, #A81B1B 100%);
   border-bottom: 3.5px solid var(--yellow-main);
@@ -3640,12 +3640,12 @@ a.channel-card:hover {
     height: 100vh;
     background: #FFFFFF !important;
     border-left: 4px solid var(--brand-red);
-    box-shadow: -15px 0 45px rgba(0, 0, 0, 0.35);
+    box-shadow: -15px 0 45px rgba(0, 0, 0, 0.4);
     flex-direction: column;
     align-items: stretch;
     padding: 85px 20px 36px;
     gap: 10px;
-    z-index: 1050;
+    z-index: 10050;
     overflow-y: auto;
     transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
@@ -3670,6 +3670,8 @@ a.channel-card:hover {
     transition: all 0.25s ease;
     text-decoration: none;
     line-height: 1.2;
+    cursor: pointer;
+    pointer-events: auto !important;
   }
 
   .nav-menu .nav-link::after {
@@ -3707,12 +3709,11 @@ a.channel-card:hover {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    z-index: 1040;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9990;
     opacity: 0;
-    transition: opacity 0.35s ease;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
   }
 
   .nav-backdrop.open {

@@ -73,7 +73,10 @@ function initNavbar() {
 
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        toggleMenu(true);
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          toggleMenu(true);
+        }
       });
     });
 
