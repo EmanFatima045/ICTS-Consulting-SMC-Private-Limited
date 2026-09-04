@@ -6194,3 +6194,40 @@ html {
   overflow-x: hidden;
   max-width: 100%;
 }
+
+/* ==========================================================================
+   DESKTOP NAV SAFETY NET — Guarantees nav links show on desktop
+   regardless of JS/DOM manipulation timing or caching issues.
+   (Append at the END of the file)
+   ========================================================================== */
+@media (min-width: 1025px) {
+  .nav-menu {
+    display: flex !important;
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    width: auto !important;
+    height: auto !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: clamp(4px, 0.8vw, 14px) !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  .nav-menu .nav-link {
+    color: var(--bg-cream) !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 6px 10px !important;
+    font-size: 14.5px !important;
+  }
+
+  .nav-backdrop {
+    display: none !important;
+  }
+}
