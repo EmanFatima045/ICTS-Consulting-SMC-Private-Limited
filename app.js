@@ -35,12 +35,25 @@ function initNavbar() {
   const navMenu = document.getElementById('navMenu');
   const navLinks = document.querySelectorAll('.nav-link');
 
+  // FIX: iOS Safari renders position:fixed children of a position:sticky
+  // ancestor incorrectly (blurred paint, broken touch hit-testing).
+  // Detach the mobile drawer from the sticky header and attach it
+  // directly to <body> so it composites independently.
+  if (navMenu && navMenu.parentElement !== document.body) {
+    document.body.appendChild(navMenu);
+  }
+
   // Create backdrop if not existing
   let backdrop = document.querySelector('.nav-backdrop');
   if (!backdrop) {
     backdrop = document.createElement('div');
     backdrop.className = 'nav-backdrop';
     document.body.appendChild(backdrop);
+  }
+
+  // Keep backdrop directly before navMenu in the DOM so stacking stays sane
+  if (navMenu) {
+    document.body.insertBefore(backdrop, navMenu);
   }
 
   window.addEventListener('scroll', () => {

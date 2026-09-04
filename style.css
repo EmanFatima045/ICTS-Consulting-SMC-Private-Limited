@@ -5008,6 +5008,7 @@ textarea:focus-visible {
 
 /* ---- Tablet: 1024px — Show hamburger, collapse nav ---- */
 @media (max-width: 1024px) {
+
   /* Hide Register Course CTA on tablet/mobile header */
   .nav-actions .btn-yellow.btn-sm {
     display: none;
@@ -5092,6 +5093,7 @@ textarea:focus-visible {
 
 /* ---- 768px — Mobile styles ---- */
 @media (max-width: 768px) {
+
   /* Header padding reduction */
   .navbar {
     padding: 6px 0;
@@ -5568,6 +5570,7 @@ textarea:focus-visible {
 
 /* ---- Small Mobile: 480px ---- */
 @media (max-width: 480px) {
+
   /* Header ultra-compact */
   .brand-logo-img {
     height: 44px;
@@ -5941,6 +5944,7 @@ textarea:focus-visible {
 
 /* ---- Touch device optimizations ---- */
 @media (hover: none) and (pointer: coarse) {
+
   /* Larger touch targets */
   .nav-link {
     min-height: 44px;
@@ -5970,5 +5974,19 @@ textarea:focus-visible {
   .who-card,
   .pillar-card {
     transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   iOS SAFARI FIX — Mobile Nav Drawer Blur & Broken Touch Fix
+   (Overrides earlier .nav-menu rule — keep this block at the END of the file)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .nav-menu {
+    isolation: isolate;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 }
