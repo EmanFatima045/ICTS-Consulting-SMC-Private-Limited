@@ -5437,8 +5437,6 @@ textarea:focus-visible {
 
 /* ---- 860px — Stack more grids ---- */
 @media (max-width: 860px) {
-/* ---- 860px — Stack more grids ---- */
-@media (max-width: 860px) {
   .live-workshop-bar {
     padding: 7px 0;
   }
