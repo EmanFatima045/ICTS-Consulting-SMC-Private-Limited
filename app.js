@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.documentElement.removeAttribute('data-theme');
 
   initNavbar();
+  initWorkshopModal();
   initCountdown();
   initCalculator();
   initLightbox();
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   1. NAVBAR & MOBILE MENU
+   1. NAVBAR & MOBILE MENU (GUARANTEED DESKTOP VISIBILITY)
    ========================================================================== */
 function initNavbar() {
   const header = document.getElementById('header');
@@ -37,11 +38,6 @@ function initNavbar() {
 
   if (!navMenu) return;
 
-  // Marker comment left in the original DOM spot so we can restore
-  // navMenu back into the header when the viewport becomes desktop-sized.
-  const navMenuPlaceholder = document.createComment('nav-menu-placeholder');
-  navMenu.parentElement.insertBefore(navMenuPlaceholder, navMenu);
-
   // Create backdrop if not existing
   let backdrop = document.querySelector('.nav-backdrop');
   if (!backdrop) {
@@ -50,41 +46,7 @@ function initNavbar() {
     document.body.appendChild(backdrop);
   }
 
-  const mq = window.matchMedia('(max-width: 1024px)');
-
-  // FIX: iOS Safari renders position:fixed children of a position:sticky
-  // ancestor incorrectly (blurred paint, broken touch hit-testing).
-  // On MOBILE we detach the drawer to <body> so it composites independently.
-  // On DESKTOP we restore it to its original spot inside the navbar so the
-  // inline nav links display normally in the header.
-  function applyLayout(e) {
-    const isMobile = e.matches;
-
-    if (isMobile) {
-      if (navMenu.parentElement !== document.body) {
-        document.body.appendChild(navMenu);
-      }
-      document.body.insertBefore(backdrop, navMenu);
-    } else {
-      if (navMenuPlaceholder.parentElement) {
-        navMenuPlaceholder.parentElement.insertBefore(navMenu, navMenuPlaceholder);
-      }
-      // Reset any open mobile drawer state when switching to desktop
-      navMenu.classList.remove('open');
-      navToggle && navToggle.classList.remove('active');
-      backdrop.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-  }
-
-  applyLayout(mq);
-  if (mq.addEventListener) {
-    mq.addEventListener('change', applyLayout);
-  } else if (mq.addListener) {
-    // Safari < 14 fallback
-    mq.addListener(applyLayout);
-  }
-
+  // Header background on scroll
   window.addEventListener('scroll', () => {
     if (window.scrollY > 30) {
       header && header.classList.add('scrolled');
@@ -95,59 +57,129 @@ function initNavbar() {
 
   function toggleMenu(forceClose) {
     if (!navToggle || !navMenu) return;
-    const shouldOpen = forceClose === undefined ? !navMenu.classList.contains('open') : !forceClose;
+    const isCurrentlyOpen = navMenu.classList.contains('open');
+    const shouldOpen = forceClose === true ? false : (forceClose === false ? true : !isCurrentlyOpen);
+
     navMenu.classList.toggle('open', shouldOpen);
     navToggle.classList.toggle('active', shouldOpen);
     backdrop.classList.toggle('open', shouldOpen);
-    navToggle.setAttribute('aria-expanded', shouldOpen);
+    navToggle.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
     document.body.style.overflow = shouldOpen ? 'hidden' : '';
   }
 
-  if (navToggle && navMenu) {
+  if (navToggle) {
     navToggle.addEventListener('click', (e) => {
       e.stopPropagation();
       toggleMenu();
     });
+  }
 
+  if (backdrop) {
     backdrop.addEventListener('click', () => {
       toggleMenu(true);
     });
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        const href = link.getAttribute('href');
-        if (href && href.startsWith('#')) {
-          toggleMenu(true);
-        }
-      });
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
-        toggleMenu(true);
-      }
-    });
-
-    // Swipe-to-close gesture for mobile drawer
-    let touchStartX = 0;
-    let touchCurrentX = 0;
-    navMenu.addEventListener('touchstart', (e) => {
-      touchStartX = e.touches[0].clientX;
-    }, { passive: true });
-
-    navMenu.addEventListener('touchmove', (e) => {
-      touchCurrentX = e.touches[0].clientX;
-    }, { passive: true });
-
-    navMenu.addEventListener('touchend', () => {
-      const swipeDistance = touchCurrentX - touchStartX;
-      if (swipeDistance > 60 && navMenu.classList.contains('open')) {
-        toggleMenu(true);
-      }
-      touchStartX = 0;
-      touchCurrentX = 0;
-    }, { passive: true });
   }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 1024) {
+        toggleMenu(true);
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+      toggleMenu(true);
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024 && navMenu.classList.contains('open')) {
+      toggleMenu(true);
+    }
+  });
+  // Swipe-to-close gesture for mobile drawer
+  let touchStartX = 0;
+  let touchCurrentX = 0;
+  navMenu.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  navMenu.addEventListener('touchmove', (e) => {
+    touchCurrentX = e.touches[0].clientX;
+  }, { passive: true });
+
+  navMenu.addEventListener('touchend', () => {
+    const swipeDistance = touchCurrentX - touchStartX;
+    if (swipeDistance > 60 && navMenu.classList.contains('open')) {
+      toggleMenu(true);
+    }
+    touchStartX = 0;
+    touchCurrentX = 0;
+  }, { passive: true });
+}
+
+/* ==========================================================================
+   1.1 LIVE WORKSHOP MODAL HANDLER & COPY CREDENTIALS
+   ========================================================================== */
+function initWorkshopModal() {
+  const modalTriggers = document.querySelectorAll('[data-open-workshop-modal], .open-workshop-modal');
+  const modal = document.getElementById('workshopModal');
+  if (!modal) return;
+
+  const closeBtn = modal.querySelector('.modal-close-btn');
+  const copyBtns = modal.querySelectorAll('[data-copy-text]');
+
+  function openModal() {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  modalTriggers.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  copyBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const textToCopy = btn.getAttribute('data-copy-text');
+      if (textToCopy && navigator.clipboard) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          const originalHTML = btn.innerHTML;
+          btn.innerHTML = '<span>✓ Copied!</span>';
+          btn.classList.add('copied');
+          setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.classList.remove('copied');
+          }, 2000);
+        }).catch(() => { });
+      }
+    });
+  });
 }
 /* ==========================================================================
    2. LIVE ZOOM WORKSHOP REALTIME COUNTDOWN (MON-THU 10:00 PM PKT)
@@ -813,7 +845,7 @@ function initAiGuwenChatbot() {
       <!-- Welcome Floating Speech Bubble Tooltip -->
       <div class="ai-guwen-tooltip" id="aiGuwenTooltip">
         <button class="ai-guwen-tooltip-close" id="closeAiTooltip" aria-label="Close tooltip">×</button>
-        <div style="font-weight: 800; color: var(--yellow-main); margin-bottom: 2px;">👋 Nǐ Hǎo! I'm AI gùwèn</div>
+        <div style="font-weight: 800; color: var(--yellow-main); margin-bottom: 2px;"><i class="fa-solid fa-robot" style="margin-right:4px;"></i> Nǐ Hǎo! I'm AI gùwèn</div>
         <div>Your ICTS Consultant robot. Ask me about courses, fees, services, PMO & trade!</div>
       </div>
 
@@ -850,12 +882,12 @@ function initAiGuwenChatbot() {
 
         <!-- Quick Questions Chips -->
         <div class="ai-guwen-chips-bar" id="aiGuwenChips">
-          <button class="ai-chip" data-query="What are the 4 pillars of service?">🏛️ 4 Pillars</button>
-          <button class="ai-chip" data-query="Tell me about Chinese HSK courses & fees">🎓 Courses &amp; Fees</button>
-          <button class="ai-chip" data-query="When is the Free Live Zoom Workshop?">🎥 Free Zoom Class</button>
-          <button class="ai-chip" data-query="How can I enroll or contact?">📝 How to Enroll</button>
-          <button class="ai-chip" data-query="Tell me about Project Management services">📊 Project (EVM)</button>
-          <button class="ai-chip" data-query="What Business Promotion & trade services do you offer?">🤝 China-Pak Trade</button>
+          <button class="ai-chip" data-query="What are the 4 pillars of service?"><i class="fa-solid fa-building-columns"></i> 4 Pillars</button>
+          <button class="ai-chip" data-query="Tell me about Chinese HSK courses & fees"><i class="fa-solid fa-graduation-cap"></i> Courses</button>
+          <button class="ai-chip" data-query="When is the Free Live Zoom Workshop?"><i class="fa-solid fa-video"></i> Free Zoom Class</button>
+          <button class="ai-chip" data-query="How can I enroll or contact?"><i class="fa-solid fa-file-pen"></i> How to Enroll</button>
+          <button class="ai-chip" data-query="Tell me about Project Management services"><i class="fa-solid fa-chart-pie"></i> Project (EVM)</button>
+          <button class="ai-chip" data-query="What Business Promotion & trade services do you offer?"><i class="fa-solid fa-handshake"></i> China-Pak Trade</button>
         </div>
 
         <!-- Chat Input Footer -->
@@ -1013,12 +1045,12 @@ Connecting businesses across the China-Pakistan economic corridor:
     {
       keywords: ['contact', 'address', 'location', 'phone', 'whatsapp', 'email', 'office', 'kahan hai', 'head office', 'lahore', 'call', 'number'],
       response: `<b>ICTS Consulting (SMC-Private) Limited Contact Details</b>:
-<ul>
-  <li>📍 <b>Head Office:</b> WAPDA Town Phase-I, Lahore, Punjab, Pakistan</li>
-  <li>📞 <b>Landline:</b> <a href="tel:+924235450375" style="color:var(--brand-red); font-weight:800;">+92 423 5450375</a></li>
-  <li>💬 <b>Official WhatsApp:</b> <a href="https://wa.me/923229223022" target="_blank" style="color:var(--brand-red); font-weight:800;">+92 322 9223022</a></li>
-  <li>✉️ <b>Email:</b> info@ictsconsulting.com</li>
-  <li>⏰ <b>Office Hours:</b> Mon–Fri: 9:00 AM – 6:00 PM PKT | Daily Free Zoom: 10:00 PM PKT</li>
+<ul style="list-style:none; padding-left:0; margin:8px 0;">
+  <li style="margin-bottom:6px;"><i class="fa-solid fa-location-dot" style="color:var(--brand-red); margin-right:6px;"></i><b>Head Office:</b> WAPDA Town Phase-I, Lahore, Punjab, Pakistan</li>
+  <li style="margin-bottom:6px;"><i class="fa-solid fa-phone" style="color:var(--brand-red); margin-right:6px;"></i><b>Landline:</b> <a href="tel:+924235450375" style="color:var(--brand-red); font-weight:800;">+92 423 5450375</a></li>
+  <li style="margin-bottom:6px;"><i class="fa-brands fa-whatsapp" style="color:#25D366; margin-right:6px;"></i><b>Official WhatsApp:</b> <a href="https://wa.me/923229223022" target="_blank" style="color:var(--brand-red); font-weight:800;">+92 322 9223022</a></li>
+  <li style="margin-bottom:6px;"><i class="fa-solid fa-envelope" style="color:var(--brand-red); margin-right:6px;"></i><b>Email:</b> info@ictsconsulting.com</li>
+  <li style="margin-bottom:6px;"><i class="fa-regular fa-clock" style="color:var(--brand-red); margin-right:6px;"></i><b>Office Hours:</b> Mon–Fri: 9:00 AM – 6:00 PM PKT | Daily Free Zoom: 10:00 PM PKT</li>
 </ul>`,
       actions: [
         { label: 'WhatsApp Admissions & Support', url: 'https://wa.me/923229223022', external: true },
@@ -1076,18 +1108,18 @@ Connecting businesses across the China-Pakistan economic corridor:
   ];
 
   function renderWelcomeMessage() {
-    appendBotMessage(`<b>Nǐ Hǎo! I am AI gùwèn (智能顾问) 🤖</b>
+    appendBotMessage(`<b>Nǐ Hǎo! I am AI gùwèn (智能顾问)</b>
 <p>I am ICTS Consulting's official intelligent assistant, trained on all data across our website including:</p>
 <ul>
   <li><b>4 Core Pillars of Service</b> (Project Management, ICT, Foreign Languages, Trade)</li>
-  <li><b>Mandarin Chinese Courses &amp; Fees</b> (HSK 1-6, YCT, BCT, Wo Hui Mock Test)</li>
+  <li><b>Mandarin Chinese Courses &amp; Curriculum</b> (HSK 1-6, YCT, BCT, Wo Hui Mock Test)</li>
   <li><b>Daily Free Live Zoom Workshop</b> (Mon-Thu at 10:00 PM PKT)</li>
   <li><b>Admissions, Registration &amp; Contact Details</b></li>
 </ul>
 <p>Feel free to click any suggestion below or ask me a question!</p>`, [
-      { label: '🏛️ 4 Pillars of Service', query: 'What are the 4 pillars of service?' },
-      { label: '🎓 Courses & Fee Table', query: 'Tell me about Chinese HSK courses & fees' },
-      { label: '🎥 Free Zoom Class', query: 'When is the Free Live Zoom Workshop?' }
+      { label: '<i class="fa-solid fa-building-columns"></i> 4 Pillars of Service', query: 'What are the 4 pillars of service?' },
+      { label: '<i class="fa-solid fa-graduation-cap"></i> Courses & Curriculum', query: 'Tell me about Chinese HSK courses & fees' },
+      { label: '<i class="fa-solid fa-video"></i> Free Zoom Class', query: 'When is the Free Live Zoom Workshop?' }
     ]);
   }
 

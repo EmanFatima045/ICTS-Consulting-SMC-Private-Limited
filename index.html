@@ -22,7 +22,8 @@
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="assests/icts_logo_clean.png">
 
-  <!-- CSS Stylesheet -->
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css?v=3">
 
   <!-- JSON-LD Structured Data for SEO -->
@@ -109,46 +110,77 @@
     </div>
   </header>
 
-  <!-- ================= LIVE WORKSHOP BROADCAST BANNER (AFTER HEADER) ================= -->
+  <!-- ================= LIVE WORKSHOP BROADCAST BANNER (CONTINUOUS MOVING WORDS TICKER) ================= -->
   <aside class="live-workshop-bar" aria-label="Live Workshop Announcement">
-    <div class="container live-workshop-inner">
-      <div class="live-workshop-left">
-        <div class="live-badge-glow">
-          <span class="live-radar-dot"></span>
-          <span class="live-badge-text">🔴 LIVE</span>
+    <div class="live-marquee-container">
+      <div class="live-marquee-track">
+        <!-- Set 1 -->
+        <div class="marquee-group">
+          <div class="live-badge-glow">
+            <span class="live-dot-pulse"></span>
+            <span class="live-badge-text">LIVE WORKSHOP</span>
+          </div>
+          <div class="live-workshop-info">
+            <span class="live-workshop-title">CHINESE LANGUAGE &amp; BUSINESS PROMOTIONAL WORKSHOP</span>
+            <span class="marquee-divider">·</span>
+            <span class="live-workshop-schedule">Every week on Mon, Tue, Wed, Thu at <b>10:00 PM PKT</b> (Islamabad, Karachi, Tashkent)</span>
+            <span class="marquee-divider">·</span>
+            <span class="live-badge-detail">Meeting ID: 823 7234 8859</span>
+            <span class="live-badge-detail">Passcode: 893624</span>
+          </div>
+          <div class="live-marquee-actions">
+            <a href="https://us06web.zoom.us/j/82372348859?pwd=pCsrMhFb1wW8bXUwb0jalWC5cAP1RT.1" target="_blank" rel="noopener" class="live-join-btn">
+              <i class="fa-solid fa-video" style="margin-right: 5px;"></i>
+              <span>Join Zoom Stream</span>
+            </a>
+            <a href="https://docs.zoom.us/agenda/doc/066f015a-a641-44d9-b6f5-fbeede76867c" target="_blank" rel="noopener" class="live-agenda-btn">
+              <i class="fa-solid fa-clipboard-list" style="margin-right: 5px;"></i>
+              <span>Meeting Agenda</span>
+            </a>
+            <button type="button" class="live-modal-btn open-workshop-modal" data-open-workshop-modal>
+              <i class="fa-solid fa-key" style="margin-right: 5px;"></i>
+              <span>Full Meeting Details</span>
+            </button>
+            <a href="services.html#center-setup" class="live-center-btn">
+              <i class="fa-solid fa-building-columns" style="margin-right: 5px;"></i>
+              <span>Open Chinese Center</span>
+            </a>
+          </div>
         </div>
-        <div class="live-workshop-info">
-          <span class="live-workshop-title">FREE LIVE ZOOM WORKSHOP:</span>
-          <span class="live-workshop-schedule">Mon to Thu at <b>10:00 PM PKT</b> · 40 Minutes Focus</span>
+
+        <!-- Set 2 (Duplicate for Seamless Infinite Marquee Loop) -->
+        <div class="marquee-group">
+          <div class="live-badge-glow">
+            <span class="live-dot-pulse"></span>
+            <span class="live-badge-text">LIVE WORKSHOP</span>
+          </div>
+          <div class="live-workshop-info">
+            <span class="live-workshop-title">CHINESE LANGUAGE &amp; BUSINESS PROMOTIONAL WORKSHOP</span>
+            <span class="marquee-divider">·</span>
+            <span class="live-workshop-schedule">Every week on Mon, Tue, Wed, Thu at <b>10:00 PM PKT</b> (Islamabad, Karachi, Tashkent)</span>
+            <span class="marquee-divider">·</span>
+            <span class="live-badge-detail">Meeting ID: 823 7234 8859</span>
+            <span class="live-badge-detail">Passcode: 893624</span>
+          </div>
+          <div class="live-marquee-actions">
+            <a href="https://us06web.zoom.us/j/82372348859?pwd=pCsrMhFb1wW8bXUwb0jalWC5cAP1RT.1" target="_blank" rel="noopener" class="live-join-btn">
+              <i class="fa-solid fa-video" style="margin-right: 5px;"></i>
+              <span>Join Zoom Stream</span>
+            </a>
+            <a href="https://docs.zoom.us/agenda/doc/066f015a-a641-44d9-b6f5-fbeede76867c" target="_blank" rel="noopener" class="live-agenda-btn">
+              <i class="fa-solid fa-clipboard-list" style="margin-right: 5px;"></i>
+              <span>Meeting Agenda</span>
+            </a>
+            <button type="button" class="live-modal-btn open-workshop-modal" data-open-workshop-modal>
+              <i class="fa-solid fa-key" style="margin-right: 5px;"></i>
+              <span>Full Meeting Details</span>
+            </button>
+            <a href="services.html#center-setup" class="live-center-btn">
+              <i class="fa-solid fa-building-columns" style="margin-right: 5px;"></i>
+              <span>Open Chinese Center</span>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="live-workshop-right">
-        <a href="collaboration.html#cit-partnership" class="live-center-btn" title="Open Chinese Center">
-          <span>🏛️ Open Chinese Center</span>
-        </a>
-        <a href="https://wa.me/923229223022?text=Hello%20ICTS,%20please%20send%20me%20the%20Free%20Live%20Zoom%20Workshop%20link"
-          target="_blank" rel="noopener" class="live-join-btn">
-          <span>Join Free Stream</span>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-        <a href="tel:+924235450375" class="live-contact-link" title="Landline Phone">
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-            <path
-              d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z">
-            </path>
-          </svg>
-          +92 423 5450375
-        </a>
-        <a href="https://wa.me/923229223022" target="_blank" rel="noopener" class="live-contact-link"
-          title="Official WhatsApp">
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-            <path d="M21 11.5a8.4 8.4 0 01-12.6 7.3L3 20.5l1.8-5.3A8.4 8.4 0 1121 11.5z"></path>
-          </svg>
-          WhatsApp
-        </a>
       </div>
     </div>
   </aside>
@@ -697,12 +729,7 @@
               <button class="pillar-dot" data-index="3" aria-label="Slide 4"></button>
             </div>
           </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================= FEATURED COURSES HIGHLIGHT ================= -->
+     <!-- ================= FEATURED COURSES HIGHLIGHT (NO PRICING) ================= -->
     <section class="section-pad bg-white">
       <div class="container">
         <div
@@ -715,7 +742,7 @@
               success.</p>
           </div>
           <a href="courses.html" class="btn btn-red">
-            View All Courses &amp; Full Fee Schedules →
+            View All Language Programs →
           </a>
         </div>
 
@@ -733,10 +760,10 @@
               <h4>HSK Chinese Proficiency</h4>
               <span class="service-feature-subtitle">University Admissions &amp; Career Growth</span>
               <p style="font-size: 13.5px; color: var(--umber-body); margin: 8px 0 14px;">
-                Starting from HSK-1 (PKR 20,000) up to advanced HSK-6. Includes interactive Zoom live lectures and
-                authentic HSK Mock testing.
+                Comprehensive tracks from HSK-1 to advanced HSK-6. Includes interactive Zoom live lectures and
+                authentic AI-graded HSK Mock testing.
               </p>
-              <a href="courses.html" class="service-card-action">View HSK Syllabus &amp; Fees →</a>
+              <a href="courses.html" class="service-card-action">View HSK Syllabus &amp; Curriculum →</a>
             </div>
           </div>
 
@@ -751,10 +778,10 @@
               <h4>Youth Chinese Test (YCT)</h4>
               <span class="service-feature-subtitle">For School Children &amp; Young Learners</span>
               <p style="font-size: 13.5px; color: var(--umber-body); margin: 8px 0 14px;">
-                Fun, gamified Mandarin lessons starting at PKR 15,000 with songs, stories, and cultural foundation for
+                Fun, gamified Mandarin lessons with songs, flashcards, stories, and cultural foundation for
                 future scholarships.
               </p>
-              <a href="courses.html" class="service-card-action">View YCT Levels &amp; Fees →</a>
+              <a href="courses.html" class="service-card-action">View YCT Levels &amp; Curriculum →</a>
             </div>
           </div>
 
@@ -769,10 +796,9 @@
               <h4>Business Chinese (BCT)</h4>
               <span class="service-feature-subtitle">For Importers, Traders &amp; Executives</span>
               <p style="font-size: 13.5px; color: var(--umber-body); margin: 8px 0 14px;">
-                Master supplier negotiations, trade agreements, factory dialogues, and business banquet etiquette (PKR
-                40,000 per level).
+                Master supplier negotiations, trade agreements, factory dialogues, and commercial banquet etiquette.
               </p>
-              <a href="courses.html" class="service-card-action">View BCT Levels &amp; Fees →</a>
+              <a href="courses.html" class="service-card-action">View BCT Business Curriculum →</a>
             </div>
           </div>
         </div>
@@ -786,16 +812,34 @@
           <div class="live-card-header">
             <div class="live-pill">
               <span class="pulse-indicator"></span>
-              <span class="live-pill-text">Live Zoom Mandarin Chinese Workshop</span>
+              <span class="live-pill-text">Live Scheduled Zoom Workshop</span>
             </div>
             <span class="badge-free">Free Workshop · Open to All</span>
           </div>
 
           <div class="live-card-grid">
             <div class="live-card-info">
-              <h3>Chinese Language &amp; Business Promotional <i>Orientation Program</i></h3>
-              <p>Join our <b>Free Live Zoom Interactive Workshop</b> every Monday to Thursday. Discover practical
-                language acquisition, institutional exam preparation, and partner center earning opportunities.</p>
+              <span style="font-family: var(--font-mono); font-size: 12px; font-weight: 900; color: var(--brand-red); text-transform: uppercase;">Recurring Series (102 Occurrences)</span>
+              <h3 style="margin-top: 6px;">Chinese Language &amp; Business Promotional Workshop</h3>
+              <p>Join our <b>Free Live Zoom Interactive Workshop</b> every Monday, Tuesday, Wednesday, and Thursday. Learn practical spoken Mandarin, student mobilization, institutional exam prep, and the lucrative business commission model for partner centres across Pakistan.</p>
+
+              <!-- Credentials Box Inside Card -->
+              <div style="background: rgba(0,0,0,0.06); border: 2px solid #000000; border-radius: var(--radius-md); padding: 16px; margin: 16px 0;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+                  <div>
+                    <span style="font-size: 11px; font-weight: 800; color: #4B5563; text-transform: uppercase; font-family: var(--font-mono);">Meeting ID:</span>
+                    <div style="font-size: 18px; font-weight: 900; font-family: var(--font-mono); color: #000000;">823 7234 8859</div>
+                  </div>
+                  <div>
+                    <span style="font-size: 11px; font-weight: 800; color: #4B5563; text-transform: uppercase; font-family: var(--font-mono);">Passcode:</span>
+                    <div style="font-size: 18px; font-weight: 900; font-family: var(--font-mono); color: var(--brand-red);">893624</div>
+                  </div>
+                  <div>
+                    <span style="font-size: 11px; font-weight: 800; color: #4B5563; text-transform: uppercase; font-family: var(--font-mono);">Timing (PKT):</span>
+                    <div style="font-size: 15px; font-weight: 900; color: #000000;">Mon to Thu @ 10:00 PM</div>
+                  </div>
+                </div>
+              </div>
 
               <div class="live-tags">
                 <span class="live-tag">
@@ -805,7 +849,7 @@
                     <line x1="12" y1="19" x2="12" y2="23"></line>
                     <line x1="8" y1="23" x2="16" y2="23"></line>
                   </svg>
-                  <span>Live Zoom Interactive Session</span>
+                  <span>Interactive Live Stream</span>
                 </span>
                 <span class="live-tag">
                   <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24">
@@ -814,37 +858,30 @@
                   </svg>
                   <span>40 Minutes Focus</span>
                 </span>
-                <span class="live-tag">
-                  <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                  </svg>
-                  <span>Business &amp; Language Roadmap</span>
-                </span>
-                <span class="live-tag">
-                  <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
-                  <span>800+ Partner CIT Centres</span>
-                </span>
+                <a href="https://docs.zoom.us/agenda/doc/066f015a-a641-44d9-b6f5-fbeede76867c" target="_blank" rel="noopener" class="live-tag" style="text-decoration: none; color: inherit;">
+                  <i class="fa-solid fa-clipboard-list" style="margin-right: 4px;"></i>
+                  <span>Agenda Doc</span>
+                </a>
+                <a href="https://us06web.zoom.us/meeting/tZYucOurqjMiH91VJI7Pd2q5OwGyVcJloE7T/ics?icsToken=DM1tECHdzMYexN5ezAAALAAAAEs2CfbmfwTwiideDTs1nblfBs1yfIp38MpZY-8qUddgbxB6s2eYtKgFW3z297PW7G2xdQ3aKdK2T6IJrzAwMDAwMg&meetingMasterEventId=_Eq-GPPkRR-7g8SdiO2uGA" target="_blank" rel="noopener" class="live-tag" style="text-decoration: none; color: inherit;">
+                  <i class="fa-solid fa-calendar-days" style="margin-right: 4px;"></i>
+                  <span>Calendar .ics</span>
+                </a>
               </div>
 
               <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px;">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf1kWwmZvChlBLqlaJB-rnXnzKOUajsQUT1aKnx-uHdvF6wLw/viewform"
+                <a href="https://us06web.zoom.us/j/82372348859?pwd=pCsrMhFb1wW8bXUwb0jalWC5cAP1RT.1"
                   target="_blank" rel="noopener" class="btn btn-red btn-lg">
-                  <span>Join Free Zoom Workshop (10 PM)</span>
-                  <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
+                  <i class="fa-solid fa-video" style="margin-right: 6px;"></i>
+                  <span>Join Zoom Stream (10 PM)</span>
+                  <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i>
                 </a>
-                <a href="https://wa.me/923229223022?text=Hello%20ICTS%20Team,%20I%20want%20to%20attend%20the%20Free%2010%20PM%20Zoom%20Workshop"
+                <button type="button" class="btn btn-yellow btn-lg open-workshop-modal" data-open-workshop-modal>
+                  <i class="fa-solid fa-key" style="margin-right: 6px;"></i>
+                  <span>View Full Details &amp; Mobile Links</span>
+                </button>
+                <a href="https://wa.me/923229223022?text=Hello%20ICTS%20Team,%20please%20send%20me%20the%20Chinese%20Language%20%26%20Business%20Promotional%20Workshop%20link"
                   target="_blank" rel="noopener" class="btn btn-outline btn-lg">
-                  <svg class="icon-stroke" width="16" height="16" viewBox="0 0 24 24">
-                    <path d="M21 11.5a8.4 8.4 0 01-12.6 7.3L3 20.5l1.8-5.3A8.4 8.4 0 1121 11.5z"></path>
-                  </svg>
-                  <span>Inquire on WhatsApp</span>
+                  <span>WhatsApp Support</span>
                 </a>
               </div>
             </div>
@@ -854,7 +891,7 @@
               <div class="time-banner">
                 <div class="time-days">Monday to Thursday</div>
                 <div class="time-clock" id="liveTimeClock">10:00 PM</div>
-                <div class="time-tz">Pakistan Standard Time (PKT)</div>
+                <div class="time-tz">Islamabad, Karachi, Tashkent (PKT)</div>
               </div>
 
               <!-- Realtime Countdown Strip -->
@@ -875,10 +912,7 @@
 
               <div class="session-duration-pill"
                 style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-                <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
+                <i class="fa-regular fa-clock" style="font-size: 14px;"></i>
                 <span>Live Duration: 40 Minutes Focus Session</span>
               </div>
             </div>
@@ -1272,11 +1306,13 @@
                   <label class="form-label" for="formTrack" style="font-weight: 800;">Track / Program of Interest
                     *</label>
                   <select class="form-input" id="formTrack" required>
-                    <option value="HSK 1-2 Beginners">HSK 1–2 Beginners (PKR 20,000)</option>
-                    <option value="HSK 3-4 Intermediate">HSK 3–4 Intermediate (PKR 40,000)</option>
-                    <option value="YCT Kids Chinese">YCT Kids Chinese (PKR 15,000 / 30,000)</option>
-                    <option value="BCT Business Chinese">BCT Business Chinese (PKR 40,000)</option>
-                    <option value="Daily Free 10 PM Zoom Workshop">Free 10 PM Zoom Workshop</option>
+                    <option value="HSK 1-2 Beginners">HSK 1–2 Beginners Track</option>
+                    <option value="HSK 3-4 Intermediate">HSK 3–4 Intermediate Track</option>
+                    <option value="HSK 5-6 Advanced">HSK 5–6 Advanced Academic Track</option>
+                    <option value="YCT Kids Chinese">YCT Kids Chinese (Ages 6–15)</option>
+                    <option value="BCT Business Chinese">BCT Business Chinese for Executives</option>
+                    <option value="Daily Free 10 PM Zoom Workshop">Chinese Language &amp; Business Promotional Workshop</option>
+                    <option value="Center Setup Consultancy">Chinese Language Center Setup Advisory</option>
                     <option value="Project Management & EVM">Project Management Consultancy</option>
                     <option value="ICT & Digital Solutions">ICT &amp; Digital Solutions</option>
                     <option value="CIT Partner Centre Affiliation">Partner Centre Affiliation</option>
@@ -1410,6 +1446,87 @@
       <path d="M21 11.5a8.4 8.4 0 01-12.6 7.3L3 20.5l1.8-5.3A8.4 8.4 0 1121 11.5z"></path>
     </svg>
   </a>
+
+  <!-- ================= LIVE WORKSHOP DETAILS MODAL ================= -->
+  <div class="workshop-modal-backdrop" id="workshopModal" role="dialog" aria-modal="true" aria-labelledby="modalWorkshopTitle">
+    <div class="workshop-modal-card">
+      <button type="button" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      
+      <div class="modal-header-badge">
+        <span class="live-radar-dot"></span>
+        <span>FREE SCHEDULED LIVE WORKSHOP</span>
+      </div>
+
+      <h3 class="modal-title" id="modalWorkshopTitle">Chinese Language &amp; Business Promotional Workshop</h3>
+      <p class="modal-sub">
+        ICTS Consulting invites you to our recurring Live Zoom Interactive Workshop. Learn practical spoken Mandarin, student mobilization, institutional exam prep, and the lucrative business commission model.
+      </p>
+
+      <div class="modal-grid-details">
+        <div class="modal-info-box">
+          <div class="modal-info-label">Schedule &amp; Frequency</div>
+          <div class="modal-info-val">
+            <span>Mon, Tue, Wed, Thu · 10:00 PM PKT</span>
+          </div>
+          <div style="font-size: 11.5px; color: #94A3B8; margin-top: 4px;">102 Occurrences · 40 Min Focus</div>
+        </div>
+
+        <div class="modal-info-box">
+          <div class="modal-info-label">Meeting Access</div>
+          <div class="modal-info-val">
+            <span>Online Zoom Live</span>
+            <span style="color: #4ADE80; font-size: 12px; font-weight: 800;">● Free Entry</span>
+          </div>
+          <div style="font-size: 11.5px; color: #94A3B8; margin-top: 4px;">Islamabad, Karachi, Tashkent</div>
+        </div>
+
+        <div class="modal-info-box">
+          <div class="modal-info-label">Meeting ID</div>
+          <div class="modal-info-val">
+            <span style="font-family: var(--font-mono); color: var(--yellow-main);">823 7234 8859</span>
+            <button type="button" class="modal-copy-btn" data-copy-text="82372348859">Copy ID</button>
+          </div>
+        </div>
+
+        <div class="modal-info-box">
+          <div class="modal-info-label">Passcode</div>
+          <div class="modal-info-val">
+            <span style="font-family: var(--font-mono); color: var(--yellow-main);">893624</span>
+            <button type="button" class="modal-copy-btn" data-copy-text="893624">Copy Code</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-links-list">
+        <a href="https://docs.zoom.us/agenda/doc/066f015a-a641-44d9-b6f5-fbeede76867c" target="_blank" rel="noopener" class="modal-link-item">
+          <span><i class="fa-solid fa-file-lines" style="color: var(--yellow-main); margin-right: 8px;"></i> View Meeting Agenda Document</span>
+          <span>Open →</span>
+        </a>
+        <a href="https://us06web.zoom.us/meeting/tZYucOurqjMiH91VJI7Pd2q5OwGyVcJloE7T/ics?icsToken=DM1tECHdzMYexN5ezAAALAAAAEs2CfbmfwTwiideDTs1nblfBs1yfIp38MpZY-8qUddgbxB6s2eYtKgFW3z297PW7G2xdQ3aKdK2T6IJrzAwMDAwMg&meetingMasterEventId=_Eq-GPPkRR-7g8SdiO2uGA" target="_blank" rel="noopener" class="modal-link-item">
+          <span><i class="fa-solid fa-calendar-days" style="color: var(--yellow-main); margin-right: 8px;"></i> Download Calendar Invite (.ics file)</span>
+          <span>Download →</span>
+        </a>
+        <a href="https://us06web.zoom.us/meetings/82372348859/invitations?signature=ai4GMZNCc-dWDzg7JZdpvG2DcEHmtui0jChBPEUmA5s" target="_blank" rel="noopener" class="modal-link-item">
+          <span><i class="fa-solid fa-circle-info" style="color: var(--yellow-main); margin-right: 8px;"></i> Full Join Instructions &amp; SIP Guide (82372348859@zoomcrc.com)</span>
+          <span>Read →</span>
+        </a>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.04); border-radius: var(--radius-md); padding: 12px; font-size: 12px; color: #94A3B8; margin-bottom: 20px;">
+        <b>One-Tap Mobile:</b> <a href="tel:+13052241968,,82372348859#,,,,*893624#" style="color: var(--yellow-main);">+13052241968,,82372348859#</a> · <a href="tel:+13092053325,,82372348859#,,,,*893624#" style="color: var(--yellow-main);">+13092053325,,82372348859#</a>
+      </div>
+
+      <div class="modal-actions-row">
+        <a href="https://us06web.zoom.us/j/82372348859?pwd=pCsrMhFb1wW8bXUwb0jalWC5cAP1RT.1" target="_blank" rel="noopener" class="btn btn-yellow btn-lg">
+          <span>Join Live Zoom Stream Now</span>
+          <svg class="icon-stroke" width="16" height="16" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <a href="https://wa.me/923229223022?text=Hello%20ICTS,%20I%20need%20assistance%20joining%20the%20Chinese%20Language%20%26%20Business%20Promotional%20Workshop" target="_blank" rel="noopener" class="btn btn-outline btn-lg">
+          <span>WhatsApp Assistance</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script src="app.js"></script>

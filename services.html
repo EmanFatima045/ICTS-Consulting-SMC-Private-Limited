@@ -4,11 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Professional Services | ICTS Consulting</title>
+  <title>Professional Services &amp; Center Setup Consultancy | ICTS Consulting</title>
   <meta name="description"
-    content="ICTS Consulting delivers integrated corporate services: Project Management (EVM, Primavera P6), ICT & Digital Solutions, and Business Promotion Consultancy for China-Pakistan trade.">
+    content="ICTS Consulting delivers integrated corporate services: Chinese Language & Training Center Setup Consultancy, Project Management (EVM, Primavera P6), ICT & Digital Solutions, and Business Promotion Consultancy for China-Pakistan trade.">
   <link rel="icon" type="image/jpeg" href="assests/icts_logo_clean.png">
-  <link rel="stylesheet" href="style.css?v=3">
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 
 <body>
@@ -28,97 +30,267 @@
       <!-- Desktop Navigation Menu -->
       <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
         <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About</a>
+        <a href="about.html" class="nav-link">About Us</a>
         <a href="services.html" class="nav-link active">Services</a>
-        <a href="courses.html" class="nav-link">Courses</a>
-        <a href="events.html" class="nav-link">Events</a>
+        <a href="courses.html" class="nav-link">Chinese Courses</a>
+        <a href="events.html" class="nav-link">Events &amp; Workshop</a>
         <a href="collaboration.html" class="nav-link">Collaboration</a>
         <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
-      <!-- Nav Actions -->
-      <div class="nav-actions">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform"
-          target="_blank" rel="noopener" class="btn btn-yellow btn-sm">
-          <span>Register Course</span>
-          <svg class="icon-stroke" width="13" height="13" viewBox="0 0 24 24">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
+      <!-- Header CTAs -->
+      <div class="header-actions">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+          <svg class="sun-icon icon-stroke" width="18" height="18" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
+          <svg class="moon-icon icon-stroke" width="18" height="18" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <a href="services.html#center-setup" class="btn btn-yellow btn-sm header-quote-btn">
+          <span>Open a Center</span>
         </a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span class="hamburger-bar"></span>
-          <span class="hamburger-bar"></span>
-          <span class="hamburger-bar"></span>
+
+        <!-- Hamburger Toggle -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open Navigation Menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- ================= LIVE WORKSHOP BROADCAST BANNER (AFTER HEADER) ================= -->
+  <!-- ================= LIVE WORKSHOP BROADCAST BANNER (CONTINUOUS MOVING WORDS TICKER) ================= -->
   <aside class="live-workshop-bar" aria-label="Live Workshop Announcement">
-    <div class="container live-workshop-inner">
-      <div class="live-workshop-left">
-        <div class="live-badge-glow">
-          <span class="live-radar-dot"></span>
-          <span class="live-badge-text">🔴 LIVE</span>
+    <div class="live-marquee-container">
+      <div class="live-marquee-track">
+        <!-- Set 1 -->
+        <div class="marquee-group">
+          <div class="live-badge-glow">
+            <span class="live-dot-pulse"></span>
+            <span class="live-badge-text">LIVE WORKSHOP</span>
+          </div>
+          <div class="live-workshop-info">
+            <span class="live-workshop-title">CHINESE LANGUAGE &amp; BUSINESS PROMOTIONAL WORKSHOP</span>
+            <span class="marquee-divider">·</span>
+            <span class="live-workshop-schedule">Every week on Mon, Tue, Wed, Thu at <b>10:00 PM PKT</b> (Islamabad, Karachi, Tashkent)</span>
+            <span class="marquee-divider">·</span>
+            <span class="live-badge-detail">Meeting ID: 823 7234 8859</span>
+            <span class="live-badge-detail">Passcode: 893624</span>
+          </div>
+          <div class="live-marquee-actions">
+            <a href="https://us06web.zoom.us/j/82372348859?pwd=pCsrMhFb1wW8bXUwb0jalWC5cAP1RT.1" target="_blank" rel="noopener" class="live-join-btn">
+              <i class="fa-solid fa-video" style="margin-right: 5px;"></i>
+              <span>Join Zoom Stream</span>
+            </a>
+            <a href="https://docs.zoom.us/agenda/doc/066f015a-a641-44d9-b6f5-fbeede76867c" target="_blank" rel="noopener" class="live-agenda-btn">
+              <i class="fa-solid fa-clipboard-list" style="margin-right: 5px;"></i>
+              <span>Meeting Agenda</span>
+            </a>
+            <button type="button" class="live-modal-btn open-workshop-modal" data-open-workshop-modal>
+              <i class="fa-solid fa-key" style="margin-right: 5px;"></i>
+              <span>Full Meeting Details</span>
+            </button>
+            <a href="#center-setup" class="live-center-btn">
+              <i class="fa-solid fa-building-columns" style="margin-right: 5px;"></i>
+              <span>Open Chinese Center</span>
+            </a>
+          </div>
         </div>
-        <div class="live-workshop-info">
-          <span class="live-workshop-title">FREE LIVE ZOOM WORKSHOP:</span>
-          <span class="live-workshop-schedule">Mon to Thu at <b>10:00 PM PKT</b> · 40 Minutes Focus</span>
+
+        <!-- Set 2 (Duplicate for Seamless Infinite Marquee Loop) -->
+        <div class="marquee-group">
+          <div class="live-badge-glow">
+            <span class="live-dot-pulse"></span>
+            <span class="live-badge-text">LIVE WORKSHOP</span>
+          </div>
+          <div class="live-workshop-info">
+            <span class="live-workshop-title">CHINESE LANGUAGE &amp; BUSINESS PROMOTIONAL WORKSHOP</span>
+            <span class="marquee-divider">·</span>
+            <span class="live-workshop-schedule">Every week on Mon, Tue, Wed, Thu at <b>10:00 PM PKT</b> (Islamabad, Karachi, Tashkent)</span>
+            <span class="marquee-divider">·</span>
+            <span class="live-badge-detail">Meeting ID: 823 7234 8859</span>
+            <span class="live-badge-detail">Passcode: 893624</span>
+          </div>
+          <div class="live-marquee-actions">
+            <a href="https://us06web.zoom.us/j/82372348859?pwd=pCsrMhFb1wW8bXUwb0jalWC5cAP1RT.1" target="_blank" rel="noopener" class="live-join-btn">
+              <i class="fa-solid fa-video" style="margin-right: 5px;"></i>
+              <span>Join Zoom Stream</span>
+            </a>
+            <a href="https://docs.zoom.us/agenda/doc/066f015a-a641-44d9-b6f5-fbeede76867c" target="_blank" rel="noopener" class="live-agenda-btn">
+              <i class="fa-solid fa-clipboard-list" style="margin-right: 5px;"></i>
+              <span>Meeting Agenda</span>
+            </a>
+            <button type="button" class="live-modal-btn open-workshop-modal" data-open-workshop-modal>
+              <i class="fa-solid fa-key" style="margin-right: 5px;"></i>
+              <span>Full Meeting Details</span>
+            </button>
+            <a href="#center-setup" class="live-center-btn">
+              <i class="fa-solid fa-building-columns" style="margin-right: 5px;"></i>
+              <span>Open Chinese Center</span>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="live-workshop-right">
-        <a href="collaboration.html#cit-partnership" class="live-center-btn" title="Open Chinese Center">
-          <span>🏛️ Open Chinese Center</span>
-        </a>
-        <a href="https://wa.me/923229223022?text=Hello%20ICTS,%20please%20send%20me%20the%20Free%20Live%20Zoom%20Workshop%20link"
-          target="_blank" rel="noopener" class="live-join-btn">
-          <span>Join Free Stream</span>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-        <a href="tel:+924235450375" class="live-contact-link" title="Landline Phone">
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-            <path
-              d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8.1 9.9a16 16 0 006 6l1.3-1.2a2 2 0 012.1-.5c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z">
-            </path>
-          </svg>
-          +92 423 5450375
-        </a>
-        <a href="https://wa.me/923229223022" target="_blank" rel="noopener" class="live-contact-link"
-          title="Official WhatsApp">
-          <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-            <path d="M21 11.5a8.4 8.4 0 01-12.6 7.3L3 20.5l1.8-5.3A8.4 8.4 0 1121 11.5z"></path>
-          </svg>
-          WhatsApp
-        </a>
       </div>
     </div>
   </aside>
 
-
   <!-- ================= PAGE HERO BANNER ================= -->
-  <section class="page-hero">
+  <header class="page-hero">
     <div class="container">
-      <span class="page-hero-badge">Turnkey Corporate Solutions</span>
-      <h1 class="page-hero-title">Integrated Professional Services</h1>
-      <p class="page-hero-subtitle">
-        Empowering organizations and growth-minded businesses with advanced Project Management, Information &amp;
-        Communication Technology, and bilateral Business Promotion Consultancy.
+      <span class="badge badge-yellow">Integrated Solutions</span>
+      <h1 class="page-hero-title">Our Professional Services</h1>
+      <p class="page-hero-desc">
+        Empowering institutional excellence, corporate expansion, digital infrastructure, and China-Pakistan trade connectivity.
       </p>
-      <div class="breadcrumb-nav">
-        <a href="index.html">Home</a> <span>/</span> <span>Services</span>
-      </div>
     </div>
-  </section>
+  </header>
 
   <!-- ================= MAIN CONTENT ================= -->
   <main>
+
+    <!-- ================= FEATURED SECTION: OPEN A CHINESE LANGUAGE CENTER ================= -->
+    <section class="section-pad center-setup-section" id="center-setup">
+      <div class="container">
+        <div style="text-align: center; max-width: 860px; margin: 0 auto 36px;" class="reveal">
+          <span class="center-header-badge"><i class="fa-solid fa-building-columns" style="margin-right: 6px;"></i> Turnkey Educational Advisory</span>
+          <h2 class="sec-title" style="margin-bottom: 12px;">Establish Your Own Chinese Language &amp; Training Center</h2>
+          <p class="sec-desc" style="font-size: 17px; line-height: 1.6;">
+            <b>Our seasoned professionals and education consultants guide you step-by-step on how to open, license, equip, staff, and run a high-performing Chinese Language &amp; Training Center.</b> From initial feasibility and smart classroom setup to curriculum licensing and student admissions, ICTS provides end-to-end turnkey advisory.
+          </p>
+        </div>
+
+        <div class="center-setup-grid reveal-stagger reveal">
+          <!-- Pillar 1 -->
+          <div class="center-step-card stagger-item">
+            <div class="center-step-header">
+              <span class="center-step-num">Step 01</span>
+              <span class="center-step-icon"><i class="fa-solid fa-chart-line"></i></span>
+            </div>
+            <h4>Feasibility &amp; Business Planning</h4>
+            <div class="center-step-subtitle">Strategic Model &amp; Location</div>
+            <p>Comprehensive market analysis, student catchment assessment, operational budgeting, and viable revenue model tailored to your target city or institution.</p>
+            <ul class="center-step-checklist">
+              <li>Demographic &amp; school catchment study</li>
+              <li>Capital expenditure &amp; operational budgeting</li>
+              <li>Break-even &amp; cash flow projections</li>
+            </ul>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="center-step-card stagger-item">
+            <div class="center-step-header">
+              <span class="center-step-num">Step 02</span>
+              <span class="center-step-icon"><i class="fa-solid fa-file-contract"></i></span>
+            </div>
+            <h4>Licensing &amp; Official Accreditations</h4>
+            <div class="center-step-subtitle">Regulatory Compliance</div>
+            <p>Complete regulatory navigation, center registration, Ministry of Education alignment, and international testing affiliation assistance.</p>
+            <ul class="center-step-checklist">
+              <li>Institutional licensing &amp; documentation</li>
+              <li>HSK Mock test platform partnership setup</li>
+              <li>Verifiable certificate issuing framework</li>
+            </ul>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="center-step-card stagger-item">
+            <div class="center-step-header">
+              <span class="center-step-num">Step 03</span>
+              <span class="center-step-icon"><i class="fa-solid fa-display"></i></span>
+            </div>
+            <h4>Smart Classroom &amp; Tech Setup</h4>
+            <div class="center-step-subtitle">Digital Infrastructure</div>
+            <p>State-of-the-art interactive smart screens, audio-visual multimedia equipment, student attendance portals, and Zoom live streaming broadcasting hardware.</p>
+            <ul class="center-step-checklist">
+              <li>Smart touch screen &amp; projector installation</li>
+              <li>Dual-audio interactive Zoom classroom setup</li>
+              <li>Cloud LMS and student tracking portal</li>
+            </ul>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="center-step-card stagger-item">
+            <div class="center-step-header">
+              <span class="center-step-num">Step 04</span>
+              <span class="center-step-icon"><i class="fa-solid fa-book-open-reader"></i></span>
+            </div>
+            <h4>Curriculum &amp; Books Supply</h4>
+            <div class="center-step-subtitle">Official Ministry Syllabus</div>
+            <p>Direct provision of official HSK 1–6 Standard Coursebooks, YCT Kids gamified flashcards, BCT business handbooks, and AI-graded mock exam platform access.</p>
+            <ul class="center-step-checklist">
+              <li>Official HSK 1–6 textbooks &amp; workbooks</li>
+              <li>YCT gamified visual flashcard curriculum</li>
+              <li>Exclusive Wo Hui Mandarin mock platform access</li>
+            </ul>
+          </div>
+
+          <!-- Pillar 5 -->
+          <div class="center-step-card stagger-item">
+            <div class="center-step-header">
+              <span class="center-step-num">Step 05</span>
+              <span class="center-step-icon"><i class="fa-solid fa-chalkboard-user"></i></span>
+            </div>
+            <h4>Faculty Recruitment &amp; Training</h4>
+            <div class="center-step-subtitle">Certified Instructors</div>
+            <p>Professional screening and recruitment of native and certified bilingual Chinese language teachers, accompanied by pedagogical training and lesson plan mastery.</p>
+            <ul class="center-step-checklist">
+              <li>Instructor vetting &amp; oral fluency audit</li>
+              <li>Standardized teaching methodology training</li>
+              <li>Teacher lesson plans &amp; evaluation rubrics</li>
+            </ul>
+          </div>
+
+          <!-- Pillar 6 -->
+          <div class="center-step-card stagger-item">
+            <div class="center-step-header">
+              <span class="center-step-num">Step 06</span>
+              <span class="center-step-icon"><i class="fa-solid fa-rocket"></i></span>
+            </div>
+            <h4>Admissions &amp; Marketing Launch</h4>
+            <div class="center-step-subtitle">Student Mobilization</div>
+            <p>Proven digital marketing campaigns, school orientation webinars, opening ceremony coordination, and student mobilization funnels to ensure packed batches.</p>
+            <ul class="center-step-checklist">
+              <li>Hyper-local social media lead generation</li>
+              <li>Free live Zoom workshop demo sessions</li>
+              <li>Corporate &amp; school institutional alliances</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Consultation Banner -->
+        <div class="center-consult-banner reveal">
+          <div class="center-consult-text">
+            <h3>Ready to Open a Chinese Center in Your City?</h3>
+            <p>Book a confidential consultation session with ICTS senior education consultants. We provide complete setup blueprints, equipment lists, and financial forecasts.</p>
+          </div>
+          <div class="center-consult-actions">
+            <a href="https://wa.me/923229223022?text=Hello%20ICTS,%20I%20want%20guidance%20from%20your%20professionals%20on%20how%20to%20open%20a%20Chinese%20Language%20Center" target="_blank" rel="noopener" class="btn btn-dark btn-lg">
+              <span>Chat with Center Advisor</span>
+              <svg class="icon-stroke" width="16" height="16" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.3A8.4 8.4 0 1 1 21 11.5z"></path></svg>
+            </a>
+            <a href="contact.html" class="btn btn-red btn-lg">
+              <span>Book Appointment →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= PILLAR 1: PROJECT MANAGEMENT ================= -->
-    <section class="section-pad bg-white" id="project-management">
+    <section class="section-pad bg-cream" id="project-management">
       <div class="container">
         <div class="pillar-header-lockup reveal">
           <span class="pillar-badge-tag">Pillar 01</span>
@@ -192,7 +364,7 @@
     </section>
 
     <!-- ================= PILLAR 2: ICT & DIGITAL SERVICES ================= -->
-    <section class="section-pad bg-cream" id="ict-digital">
+    <section class="section-pad bg-white" id="ict-digital">
       <div class="container">
         <div class="pillar-header-lockup reveal">
           <span class="pillar-badge-tag">Pillar 02</span>
@@ -265,8 +437,8 @@
       </div>
     </section>
 
-    <!-- ================= PILLAR 4: BUSINESS PROMOTION CONSULTANCY ================= -->
-    <section class="section-pad bg-white" id="business-promotion">
+    <!-- ================= PILLAR 3: BUSINESS PROMOTION CONSULTANCY ================= -->
+    <section class="section-pad bg-cream" id="business-promotion">
       <div class="container">
         <div class="pillar-header-lockup reveal">
           <span class="pillar-badge-tag">Pillar 03</span>
@@ -346,6 +518,87 @@
     </section>
   </main>
 
+  <!-- ================= LIVE WORKSHOP DETAILS MODAL ================= -->
+  <div class="workshop-modal-backdrop" id="workshopModal" role="dialog" aria-modal="true" aria-labelledby="modalWorkshopTitle">
+    <div class="workshop-modal-card">
+      <button type="button" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      
+      <div class="modal-header-badge">
+        <span class="live-radar-dot"></span>
+        <span>FREE SCHEDULED LIVE WORKSHOP</span>
+      </div>
+
+      <h3 class="modal-title" id="modalWorkshopTitle">Chinese Language &amp; Business Promotional Workshop</h3>
+      <p class="modal-sub">
+        ICTS Consulting invites you to our recurring Live Zoom Interactive Workshop. Learn practical spoken Mandarin, student mobilization, institutional exam prep, and the lucrative business commission model.
+      </p>
+
+      <div class="modal-grid-details">
+        <div class="modal-info-box">
+          <div class="modal-info-label">Schedule &amp; Frequency</div>
+          <div class="modal-info-val">
+            <span>Mon, Tue, Wed, Thu · 10:00 PM PKT</span>
+          </div>
+          <div style="font-size: 11.5px; color: #94A3B8; margin-top: 4px;">102 Occurrences · 40 Min Focus</div>
+        </div>
+
+        <div class="modal-info-box">
+          <div class="modal-info-label">Meeting Access</div>
+          <div class="modal-info-val">
+            <span>Online Zoom Live</span>
+            <span style="color: #4ADE80; font-size: 12px; font-weight: 800;">● Free Entry</span>
+          </div>
+          <div style="font-size: 11.5px; color: #94A3B8; margin-top: 4px;">Islamabad, Karachi, Tashkent</div>
+        </div>
+
+        <div class="modal-info-box">
+          <div class="modal-info-label">Meeting ID</div>
+          <div class="modal-info-val">
+            <span style="font-family: var(--font-mono); color: var(--yellow-main);">823 7234 8859</span>
+            <button type="button" class="modal-copy-btn" data-copy-text="82372348859">Copy ID</button>
+          </div>
+        </div>
+
+        <div class="modal-info-box">
+          <div class="modal-info-label">Passcode</div>
+          <div class="modal-info-val">
+            <span style="font-family: var(--font-mono); color: var(--yellow-main);">893624</span>
+            <button type="button" class="modal-copy-btn" data-copy-text="893624">Copy Code</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-links-list">
+        <a href="https://docs.zoom.us/agenda/doc/066f015a-a641-44d9-b6f5-fbeede76867c" target="_blank" rel="noopener" class="modal-link-item">
+          <span><i class="fa-solid fa-file-lines" style="color: var(--yellow-main); margin-right: 8px;"></i> View Meeting Agenda Document</span>
+          <span>Open →</span>
+        </a>
+        <a href="https://us06web.zoom.us/meeting/tZYucOurqjMiH91VJI7Pd2q5OwGyVcJloE7T/ics?icsToken=DM1tECHdzMYexN5ezAAALAAAAEs2CfbmfwTwiideDTs1nblfBs1yfIp38MpZY-8qUddgbxB6s2eYtKgFW3z297PW7G2xdQ3aKdK2T6IJrzAwMDAwMg&meetingMasterEventId=_Eq-GPPkRR-7g8SdiO2uGA" target="_blank" rel="noopener" class="modal-link-item">
+          <span><i class="fa-solid fa-calendar-days" style="color: var(--yellow-main); margin-right: 8px;"></i> Download Calendar Invite (.ics file)</span>
+          <span>Download →</span>
+        </a>
+        <a href="https://us06web.zoom.us/meetings/82372348859/invitations?signature=ai4GMZNCc-dWDzg7JZdpvG2DcEHmtui0jChBPEUmA5s" target="_blank" rel="noopener" class="modal-link-item">
+          <span><i class="fa-solid fa-circle-info" style="color: var(--yellow-main); margin-right: 8px;"></i> Full Join Instructions &amp; SIP Guide (82372348859@zoomcrc.com)</span>
+          <span>Read →</span>
+        </a>
+      </div>
+
+      <div style="background: rgba(255,255,255,0.04); border-radius: var(--radius-md); padding: 12px; font-size: 12px; color: #94A3B8; margin-bottom: 20px;">
+        <b>One-Tap Mobile:</b> <a href="tel:+13052241968,,82372348859#,,,,*893624#" style="color: var(--yellow-main);">+13052241968,,82372348859#</a> · <a href="tel:+13092053325,,82372348859#,,,,*893624#" style="color: var(--yellow-main);">+13092053325,,82372348859#</a>
+      </div>
+
+      <div class="modal-actions-row">
+        <a href="https://us06web.zoom.us/j/82372348859?pwd=pCsrMhFb1wW8bXUwb0jalWC5cAP1RT.1" target="_blank" rel="noopener" class="btn btn-yellow btn-lg">
+          <span>Join Live Zoom Stream Now</span>
+          <svg class="icon-stroke" width="16" height="16" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <a href="https://wa.me/923229223022?text=Hello%20ICTS,%20I%20need%20assistance%20joining%20the%20Chinese%20Language%20%26%20Business%20Promotional%20Workshop" target="_blank" rel="noopener" class="btn btn-outline btn-lg">
+          <span>WhatsApp Assistance</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- ================= SITE FOOTER ================= -->
   <footer class="site-footer">
     <div class="container">
@@ -397,7 +650,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Company</a></li>
             <li><a href="services.html">Professional Services</a></li>
-            <li><a href="courses.html">Courses &amp; Fees</a></li>
+            <li><a href="courses.html">Courses &amp; Curriculum</a></li>
             <li><a href="events.html">Events &amp; Activities</a></li>
             <li><a href="collaboration.html">Collaboration</a></li>
             <li><a href="contact.html">Contact &amp; Admissions</a></li>
@@ -407,9 +660,9 @@
         <div class="footer-col">
           <h4 class="footer-col-title">Services</h4>
           <ul class="footer-links">
+            <li><a href="services.html#center-setup">Open Chinese Center Advisory</a></li>
             <li><a href="services.html#project-management">Project Management &amp; EVM</a></li>
             <li><a href="services.html#ict-digital">ICT &amp; Digital Transformation</a></li>
-            <li><a href="courses.html">Mandarin Chinese Training</a></li>
             <li><a href="services.html#business-promotion">Business Promotion &amp; Trade</a></li>
           </ul>
         </div>
