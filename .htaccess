@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------
-# ICTS Consulting - Apache / cPanel Server Configuration
+# ICTS Consulting - High Performance Apache / cPanel / CDN Configuration
 # ----------------------------------------------------------------------
 
 # 1. Prevent Directory Browsing
@@ -8,24 +8,48 @@ Options -Indexes
 # 2. Default Charset
 AddDefaultCharset UTF-8
 
-# 3. Proper MIME Types
+# 3. Proper MIME Types & Web App Manifest
 AddType text/html .html
 AddType text/css .css
 AddType application/javascript .js
 AddType image/jpeg .jpeg .jpg
 AddType image/png .png
 AddType image/svg+xml .svg
+AddType image/x-icon .ico
+AddType application/manifest+json .webmanifest
+AddType font/woff2 .woff2
+AddType font/woff .woff
 
 # 4. Enable Gzip Compression (mod_deflate)
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json application/xml image/svg+xml
 </IfModule>
 
-# 5. Browser Caching for Static Assets (mod_expires)
+# 5. Browser Caching for Static Assets (mod_expires & mod_headers)
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType image/jpeg "access plus 1 month"
-  ExpiresByType image/png "access plus 1 month"
-  ExpiresByType text/css "access plus 1 week"
-  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresDefault "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType application/manifest+json "access plus 1 week"
+  ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ico|jpe?g|png|svg|woff2?)$">
+    Header set Cache-Control "max-age=31536000, public, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "max-age=2592000, public"
+  </FilesMatch>
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "max-age=3600, public, must-revalidate"
+  </FilesMatch>
+  Header set X-Content-Type-Options "nosniff"
 </IfModule>

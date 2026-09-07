@@ -1,0 +1,31 @@
+{
+  "name": "ICTS Consulting (SMC-Private) Limited",
+  "short_name": "ICTS Consulting",
+  "icons": [
+    {
+      "src": "assests/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "assests/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "assests/apple-touch-icon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "assests/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0B0E17",
+  "theme_color": "#A81B1B"
+}

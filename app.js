@@ -270,26 +270,29 @@ function initCalculator() {
   };
 
   function calculate() {
-    if (!studentRange || !trackSelect || !batchesPerYear) return;
+    if (!studentRange) return;
 
-    const students = parseInt(studentRange.value, 10);
-    const trackKey = trackSelect.value;
-    const batches = parseInt(batchesPerYear.value, 10);
+    const val = parseInt(studentRange.value, 10);
+    const trackKey = trackSelect ? trackSelect.value : 'hsk1_2';
     const trackInfo = courseFees[trackKey] || courseFees.hsk1_2;
 
-    const batchEarning = students * trackInfo.commissionPerStudent;
-    const annualEarning = batchEarning * batches;
-
     if (studentValDisplay) {
-      studentValDisplay.textContent = `${students} Students`;
+      if (studentValDisplay.id === 'studentValDisplay' && document.getElementById('study-advisory')) {
+        studentValDisplay.textContent = `${val} Hours/Week`;
+      } else {
+        studentValDisplay.textContent = `${val} Students`;
+      }
     }
 
-    if (batchCommissionDisplay) {
+    if (batchesPerYear && batchCommissionDisplay) {
+      const batches = parseInt(batchesPerYear.value, 10) || 1;
+      const batchEarning = val * trackInfo.commissionPerStudent;
+      const annualEarning = batchEarning * batches;
+
       batchCommissionDisplay.textContent = `PKR ${batchEarning.toLocaleString('en-US')}`;
-    }
-
-    if (annualCommissionDisplay) {
-      annualCommissionDisplay.textContent = annualEarning.toLocaleString('en-US');
+      if (annualCommissionDisplay) {
+        annualCommissionDisplay.textContent = annualEarning.toLocaleString('en-US');
+      }
     }
 
     if (calcResAmountBox) {
