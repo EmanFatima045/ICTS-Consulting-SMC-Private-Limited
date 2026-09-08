@@ -2693,7 +2693,7 @@ h3 i {
 .live-workshop-card {
   position: relative;
   background: linear-gradient(135deg, rgba(8, 12, 22, 0.90) 0%, rgba(15, 20, 32, 0.85) 50%, rgba(8, 12, 22, 0.92) 100%),
-              url('assests/workshop_bg.jpg') center center / cover no-repeat;
+              url('assests/workshop_bg.webp') center center / cover no-repeat;
   color: #FFFCEF;
   border: 2.5px solid #F1CF54;
   border-radius: var(--radius-xl);
@@ -2708,7 +2708,7 @@ h3 i {
 
 [data-theme="dark"] .live-workshop-card {
   background: linear-gradient(135deg, rgba(4, 7, 14, 0.93) 0%, rgba(10, 14, 24, 0.88) 50%, rgba(4, 7, 14, 0.94) 100%),
-              url('assests/workshop_bg.jpg') center center / cover no-repeat;
+              url('assests/workshop_bg.webp') center center / cover no-repeat;
   border: 2.5px solid var(--yellow-main);
   box-shadow: 0 24px 60px -8px rgba(0, 0, 0, 0.85), 0 0 40px rgba(241, 207, 84, 0.25);
 }
@@ -7263,7 +7263,7 @@ html {
 }
 
 /* ==========================================================================
-   4. YCT LANDMARK MILESTONE SHOWCASE (HOME.PNG ELEGANT SECTION)
+   4. YCT LANDMARK MILESTONE SHOWCASE (HOME.WEBP ELEGANT SECTION)
    ========================================================================== */
 .yct-milestone-section {
   position: relative;
@@ -7371,7 +7371,7 @@ html {
 }
 
 /* ==========================================================================
-   HERO 16:9 CINEMA SHOWCASE FRAME (FOR HOME.PNG & BACKGROUND VIDEO HARMONY)
+   HERO 16:9 CINEMA SHOWCASE FRAME (FOR HOME.WEBP & BACKGROUND VIDEO HARMONY)
    ========================================================================== */
 .hero-cinema-card {
   position: relative;

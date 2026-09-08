@@ -854,7 +854,7 @@ function initAiGuwenChatbot() {
 
       <!-- Floating Launcher Button with 3D Robot Avatar -->
       <button class="ai-guwen-launcher" id="aiGuwenLauncher" aria-label="Open AI gùwèn Chatbot" title="Chat with AI gùwèn">
-        <img src="assests/ai_guwen_robot.jpg" alt="AI gùwèn Robot Avatar" class="ai-guwen-avatar-img">
+        <img src="assests/ai_guwen_robot.webp" alt="AI gùwèn Robot Avatar" class="ai-guwen-avatar-img">
         <span class="ai-guwen-badge-label">AI GÙWÈN</span>
         <span class="ai-guwen-status-dot" title="Online & Ready"></span>
       </button>
@@ -864,7 +864,7 @@ function initAiGuwenChatbot() {
         <!-- Chat Header -->
         <div class="ai-guwen-header">
           <div class="ai-guwen-header-left">
-            <img src="assests/ai_guwen_robot.jpg" alt="AI gùwèn Robot" class="ai-guwen-header-avatar">
+            <img src="assests/ai_guwen_robot.webp" alt="AI gùwèn Robot" class="ai-guwen-header-avatar">
             <div class="ai-guwen-header-info">
               <h4>AI gùwèn <span style="font-size:11px; font-weight:700; color:#F1CF54; background:rgba(241,207,84,0.2); padding:1px 6px; border-radius:99px;">智能顾问</span></h4>
               <span>ICTS Official Advisor · Online 24/7</span>
@@ -1150,7 +1150,7 @@ Connecting businesses across the China-Pakistan economic corridor:
     }
 
     row.innerHTML = `
-      <img src="assests/ai_guwen_robot.jpg" alt="AI gùwèn" class="ai-msg-avatar">
+      <img src="assests/ai_guwen_robot.webp" alt="AI gùwèn" class="ai-msg-avatar">
       <div class="ai-msg-bubble">
         ${htmlContent}
         ${actionBtnsHtml}
@@ -1174,7 +1174,7 @@ Connecting businesses across the China-Pakistan economic corridor:
     indicator.className = 'ai-msg-row bot typing-row';
     indicator.id = 'aiTypingIndicator';
     indicator.innerHTML = `
-      <img src="assests/ai_guwen_robot.jpg" alt="AI gùwèn" class="ai-msg-avatar">
+      <img src="assests/ai_guwen_robot.webp" alt="AI gùwèn" class="ai-msg-avatar">
       <div class="ai-typing-indicator">
         <span></span><span></span><span></span>
       </div>

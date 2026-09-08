@@ -12,6 +12,7 @@ AddDefaultCharset UTF-8
 AddType text/html .html
 AddType text/css .css
 AddType application/javascript .js
+AddType image/webp .webp
 AddType image/jpeg .jpeg .jpg
 AddType image/png .png
 AddType image/svg+xml .svg
@@ -29,6 +30,7 @@ AddType font/woff .woff
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 year"
   ExpiresByType image/x-icon "access plus 1 year"
   ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType image/png "access plus 1 year"
@@ -42,7 +44,7 @@ AddType font/woff .woff
 </IfModule>
 
 <IfModule mod_headers.c>
-  <FilesMatch "\.(ico|jpe?g|png|svg|woff2?)$">
+  <FilesMatch "\.(ico|jpe?g|png|webp|svg|woff2?)$">
     Header set Cache-Control "max-age=31536000, public, immutable"
   </FilesMatch>
   <FilesMatch "\.(css|js)$">

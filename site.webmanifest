@@ -3,24 +3,24 @@
   "short_name": "ICTS Consulting",
   "icons": [
     {
-      "src": "assests/favicon-16x16.png",
+      "src": "assests/favicon-16x16.webp",
       "sizes": "16x16",
-      "type": "image/png"
+      "type": "image/webp"
     },
     {
-      "src": "assests/favicon-32x32.png",
+      "src": "assests/favicon-32x32.webp",
       "sizes": "32x32",
-      "type": "image/png"
+      "type": "image/webp"
     },
     {
-      "src": "assests/apple-touch-icon-180x180.png",
+      "src": "assests/apple-touch-icon-180x180.webp",
       "sizes": "180x180",
-      "type": "image/png"
+      "type": "image/webp"
     },
     {
-      "src": "assests/apple-touch-icon.png",
+      "src": "assests/apple-touch-icon.webp",
       "sizes": "180x180",
-      "type": "image/png",
+      "type": "image/webp",
       "purpose": "any maskable"
     }
   ],
