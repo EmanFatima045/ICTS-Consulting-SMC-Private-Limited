@@ -248,6 +248,12 @@ ol {
   border-bottom: 3.5px solid var(--yellow-main);
   box-shadow: 0 10px 32px rgba(185, 28, 28, 0.45);
   transition: all 0.3s ease;
+  width: 100%;
+}
+
+.site-header .container {
+  max-width: 100%;
+  padding-inline: clamp(12px, 2.5vw, 32px);
 }
 
 .site-header.scrolled {
@@ -761,21 +767,23 @@ ol {
   align-items: center;
   justify-content: space-between;
   padding: 6px 0;
-  gap: clamp(8px, 1.2vw, 20px);
+  gap: clamp(6px, 1vw, 16px);
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .brand-lockup {
   display: flex;
   align-items: center;
-  gap: clamp(6px, 0.8vw, 10px);
+  gap: clamp(5px, 0.6vw, 9px);
   text-decoration: none;
   flex-shrink: 0;
 }
 
 .brand-logo-img {
-  height: clamp(42px, 3.6vw, 52px);
-  max-height: 52px;
+  height: clamp(38px, 3.2vw, 48px);
+  max-height: 48px;
   width: auto;
   display: block;
   border: none !important;
@@ -799,7 +807,7 @@ ol {
 .brand-name {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(14.5px, 1.15vw, 18px);
+  font-size: clamp(13.5px, 1.05vw, 17px);
   letter-spacing: 0.01em;
   color: var(--bg-cream) !important;
   line-height: 1.15;
@@ -808,7 +816,7 @@ ol {
 
 .brand-sub {
   font-family: var(--font-display);
-  font-size: clamp(8.5px, 0.68vw, 10.5px);
+  font-size: clamp(8px, 0.65vw, 10px);
   color: var(--yellow-main) !important;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -818,8 +826,9 @@ ol {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: clamp(2px, 0.45vw, 8px);
+  gap: clamp(1px, 0.3vw, 6px);
   flex-wrap: nowrap;
+  flex-shrink: 1;
 }
 
 /* Mobile drawer helper elements MUST be completely hidden on desktop navbar */
@@ -837,13 +846,13 @@ ol {
 
 .nav-link {
   font-family: var(--font-display);
-  font-size: clamp(12px, 0.9vw, 14px);
+  font-size: clamp(11.5px, 0.78vw, 13px);
   font-weight: 800;
   color: var(--bg-cream) !important;
-  padding: 6px clamp(4px, 0.5vw, 8px);
+  padding: 5px clamp(4px, 0.45vw, 8px);
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
   border-radius: var(--radius-sm);
   transition: all 0.2s;
   position: relative;
@@ -6754,17 +6763,18 @@ html {
     padding: 0 !important;
     flex-direction: row !important;
     align-items: center !important;
-    gap: clamp(2px, 0.45vw, 8px) !important;
+    gap: clamp(1px, 0.3vw, 6px) !important;
     transform: none !important;
     overflow: visible !important;
+    flex-shrink: 1 !important;
   }
 
   .nav-menu .nav-link {
     color: #FFFFFF !important;
     background: transparent !important;
     border: none !important;
-    padding: 6px clamp(4px, 0.55vw, 9px) !important;
-    font-size: clamp(11.5px, 0.82vw, 13.5px) !important;
+    padding: 5px clamp(4px, 0.45vw, 8px) !important;
+    font-size: clamp(11.5px, 0.78vw, 13px) !important;
     font-weight: 800 !important;
     border-radius: var(--radius-sm) !important;
     letter-spacing: 0.01em !important;
@@ -6778,7 +6788,7 @@ html {
     bottom: 0 !important;
     left: 0 !important;
     width: 0 !important;
-    height: 3px !important;
+    height: 2.5px !important;
     background: var(--yellow-main) !important;
     border-radius: 2px !important;
     transition: width 0.25s var(--e-out) !important;
