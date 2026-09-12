@@ -3729,6 +3729,59 @@ a.channel-card:hover {
   border-color: #000000;
 }
 
+.form-category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.category-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 15px;
+  border-radius: 99px;
+  font-family: var(--font-display);
+  font-size: 12.5px;
+  font-weight: 800;
+  background: #FFFFFF;
+  color: #000000;
+  border: 1.5px solid #D9B29C;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.category-pill-btn:hover {
+  border-color: #000000;
+  background: #FFFCEF;
+  transform: translateY(-1px);
+}
+
+.category-pill-btn.active {
+  background: #000000 !important;
+  color: var(--yellow-main) !important;
+  border-color: #000000 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.form-status-alert {
+  border-radius: var(--radius-md);
+  animation: fadeInDown 0.3s ease;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ==========================================================================
    GLOBAL FOOTER (RICH RED LUXURY CORPORATE FOOTER)
    ========================================================================== */

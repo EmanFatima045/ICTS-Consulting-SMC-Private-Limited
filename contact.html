@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -212,9 +212,28 @@
               Channels</h3>
             <p class="contact-box-sub"
               style="font-size: 13.5px; color: #000000; margin-bottom: 22px; font-weight: 500;">
-              Reach out via landline phone, WhatsApp instant messaging, or visit our regional office in Lahore.
+              Reach out via official email, landline phone, WhatsApp instant messaging, or visit our regional office in Lahore.
             </p>
             <div class="channels-cards-list">
+              <!-- Official Email -->
+              <div
+                style="background: #FFFCEF; border: 2px solid #D9B29C; border-left: 5px solid #2563EB; border-radius: var(--radius-md); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: 14px;">
+                  <div
+                    style="width: 46px; height: 46px; border-radius: 50%; background: #2563EB; color: #FFFCEF; display: grid; place-items: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);">
+                    <i class="fa-solid fa-envelope" style="font-size: 18px;"></i>
+                  </div>
+                  <div>
+                    <span
+                      style="display: block; font-size: 11px; font-weight: 900; text-transform: uppercase; color: #2563EB;">Official
+                      Inquiry Email</span>
+                    <span style="display: block; font-size: 17px; font-weight: 900; color: #000000; word-break: break-all;">info@ictsconsulting.com</span>
+                    <span style="display: block; font-size: 12px; color: #000000;">Queries, Feedback, Suggestions &amp; Course Inquiries</span>
+                  </div>
+                </div>
+                <a href="mailto:info@ictsconsulting.com" class="btn btn-yellow btn-sm" style="font-weight: 900;">Email Us</a>
+              </div>
+
               <!-- Landline -->
               <div
                 style="background: #FFFCEF; border: 2px solid #D9B29C; border-left: 5px solid #E54C44; border-radius: var(--radius-md); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;">
@@ -304,85 +323,135 @@
             </div>
           </div>
 
-          <!-- Right: Interactive Inquiry Form -->
+          <!-- Right: Formspree Powered Inquiry & Feedback Form -->
           <div class="reg-form-card"
-            style="background: #FFFCEF; border: 2.5px solid #D9B29C; border-radius: var(--radius-xl); box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
-            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+            style="background: #FFFCEF; border: 2.5px solid #D9B29C; border-radius: var(--radius-xl); box-shadow: 0 10px 30px rgba(0,0,0,0.06); padding: 32px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; flex-wrap: wrap; gap: 8px;">
               <span class="program-photo-tag"
-                style="background: #F1CF54; color: #000000; border: 1px solid #000000; position: static; font-weight: 900;">Online
-                Admission Desk</span>
+                style="background: #F1CF54; color: #000000; border: 1px solid #000000; position: static; font-weight: 900;">
+                Inquiry &amp; Feedback Desk
+              </span>
               <span
-                style="font-size: 12px; font-weight: 800; color: #E54C44; display: inline-flex; align-items: center; gap: 4px;">
-                <svg class="icon-stroke" width="13" height="13" viewBox="0 0 24 24">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                </svg>
-                <span>Direct WhatsApp Routing</span>
+                style="font-size: 12px; font-weight: 800; color: #2563EB; display: inline-flex; align-items: center; gap: 5px;">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Direct to info@ictsconsulting.com</span>
               </span>
             </div>
-            <h3 class="reg-form-title" style="font-size: 22px; font-weight: 900;">Submit an Inquiry</h3>
-            <p class="reg-form-sub">Select your inquiry type. Submitting will prepare your request and open directly in
-              WhatsApp to talk with our counselors.</p>
+            <h3 class="reg-form-title" style="font-size: 22px; font-weight: 900; margin: 6px 0;">Submit Your Query or Feedback</h3>
+            <p class="reg-form-sub" style="font-size: 13.5px; color: var(--umber-body); margin-bottom: 18px; line-height: 1.5;">
+              Ask any query, share your feedback, give suggestions, or inquire about any course. Our administrative team will review and reply promptly.
+            </p>
 
-            <div class="type-toggle-group">
-              <button type="button" class="type-toggle-btn active" data-type="student" style="font-weight: 900;">Student
-                Enrollment</button>
-              <button type="button" class="type-toggle-btn" data-type="corporate" style="font-weight: 900;">Corporate /
-                Partner Center</button>
+            <!-- Interactive Category Selector -->
+            <div class="form-category-pills" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px;">
+              <button type="button" class="category-pill-btn active" data-category="General Query">
+                <i class="fa-solid fa-circle-question" style="margin-right: 4px;"></i> Query
+              </button>
+              <button type="button" class="category-pill-btn" data-category="Course Inquiry">
+                <i class="fa-solid fa-graduation-cap" style="margin-right: 4px;"></i> Course Inquiry
+              </button>
+              <button type="button" class="category-pill-btn" data-category="Feedback">
+                <i class="fa-solid fa-comment-dots" style="margin-right: 4px;"></i> Feedback
+              </button>
+              <button type="button" class="category-pill-btn" data-category="Suggestion">
+                <i class="fa-solid fa-lightbulb" style="margin-right: 4px;"></i> Suggestion
+              </button>
             </div>
 
-            <form id="quickRegForm">
+            <!-- Formspree Connected Form -->
+            <form id="contactInquiryForm" action="https://formspree.io/f/xdeornvw" method="POST" novalidate>
+              <input type="hidden" name="_subject" id="hiddenFormSubject" value="[ICTS Portal] New Query / Feedback">
+              <input type="hidden" name="Inquiry Category" id="selectedCategoryInput" value="General Query">
+
               <div class="form-row">
                 <div class="form-field">
-                  <label class="form-label" for="formName" style="font-weight: 800;">Full Name *</label>
-                  <input type="text" class="form-input" id="formName" required placeholder="e.g. Muhammad Ali">
+                  <label class="form-label" for="formFirstName" style="font-weight: 800;">First Name *</label>
+                  <input type="text" class="form-input" id="formFirstName" name="First Name" required placeholder="e.g. Muhammad">
                 </div>
                 <div class="form-field">
-                  <label class="form-label" for="formPhone" style="font-weight: 800;">Phone / WhatsApp Number *</label>
-                  <input type="tel" class="form-input" id="formPhone" required placeholder="0322-9223022">
+                  <label class="form-label" for="formLastName" style="font-weight: 800;">Last Name *</label>
+                  <input type="text" class="form-input" id="formLastName" name="Last Name" required placeholder="e.g. Ali">
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-field">
-                  <label class="form-label" for="formCity" style="font-weight: 800;">City / Organization *</label>
-                  <input type="text" class="form-input" id="formCity" required placeholder="Lahore / Organization Name">
+                  <label class="form-label" for="formEmail" style="font-weight: 800;">Your Email Address *</label>
+                  <input type="email" class="form-input" id="formEmail" name="email" required placeholder="name@example.com">
                 </div>
                 <div class="form-field">
-                  <label class="form-label" for="formTrack" style="font-weight: 800;">Selected Track / Service *</label>
-                  <select class="form-input" id="formTrack" required>
-                    <option value="HSK 1-2 Beginners">HSK 1–2 Beginners Track</option>
-                    <option value="HSK 3-4 Intermediate">HSK 3–4 Intermediate Track</option>
-                    <option value="HSK 5-6 Advanced">HSK 5–6 Advanced Academic Track</option>
-                    <option value="YCT Kids Chinese">YCT Kids Chinese (Ages 6–15)</option>
-                    <option value="BCT Business Chinese">BCT Business Chinese for Executives</option>
-                    <option value="Center Setup Consultancy">Chinese Language Center Setup Advisory</option>
-                    <option value="Live Zoom Workshop">Chinese Language &amp; Business Promotional Workshop</option>
-                    <option value="Project Management Advisory">Project Management &amp; EVM</option>
-                    <option value="ICT &amp; Digital Solutions">ICT &amp; Digital Solutions</option>
-                    <option value="CIT Partner Centre Inquiries">Become a Partner Centre</option>
+                  <label class="form-label" for="formPhone" style="font-weight: 800;">Phone / WhatsApp Number</label>
+                  <input type="tel" class="form-input" id="formPhone" name="Phone / WhatsApp" placeholder="0322-9223022">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label class="form-label" for="formServiceSelect" style="font-weight: 800;">Program / Topic of Interest *</label>
+                  <select class="form-input" id="formServiceSelect" name="Program or Topic" required>
+                    <option value="General Query / Information">General Query / Information</option>
+                    <option value="HSK 1-2 Beginners Mandarin Track">HSK 1–2 Beginners Mandarin Track</option>
+                    <option value="HSK 3-4 Intermediate Track">HSK 3–4 Intermediate Track</option>
+                    <option value="HSK 5-6 Advanced Academic Track">HSK 5–6 Advanced Academic Track</option>
+                    <option value="YCT Kids Chinese (Ages 6-15)">YCT Kids Chinese (Ages 6–15)</option>
+                    <option value="BCT Business Chinese for Executives">BCT Business Chinese for Executives</option>
+                    <option value="Free Live 10 PM Zoom Mandarin Workshop">Free Live 10 PM Zoom Mandarin Workshop</option>
+                    <option value="Chinese Language Center Setup Advisory">Chinese Language Center Setup Advisory</option>
+                    <option value="Project Management & EVM Consultancy">Project Management &amp; EVM Consultancy</option>
+                    <option value="ICT & Digital Solutions">ICT &amp; Digital Solutions</option>
+                    <option value="Feedback / Review on Services">Feedback / Review on Services</option>
+                    <option value="Suggestion / Partnership Proposal">Suggestion / Partnership Proposal</option>
                   </select>
+                </div>
+                <div class="form-field">
+                  <label class="form-label" for="formSubject" style="font-weight: 800;">Subject *</label>
+                  <input type="text" class="form-input" id="formSubject" name="Subject" required placeholder="e.g. Inquiry about upcoming cohort / Feedback">
                 </div>
               </div>
 
               <div class="form-field">
-                <label class="form-label" for="formMessage" style="font-weight: 800;">Questions / Special Notes
-                  (Optional)</label>
-                <textarea class="form-textarea" id="formMessage"
-                  placeholder="Mention your preferred batch time, questions regarding online classes, or partner requirements..."></textarea>
+                <label class="form-label" for="formMessage" style="font-weight: 800;">Your Message / Feedback / Question *</label>
+                <textarea class="form-textarea" id="formMessage" name="Message" rows="4" required
+                  placeholder="Ask any query, share your feedback or suggestions, or ask about our courses and advisory services... Admin team will reply soon."></textarea>
               </div>
 
-              <button type="submit" class="btn btn-yellow btn-lg"
+              <!-- Live Submission Feedback Alerts -->
+              <div id="formStatusSuccess" class="form-status-alert success" style="display: none; background: #ECFDF5; border: 2px solid #10B981; border-radius: var(--radius-md); padding: 16px; margin-bottom: 16px; color: #065F46;">
+                <div style="display: flex; align-items: flex-start; gap: 12px;">
+                  <i class="fa-solid fa-circle-check" style="font-size: 20px; color: #10B981; margin-top: 2px;"></i>
+                  <div>
+                    <strong style="display: block; font-size: 15px; margin-bottom: 4px;">Thank You! Your message has been sent successfully.</strong>
+                    <span style="font-size: 13px; line-height: 1.4; display: block;">
+                      Your message has been delivered to <b>info@ictsconsulting.com</b>. Our administrative team will review your query, feedback, or suggestion and reply to your email shortly.
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div id="formStatusError" class="form-status-alert error" style="display: none; background: #FEF2F2; border: 2px solid #EF4444; border-radius: var(--radius-md); padding: 16px; margin-bottom: 16px; color: #991B1B;">
+                <div style="display: flex; align-items: flex-start; gap: 12px;">
+                  <i class="fa-solid fa-triangle-exclamation" style="font-size: 20px; color: #EF4444; margin-top: 2px;"></i>
+                  <div>
+                    <strong style="display: block; font-size: 15px; margin-bottom: 4px;">Could not send message.</strong>
+                    <span id="formStatusErrorMsg" style="font-size: 13px; line-height: 1.4; display: block;">
+                      Please try again or email us directly at <a href="mailto:info@ictsconsulting.com" style="color: #991B1B; font-weight: 800; text-decoration: underline;">info@ictsconsulting.com</a>.
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" id="formSubmitBtn" class="btn btn-yellow btn-lg"
                 style="width: 100%; justify-content: center; padding: 15px; font-size: 16px; font-weight: 900; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.5); gap: 10px;">
-                <svg class="icon-stroke" width="18" height="18" viewBox="0 0 24 24">
-                  <line x1="22" y1="2" x2="11" y2="13"></line>
-                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
-                <span>Send Request to WhatsApp (+92 322 9223022)</span>
-                <svg class="icon-stroke" width="14" height="14" viewBox="0 0 24 24">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
+                <i class="fa-solid fa-paper-plane" id="formSubmitIcon"></i>
+                <span id="formSubmitText">Send Message to info@ictsconsulting.com</span>
               </button>
+
+              <div style="margin-top: 14px; text-align: center; font-size: 12.5px; color: var(--umber-body); display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
+                <span>Need immediate response on WhatsApp?</span>
+                <a href="https://wa.me/923229223022?text=Hello%20ICTS%20Admin,%20I%20have%20an%20inquiry" target="_blank" rel="noopener" style="color: #000000; font-weight: 900; text-decoration: underline;">
+                  <i class="fa-brands fa-whatsapp" style="color: #25D366; margin-right: 3px;"></i> Chat at +92 322 9223022
+                </a>
+              </div>
             </form>
           </div>
         </div>

@@ -390,46 +390,170 @@ function initFAQ() {
 }
 
 /* ==========================================================================
-   6. QUICK INQUIRY / REGISTRATION FORM DISPATCH
+   6. FORMSPREE INQUIRY & FEEDBACK FORM (CONNECTS TO info@ictsconsulting.com)
    ========================================================================== */
 function initForm() {
-  const form = document.getElementById('quickRegForm');
-  const typeButtons = document.querySelectorAll('.type-toggle-btn');
-  let selectedType = 'student';
+  const form = document.getElementById('contactInquiryForm') || document.getElementById('quickRegForm');
+  const categoryPills = document.querySelectorAll('.category-pill-btn');
+  const categoryInput = document.getElementById('selectedCategoryInput');
+  const subjectInput = document.getElementById('formSubject');
+  const serviceSelect = document.getElementById('formServiceSelect');
+  const hiddenSubject = document.getElementById('hiddenFormSubject');
 
-  typeButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      typeButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      selectedType = btn.getAttribute('data-type');
+  let activeCategory = 'General Query';
+
+  // Category Pills Toggle
+  categoryPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      categoryPills.forEach(p => {
+        p.classList.remove('active');
+        p.style.background = '#FFF';
+        p.style.color = '#000';
+        p.style.borderColor = '#D9B29C';
+      });
+
+      pill.classList.add('active');
+      pill.style.background = '#000000';
+      pill.style.color = '#F1CF54';
+      pill.style.borderColor = '#000000';
+
+      activeCategory = pill.getAttribute('data-category') || 'General Query';
+      if (categoryInput) categoryInput.value = activeCategory;
+
+      // Auto-adapt dropdown and subject placeholder based on category
+      if (serviceSelect) {
+        if (activeCategory === 'Course Inquiry') {
+          serviceSelect.value = 'HSK 1-2 Beginners Mandarin Track';
+        } else if (activeCategory === 'Feedback') {
+          serviceSelect.value = 'Feedback / Review on Services';
+        } else if (activeCategory === 'Suggestion') {
+          serviceSelect.value = 'Suggestion / Partnership Proposal';
+        } else {
+          serviceSelect.value = 'General Query / Information';
+        }
+      }
+
+      if (hiddenSubject) {
+        hiddenSubject.value = `[ICTS Portal: ${activeCategory}] ${subjectInput && subjectInput.value ? subjectInput.value : 'New Submission'}`;
+      }
     });
   });
 
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const name = document.getElementById('formName').value.trim();
-      const phone = document.getElementById('formPhone').value.trim();
-      const city = document.getElementById('formCity').value.trim();
-      const track = document.getElementById('formTrack').value;
-      const message = document.getElementById('formMessage').value.trim();
+      const firstNameEl = document.getElementById('formFirstName');
+      const lastNameEl = document.getElementById('formLastName');
+      const emailEl = document.getElementById('formEmail');
+      const phoneEl = document.getElementById('formPhone');
+      const serviceEl = document.getElementById('formServiceSelect');
+      const subjectEl = document.getElementById('formSubject');
+      const messageEl = document.getElementById('formMessage');
 
-      const inquiryRole = selectedType === 'student' ? 'Student Enrollment (Reg Fee: PKR 2,000)' : 'Corporate Consulting / Partner Center';
+      const submitBtn = document.getElementById('formSubmitBtn');
+      const submitText = document.getElementById('formSubmitText');
+      const submitIcon = document.getElementById('formSubmitIcon');
 
-      const whatsappText = `*ICTS Consulting — Request & Inquiry*
-• *Inquiry Type:* ${inquiryRole}
-• *Full Name:* ${name}
-• *Phone/WhatsApp:* ${phone}
-• *City / Organization:* ${city}
-• *Selected Service / Track:* ${track}
-${message ? `• *Notes:* ${message}` : ''}`;
+      const successAlert = document.getElementById('formStatusSuccess');
+      const errorAlert = document.getElementById('formStatusError');
+      const errorMsg = document.getElementById('formStatusErrorMsg');
 
-      const whatsappUrl = `https://wa.me/923229223022?text=${encodeURIComponent(whatsappText)}`;
-      window.open(whatsappUrl, '_blank');
+      // Hide any previous alert
+      if (successAlert) successAlert.style.display = 'none';
+      if (errorAlert) errorAlert.style.display = 'none';
 
-      alert(`Thank you, ${name}! Your request for "${track}" has been prepared. Opening WhatsApp (+92 322 9223022) to connect directly with the ICTS Team.`);
-      form.reset();
+      // Values
+      const firstName = firstNameEl ? firstNameEl.value.trim() : '';
+      const lastName = lastNameEl ? lastNameEl.value.trim() : '';
+      const email = emailEl ? emailEl.value.trim() : '';
+      const phone = phoneEl ? phoneEl.value.trim() : '';
+      const service = serviceEl ? serviceEl.value : 'General';
+      const subject = subjectEl ? subjectEl.value.trim() : 'Inquiry';
+      const message = messageEl ? messageEl.value.trim() : '';
+
+      if (!firstName || !lastName || !email || !subject || !message) {
+        if (errorAlert) {
+          if (errorMsg) errorMsg.textContent = 'Please fill out all required fields marked with (*).';
+          errorAlert.style.display = 'block';
+        }
+        return;
+      }
+
+      // Set Submitting State
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.75';
+        submitBtn.style.cursor = 'not-allowed';
+      }
+      if (submitText) submitText.textContent = 'Sending Message to info@ictsconsulting.com...';
+      if (submitIcon) submitIcon.className = 'fa-solid fa-spinner fa-spin';
+
+      const payload = {
+        "First Name": firstName,
+        "Last Name": lastName,
+        "Full Name": `${firstName} ${lastName}`,
+        "email": email,
+        "_replyto": email,
+        "Phone / WhatsApp": phone || "Not provided",
+        "Inquiry Category": activeCategory,
+        "Program / Topic": service,
+        "_subject": `[ICTS Portal: ${activeCategory}] ${subject} (from ${firstName} ${lastName})`,
+        "Subject": subject,
+        "Message": message
+      };
+
+      try {
+        const response = await fetch("https://formspree.io/f/xdeornvw", {
+          method: "POST",
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          if (successAlert) {
+            successAlert.style.display = 'block';
+            successAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+          form.reset();
+
+          // Reset pills to first pill
+          if (categoryPills.length > 0) {
+            categoryPills[0].click();
+          }
+        } else {
+          const data = await response.json();
+          if (errorAlert) {
+            if (errorMsg) {
+              if (data.errors && data.errors.length > 0) {
+                errorMsg.textContent = data.errors.map(err => err.message).join(', ');
+              } else {
+                errorMsg.innerHTML = 'Unable to send message right now. Please email us directly at <a href="mailto:info@ictsconsulting.com" style="color: #991B1B; font-weight: 800; text-decoration: underline;">info@ictsconsulting.com</a>.';
+              }
+            }
+            errorAlert.style.display = 'block';
+          }
+        }
+      } catch (err) {
+        console.error('Form submission network error:', err);
+        if (errorAlert) {
+          if (errorMsg) {
+            errorMsg.innerHTML = 'Network connection error. Please email us directly at <a href="mailto:info@ictsconsulting.com" style="color: #991B1B; font-weight: 800; text-decoration: underline;">info@ictsconsulting.com</a> or WhatsApp +92 322 9223022.';
+          }
+          errorAlert.style.display = 'block';
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+          submitBtn.style.cursor = 'pointer';
+        }
+        if (submitText) submitText.textContent = 'Send Message to info@ictsconsulting.com';
+        if (submitIcon) submitIcon.className = 'fa-solid fa-paper-plane';
+      }
     });
   }
 }
