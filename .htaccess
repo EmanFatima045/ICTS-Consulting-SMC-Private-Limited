@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------
-# ICTS Consulting - High Performance Apache / cPanel / CDN Configuration
+# ICTS Consulting - High Performance Apache / LiteSpeed / cPanel Configuration
 # ----------------------------------------------------------------------
 
 # 1. Prevent Directory Browsing
@@ -8,7 +8,28 @@ Options -Indexes
 # 2. Default Charset
 AddDefaultCharset UTF-8
 
-# 3. Proper MIME Types & Web App Manifest
+# 3. URL Rewriting & 301 Permanent SEO Redirects
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 301 Permanent Redirects for legacy and Google indexed URLs (Case Insensitive)
+  RewriteRule ^programs/?$ courses.html [R=301,L,NC]
+  RewriteRule ^programs\.html$ courses.html [R=301,L,NC]
+  RewriteRule ^program/?$ courses.html [R=301,L,NC]
+  RewriteRule ^courses/?$ courses.html [R=301,L,NC]
+  RewriteRule ^spiritual/?$ spiritual-sciences.html [R=301,L,NC]
+  RewriteRule ^about-us/?$ about.html [R=301,L,NC]
+  RewriteRule ^aboutus\.html$ about.html [R=301,L,NC]
+  RewriteRule ^learn-earn/?$ events.html [R=301,L,NC]
+
+  # Allow extensionless URLs (e.g. visiting /courses will load courses.html)
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}\.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+
+# 4. Proper MIME Types & Web App Manifest
 AddType text/html .html
 AddType text/css .css
 AddType application/javascript .js
@@ -24,12 +45,12 @@ AddType application/manifest+json .webmanifest
 AddType font/woff2 .woff2
 AddType font/woff .woff
 
-# 4. Enable Gzip Compression (mod_deflate)
+# 5. Enable Gzip Compression (mod_deflate)
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json application/xml image/svg+xml
 </IfModule>
 
-# 5. Browser Caching for Static Assets (mod_expires & mod_headers)
+# 6. Browser Caching for Static Assets (mod_expires & mod_headers)
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 1 month"

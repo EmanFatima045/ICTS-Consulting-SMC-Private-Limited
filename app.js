@@ -849,7 +849,7 @@ function initAiGuwenChatbot() {
       <div class="ai-guwen-tooltip" id="aiGuwenTooltip">
         <button class="ai-guwen-tooltip-close" id="closeAiTooltip" aria-label="Close tooltip">×</button>
         <div style="font-weight: 800; color: var(--yellow-main); margin-bottom: 2px;"><i class="fa-solid fa-robot" style="margin-right:4px;"></i> Nǐ Hǎo! I'm AI gùwèn</div>
-        <div>Your ICTS Consultant robot. Ask me about courses, fees, services, PMO & trade!</div>
+        <div>Your ICTS Consultant robot. Ask me about courses, spiritual sciences, CEO message, services, events & collaborations!</div>
       </div>
 
       <!-- Floating Launcher Button with 3D Robot Avatar -->
@@ -885,17 +885,19 @@ function initAiGuwenChatbot() {
 
         <!-- Quick Questions Chips -->
         <div class="ai-guwen-chips-bar" id="aiGuwenChips">
+          <button class="ai-chip" data-query="Tell me about the CEO Message & Vision"><i class="fa-solid fa-bullhorn"></i> CEO Message</button>
+          <button class="ai-chip" data-query="What courses do you offer?"><i class="fa-solid fa-graduation-cap"></i> All Courses</button>
+          <button class="ai-chip" data-query="Tell me about Spiritual Sciences & Loh-o-Qalam"><i class="fa-solid fa-feather-pointed"></i> Spiritual Sciences</button>
           <button class="ai-chip" data-query="What are the 4 pillars of service?"><i class="fa-solid fa-building-columns"></i> 4 Pillars</button>
-          <button class="ai-chip" data-query="Tell me about Chinese HSK courses & fees"><i class="fa-solid fa-graduation-cap"></i> Courses</button>
+          <button class="ai-chip" data-query="Tell me about Learn N Earn & 20% Commission"><i class="fa-solid fa-hand-holding-dollar"></i> Learn N Earn (20%)</button>
           <button class="ai-chip" data-query="When is the Free Live Zoom Workshop?"><i class="fa-solid fa-video"></i> Free Zoom Class</button>
+          <button class="ai-chip" data-query="Tell me about your Collaborations and CIT Alliance"><i class="fa-solid fa-handshake"></i> Collaborations</button>
           <button class="ai-chip" data-query="How can I enroll or contact?"><i class="fa-solid fa-file-pen"></i> How to Enroll</button>
-          <button class="ai-chip" data-query="Tell me about Project Management services"><i class="fa-solid fa-chart-pie"></i> Project (EVM)</button>
-          <button class="ai-chip" data-query="What Business Promotion & trade services do you offer?"><i class="fa-solid fa-handshake"></i> China-Pak Trade</button>
         </div>
 
         <!-- Chat Input Footer -->
         <form class="ai-guwen-footer" id="aiGuwenForm">
-          <input type="text" class="ai-guwen-input" id="aiGuwenInput" placeholder="Ask AI gùwèn about courses, fees, PMO, trade..." autocomplete="off">
+          <input type="text" class="ai-guwen-input" id="aiGuwenInput" placeholder="Ask about courses, spiritual sciences, CEO message, services, events..." autocomplete="off">
           <button type="submit" class="ai-guwen-send-btn" id="aiGuwenSendBtn" aria-label="Send Message">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
           </button>
@@ -950,136 +952,359 @@ function initAiGuwenChatbot() {
     renderWelcomeMessage();
   });
 
-  // Comprehensive Website Knowledge Base Engine
+  // Comprehensive Website Knowledge Base Engine (Up to date with entire website)
   const knowledgeBase = [
+    // 1. CEO MESSAGE & LEADERSHIP
     {
-      keywords: ['pillar', 'pillars', 'core vertical', 'services overview', 'capabilities', '4 pillars', 'char pillar', 'char khambey'],
-      response: `<b>ICTS Consulting (SMC-Private) Limited</b> operates across <b>4 Core Pillars of Service</b>:
-<ul>
-  <li><b>1. Project Management Services:</b> Feasibility analysis, Earned Value Management (EVM), Primavera P6 & MS Project baselines, PMO setup, and PMI standards.</li>
-  <li><b>2. ICT & Digital Services:</b> Corporate websites, cloud infrastructures, web portals, automated business systems, and cybersecurity.</li>
-  <li><b>3. Foreign Languages (Mandarin Chinese):</b> Accredited training for HSK 1–6, YCT for Kids, and BCT Business Chinese with official Wo Hui HSK Mock testing platform (800+ global partner network).</li>
-  <li><b>4. Business Promotion Consultancy:</b> China-Pakistan CPEC bilateral trade linkages, supplier vetting, commercial negotiations, and institutional networking.</li>
-</ul>`,
+      keywords: ['ceo', 'founder', 'ibrar', 'bhatti', 'azeemi', 'director', 'managing director', 'ceo message', 'message from ceo', 'leadership', 'vision of ceo', 'mission of ceo', 'quote', 'ibrar hussain'],
+      response: `<b>Message from the CEO — Mr. Ibrar Hussain Bhatti Azeemi</b>
+<p><i>CEO &amp; Managing Director, ICTS Consulting (SMC-Private) Limited</i></p>
+<p style="color:var(--brand-red); font-weight:800; margin:6px 0;">"Building Connections. Creating Opportunities. Serving with Purpose."</p>
+<p>At ICTS Consulting, we believe true success is not measured only by what we achieve, but by the value we create for others. Our mission brings together <b>People, Knowledge, Technology, and Opportunities</b> across our four verticals.</p>
+<blockquote style="background:rgba(0,0,0,0.05); border-left:3px solid var(--yellow-main); padding:6px 12px; margin:8px 0; font-style:italic;">
+“With faith in our hearts, knowledge in our minds, and purpose in our work, we strive to create a better and more connected world.”
+</blockquote>
+<p><b>Strategic Value Chain:</b><br>
+People gain knowledge → Technology creates efficiency → Projects create results → Languages create understanding → Businesses create opportunities → Communities experience growth.</p>`,
       actions: [
-        { label: 'Explore 4 Pillars', url: 'services.html' },
-        { label: 'View Language Courses', url: 'courses.html' }
+        { label: 'Read Company Profile', url: 'about.html#ceo-leadership' },
+        { label: 'Spiritual Counseling with CEO', url: 'spiritual-sciences.html' },
+        { label: 'WhatsApp CEO Office', url: 'https://wa.me/923214223022', external: true }
       ]
     },
+
+    // 2. SPIRITUAL SCIENCES & COUNSELING & LOH-O-QALAM
     {
-      keywords: ['hsk', 'mandarin', 'chinese', 'language', 'course', 'courses', 'fee', 'fees', 'cost', 'price', 'pricing', 'kitni fee', 'fees structure'],
-      response: `Here is our <b>Official Mandarin Chinese Course & Fee Structure</b>:
+      keywords: ['spiritual', 'spiritual sciences', 'counseling', 'loh-o-qalam', 'lohoqalam', 'anger', 'anger management', 'anxiety', 'overthinking', 'mindfulness', 'meditation', 'self-discipline', 'procrastination', 'fears', 'relationship', 'inner peace', 'burnout', 'decision making', 'ghussa', 'irfan-e-elahi', 'mushkilaat ka hal', 'dreams', 'consciousness'],
+      response: `<b>Spiritual Counseling &amp; Loh-o-Qalam Training</b> (By Mr. Ibrar Hussain Bhatti):
+<p><b>1. 1-on-1 Confidential Spiritual Counseling:</b> Safe, private sessions providing practical guidance on:</p>
 <ul>
-  <li><b>HSK-1 (Beginner):</b> PKR 20,000 · 32 Credit Hours (8 weeks · 4 days/wk · 40 min)</li>
-  <li><b>HSK-2 (Elementary):</b> PKR 20,000 · 32 Credit Hours (8 weeks)</li>
-  <li><b>HSK-3 (Intermediate):</b> PKR 40,000 · 64 Credit Hours (16 weeks)</li>
-  <li><b>HSK-4 (Upper-Intermediate):</b> PKR 40,000 · 64 Credit Hours (16 weeks)</li>
-  <li><b>HSK-5 (Advanced Academic):</b> PKR 60,000 · 96 Credit Hours (24 weeks)</li>
-  <li><b>HSK-6 (Native Mastery):</b> PKR 60,000 · 96 Credit Hours (24 weeks)</li>
+  <li><b>Anger Management:</b> Mapping Trigger → Thought → Emotion → Reaction → Consequence (featured in TV discourse on <i>Mushkilaat Ka Hal / Irfan-e-Elahi</i>).</li>
+  <li><b>Self-Discipline &amp; Procrastination:</b> Building consistent daily routines and personal accountability.</li>
+  <li><b>Anxiety &amp; Worry:</b> Grounding practices to replace overthinking with clarity.</li>
+  <li><b>Overthinking &amp; Negative Thoughts:</b> Distinguishing Fact vs Interpretation vs Fear vs Response.</li>
+  <li><b>Fears &amp; Insecurity, Relationships &amp; Family Harmony, Low Confidence, Inner Peace &amp; Burnout, and Decision-Making.</b></li>
 </ul>
-<p><i>Registration Fee: PKR 2,000 (one-time). Includes official Wo Hui HSK Mock platform exam prep and certificate support.</i></p>
-<p>We also offer <b>YCT (Youth Chinese Test for kids ages 6–15)</b> and <b>BCT (Business Chinese for traders & executives)</b>!</p>`,
-      actions: [
-        { label: 'View Detailed Courses Page', url: 'courses.html' },
-        { label: 'Fill Registration Form', url: 'https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform', external: true },
-        { label: 'WhatsApp Admissions', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20want%20to%20know%20about%20Chinese%20course%20admissions', external: true }
-      ]
-    },
-    {
-      keywords: ['spiritual', 'spiritual sciences', 'mindfulness', 'meditation', 'philosophy', 'metaphysics', 'contemplative', 'breathwork', 'stoicism'],
-      response: `<b>Spiritual Sciences & Classical Wisdom Programs</b>:
-<ul>
-  <li><b>Contemplative Psychology & Mindfulness:</b> Scientific breathwork, emotional equilibrium & neuro-cognitive attention drills.</li>
-  <li><b>Classical Metaphysics & Philosophy:</b> Comparative Eastern & Western philosophical traditions.</li>
-  <li><b>Mindful Leadership & Ethics:</b> Value-based decision systems and burnout prevention for leaders.</li>
-  <li><b>Format:</b> Live Interactive Zoom Seminars & Full HD Lifetime Recorded Lectures.</li>
-</ul>`,
+<p><b>2. 3-Month LOH-O-QALAM Training Program:</b><br>
+12 Weekly Live Interactive Sessions (60–90 Mins each), practical workbook, attention drills, dream exploration, and consciousness mapping.</p>`,
       actions: [
         { label: 'Explore Spiritual Sciences Page', url: 'spiritual-sciences.html' },
-        { label: 'WhatsApp Spiritual Counseling', url: 'https://wa.me/923214223022?text=Hello%20Mr.%20Ibrar%20Hussain%20Bhatti,%20I%20would%20like%20to%20consult%20you%20regarding%20Spiritual%20Counseling%20and%20Loh-o-Qalam.', external: true }
+        { label: 'Book 1-on-1 Counseling on WhatsApp', url: 'https://wa.me/923214223022?text=Hello%20Mr.%20Ibrar%20Hussain%20Bhatti,%20I%20would%20like%20to%20consult%20you%20regarding%20Spiritual%20Counseling%20and%20Loh-o-Qalam.', external: true },
+        { label: 'View 12-Session Syllabus', url: 'spiritual-sciences.html#lohoqalam-course' }
       ]
     },
+
+    // 3. MANDARIN CHINESE COURSES (HSK 1-6) - NO PRICES
     {
-      keywords: ['free', 'zoom', 'workshop', 'trial', 'demo', 'time', 'timing', 'daily', '10 pm', 'live class', 'free class'],
-      response: `<b>Free Live Zoom Mandarin Workshop</b>:
+      keywords: ['hsk', 'mandarin', 'chinese course', 'chinese courses', 'learn chinese', 'hsk 1', 'hsk 2', 'hsk 3', 'hsk 4', 'hsk 5', 'hsk 6', 'chinese language', 'hsk-1', 'hsk-2', 'hsk-3', 'hsk-4', 'hsk-5', 'hsk-6'],
+      response: `<b>Official HSK 3.0 Chinese Language Proficiency Track (Levels 1–6)</b>:
 <ul>
-  <li><b>Schedule:</b> Monday to Thursday at <b>10:00 PM PKT</b></li>
-  <li><b>Duration:</b> 40 Minutes of intensive, interactive pronunciation, Pinyin, and conversation practice with certified instructors.</li>
-  <li><b>Cost:</b> 100% Free trial session!</li>
-  <li><b>Access:</b> Join live on Zoom from your laptop or mobile phone.</li>
+  <li><b>HSK-1 (Beginner):</b> 32 Credit Hours (8 Weeks) · Pinyin phonetics, standard pronunciation, basic vocabulary &amp; daily greetings.</li>
+  <li><b>HSK-2 (Elementary):</b> 32 Credit Hours (8 Weeks) · Daily dialogues, shopping, travel, and essential sentence structures.</li>
+  <li><b>HSK-3 (Intermediate):</b> 64 Credit Hours (16 Weeks) · University admission baseline, work &amp; academic communication.</li>
+  <li><b>HSK-4 (Upper-Intermediate):</b> 64 Credit Hours (16 Weeks) · Fluent conversationalist, full degree scholarship qualification.</li>
+  <li><b>HSK-5 (Academic Mastery):</b> 96 Credit Hours (24 Weeks) · Newspaper reading, film comprehension, and executive speeches.</li>
+  <li><b>HSK-6 (Native-Level):</b> 96 Credit Hours (24 Weeks) · High-level commercial translation and professional fluency.</li>
 </ul>
-<p>Would you like to reserve your spot for tonight's session?</p>`,
+<p><i><b>Modes Available:</b> Live Interactive Zoom Batches + Lifetime HD Recorded Lectures. Includes official Wo Hui AI Mock Exams and certificate support.</i></p>`,
       actions: [
-        { label: 'Join via WhatsApp', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20please%20send%20me%20the%20Free%20Live%20Zoom%20Workshop%20link', external: true },
-        { label: 'Call Office: +92 423 5450375', url: 'tel:+924235450375' }
+        { label: 'View Detailed Courses Page', url: 'courses.html' },
+        { label: 'Fill Registration Form (Live / Recorded)', url: 'https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform', external: true },
+        { label: 'WhatsApp Admissions', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20want%20to%20know%20about%20HSK%20course%20admissions', external: true }
       ]
     },
+
+    // 4. YCT KIDS CHINESE & SUMMER CAMP
     {
-      keywords: ['project management', 'primavera', 'p6', 'evm', 'earned value', 'ms project', 'pmo', 'pmp', 'capm', 'scheduling', 'variance'],
-      response: `<b>Project Management Services (Pillar 01)</b>:
-ICTS provides industry-certified project management advisory aligned with PMI standards:
+      keywords: ['yct', 'kids', 'children', 'child', 'school', 'teen', 'summer camp', 'grades 2 to 8', 'bacho', 'kids chinese', 'yct-1', 'yct-2', 'yct-3', 'yct-4', 'young learners'],
+      response: `<b>Youth Chinese Test (YCT) &amp; Summer Camps (Ages 6–15)</b>:
 <ul>
-  <li><b>Scheduling & Baseline:</b> Primavera P6 & MS Project WBS and Critical Path Method (CPM) baseline scheduling.</li>
-  <li><b>EVM Control:</b> Earned Value Management tracking (SPI, CPI, cost variance prevention).</li>
-  <li><b>PMO Governance:</b> Setup of corporate Project Management Offices, phase-gate audits, and risk registers.</li>
-  <li><b>Corporate Capacity Building:</b> Preparation workshops for PMP, CAPM, and engineering project managers.</li>
+  <li><b>YCT-1 (Starter):</b> 24 Credit Hours · Pinyin songs, colors, numbers, and animal flashcards.</li>
+  <li><b>YCT-2 (Elementary):</b> 24 Credit Hours · Family members, school life, and simple dialogues.</li>
+  <li><b>YCT-3 (Intermediate):</b> 48 Credit Hours · Storytelling, Hanzi character recognition, and hobbies.</li>
+  <li><b>YCT-4 (Advanced):</b> 48 Credit Hours · Paragraph reading, cultural themes, and speech writing.</li>
+  <li><b>YCT Mock &amp; Camp:</b> Diagnostic testing with 100% pass record, cultural immersion, and calligraphy.</li>
+  <li><b>6-Week Mandarin Summer Camp (Grades 2–8):</b> Proven 12-session intensive camp where kids independently present self-introductions in fluent Mandarin!</li>
+</ul>`,
+      actions: [
+        { label: 'Enroll Child Online', url: 'https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform', external: true },
+        { label: 'WhatsApp Kids Advisory', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20am%20interested%20in%20YCT%20Kids%20Chinese%20for%20my%20child', external: true },
+        { label: 'View Summer Camp Showcase', url: 'courses.html#summer-camp' }
+      ]
+    },
+
+    // 5. BCT BUSINESS CHINESE
+    {
+      keywords: ['bct', 'business chinese', 'business mandarin', 'trader', 'executive', '1688 procurement', 'bct-a', 'bct-b', 'bct trade', 'bct cpec', 'bct spoken'],
+      response: `<b>BCT Business Chinese (For Importers, Traders &amp; Executives)</b>:
+<ul>
+  <li><b>BCT-A (Standard 1, 2 &amp; 3):</b> 96 Credit Hours · Commercial dialogues, factory visits, dining etiquette &amp; business cards.</li>
+  <li><b>BCT-B (Standard 4 &amp; 5):</b> 96 Credit Hours · Executive contracts, banking, customs terms &amp; Joint Ventures.</li>
+  <li><b>BCT Spoken Fluency:</b> High-frequency commercial negotiations, pricing &amp; meeting etiquette.</li>
+  <li><b>BCT Trade Sourcing:</b> Direct 1688 / Alibaba factory communication, MOQs, quotations &amp; shipping terms.</li>
+  <li><b>BCT CPEC Alliances:</b> Bilateral trade frameworks, corporate partnerships &amp; MoUs.</li>
+</ul>`,
+      actions: [
+        { label: 'Enroll Executive Online', url: 'https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform', external: true },
+        { label: 'WhatsApp Business Track', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20am%20interested%20in%20BCT%20Business%20Chinese', external: true }
+      ]
+    },
+
+    // 6. CHINA PRODUCT SOURCING & E-COMMERCE MASTER PROGRAM
+    {
+      keywords: ['ecommerce', 'e-commerce', 'sourcing', 'china sourcing', '1688', 'alibaba', 'shopify', 'master program', 'product sourcing', 'private label', 'branding', '24 weeks', 'meta ads', 'tiktok ads'],
+      response: `<b>China Product Sourcing &amp; E-Commerce Master Program (24 Weeks / 6 Levels)</b>:
+<p>A step-by-step masterclass to source, brand, launch, and scale your global business from China:</p>
+<ul>
+  <li><b>Level 1 (Weeks 1–4):</b> E-Commerce foundation, AI winning product research &amp; margin validation.</li>
+  <li><b>Level 2 (Weeks 5–8):</b> Direct 1688/Alibaba factory sourcing, Chinese price negotiation &amp; QC audits.</li>
+  <li><b>Level 3 (Weeks 9–12):</b> Private label branding, custom packaging, 3D renders &amp; viral video content.</li>
+  <li><b>Level 4 (Weeks 13–16):</b> High-conversion Shopify store setup, payment gateways &amp; automated fulfillment.</li>
+  <li><b>Level 5 (Weeks 17–20):</b> Digital marketing blueprints (Meta Ads, TikTok Spark Ads, Google PMax &amp; ROAS optimization).</li>
+  <li><b>Level 6 (Weeks 21–24):</b> Global D2C launch, Pakistan wholesale B2B distribution &amp; scaling.</li>
+</ul>`,
+      actions: [
+        { label: 'Enroll in E-Com Masterclass', url: 'https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform', external: true },
+        { label: 'WhatsApp Sourcing Desk', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20want%20to%20enroll%20in%20the%20China%20Product%20Sourcing%20&%20E-Commerce%20Master%20Program', external: true },
+        { label: 'View Program Roadmap', url: 'courses.html#china-ecommerce-master' }
+      ]
+    },
+
+    // 7. DIGITAL COMMERCE MASTER PROGRAM (UPCOMING / WAITLIST)
+    {
+      keywords: ['digital commerce', 'amazon', 'amazon fba', 'tiktok shop', 'local shopify', 'cod', 'cash on delivery', 'stripe', 'fintech', 'performance marketing', 'waitlist', 'pre-register'],
+      response: `<b>Digital Commerce Master Program (Upcoming / Pre-Registration Open)</b>:
+<ul>
+  <li><b>Amazon FBA:</b> Product hunting, listing optimization, Amazon PPC, and warehousing (USA, UK &amp; UAE).</li>
+  <li><b>TikTok Shop &amp; Social Commerce:</b> Live stream selling, creator affiliate marketing, and viral short videos.</li>
+  <li><b>Local Shopify in Pakistan:</b> Cash-on-Delivery (COD) courier APIs (Trax, TCS, CallCourier), high-converting stores.</li>
+  <li><b>Performance Marketing:</b> Profitable Meta, TikTok, and Google ad funnels with custom conversion tracking.</li>
+  <li><b>Cross-Border Fintech &amp; Stripe Setup:</b> International LLC/LTD company registration from Pakistan, verified Stripe and Wise business accounts.</li>
+  <li><b>AI Tools &amp; Automation:</b> AI-assisted product research, automated copywriting, and customer support bots.</li>
+</ul>`,
+      actions: [
+        { label: 'Pre-Register on Waitlist', url: 'https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform', external: true },
+        { label: 'WhatsApp Early Bird', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20want%20to%20pre-register%20for%20Digital%20Commerce', external: true }
+      ]
+    },
+
+    // 8. OTHER FOREIGN LANGUAGES
+    {
+      keywords: ['english', 'ielts', 'arabic', 'gulf arabic', 'german', 'goethe', 'japanese', 'jlpt', 'korean', 'topik', 'other languages', 'foreign languages', 'international languages'],
+      response: `<b>Other International Language Programs at ICTS Consulting</b>:
+<ul>
+  <li><b>English Language:</b> IELTS exam preparation, Business English, and executive corporate reporting.</li>
+  <li><b>Arabic Language:</b> Gulf business Arabic, conversational fluency, and commercial translation.</li>
+  <li><b>German Language:</b> Goethe-Institut A1–B2 certification for engineering studies, medical professionals &amp; German opportunity visas.</li>
+  <li><b>Japanese &amp; Korean:</b> JLPT &amp; TOPIK exam preparation for East Asian technology careers and university scholarships.</li>
+</ul>`,
+      actions: [
+        { label: 'Inquire Language Tracks', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20am%20interested%20in%20Foreign%20Language%20Training', external: true },
+        { label: 'View Languages Page', url: 'courses.html#international-languages' }
+      ]
+    },
+
+    // 9. ALL COURSES CONSOLIDATED
+    {
+      keywords: ['all courses', 'courses list', 'what courses', 'offerings', 'curriculum list', 'tamam courses', 'course list'],
+      response: `<b>Complete Course Portfolio at ICTS Consulting</b>:
+<ol>
+  <li><b>Mandarin Chinese:</b> HSK 3.0 (Levels 1–6), YCT for Kids (Ages 6–15), BCT Business Chinese, and Wo Hui HSK Mock series.</li>
+  <li><b>Spiritual Sciences:</b> 1-on-1 Spiritual Counseling and 3-Month LOH-O-QALAM Training with Mr. Ibrar Hussain Bhatti.</li>
+  <li><b>E-Commerce &amp; Sourcing:</b> 24-Week China Product Sourcing &amp; E-Commerce Master Program + Digital Commerce (Amazon/TikTok/Shopify/Stripe).</li>
+  <li><b>Other International Languages:</b> English (IELTS), Arabic (Gulf Business), German (Goethe A1-B2), Japanese (JLPT), and Korean (TOPIK).</li>
+</ol>
+<p><i>All programs offer flexible options for <b>Live Interactive Zoom Sessions</b> and <b>Lifetime HD Recorded Lectures</b>.</i></p>`,
+      actions: [
+        { label: 'Explore All Courses', url: 'courses.html' },
+        { label: 'Register Online Now', url: 'https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform', external: true },
+        { label: 'WhatsApp Admissions', url: 'https://wa.me/923229223022', external: true }
+      ]
+    },
+
+    // 10. BATCH TIMINGS & SCHEDULES
+    {
+      keywords: ['batch', 'timing', 'schedule', 'time', 'classes timing', 'kab hoti hain', 'morning', 'evening', 'afternoon', 'timings'],
+      response: `<b>ICTS Regular Batch Timings &amp; Schedules</b>:
+<ul>
+  <li><b>Morning Batch:</b> 9:00 AM – 11:00 AM PKT (University students, freelancers &amp; early professionals)</li>
+  <li><b>Afternoon Batch:</b> 2:00 PM – 4:00 PM PKT (Midday learners &amp; institutional cohorts)</li>
+  <li><b>Evening Batch:</b> 8:00 PM – 10:00 PM PKT (Working executives, traders &amp; professionals)</li>
+  <li><b>Kids Batch (YCT):</b> 5:00 PM – 6:30 PM PKT (Ages 6–15 after school hours)</li>
+  <li><b>Free Daily Zoom Workshop:</b> Monday to Thursday at <b>10:00 PM PKT</b></li>
+</ul>
+<p><i>Recorded lectures with lifetime access are also provided for all enrolled students!</i></p>`,
+      actions: [
+        { label: 'Register for Preferred Batch', url: 'https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform', external: true },
+        { label: 'WhatsApp Batch Coordinator', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20please%20tell%20me%20about%20batch%20timings', external: true }
+      ]
+    },
+
+    // 11. PRICING & FEE INQUIRY (NO HARDCODED PRICES - DIRECT TO ENROLLMENT & INCLUSIONS)
+    {
+      keywords: ['fee', 'fees', 'cost', 'price', 'pricing', 'kitni fee', 'charges', 'expense', 'paisa', 'kitna kharcha'],
+      response: `<b>ICTS Course Inclusions &amp; Fee Inquiries</b>:
+<p>Program fees vary depending on your chosen course track, level, and learning mode (<b>Live Interactive Zoom Batches</b> or <b>Lifetime HD Recorded Lectures</b>).</p>
+<p><b>Every enrollment includes:</b></p>
+<ul>
+  <li>Complete live instruction or lifetime recorded video lectures</li>
+  <li>Official Standard textbooks &amp; Hanzi writing workbooks</li>
+  <li>Official Wo Hui HSK AI Mock examination portal credentials</li>
+  <li>Direct WhatsApp instructor support and verified completion certificates</li>
+</ul>
+<p>Please fill out our short registration form or message our admissions coordinator on WhatsApp for current intake fee packages and early-bird discounts!</p>`,
+      actions: [
+        { label: 'Fill Online Registration Form', url: 'https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform', external: true },
+        { label: 'WhatsApp Fee & Batch Inquiry', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20want%20to%20know%20the%20fee%20structure%20and%20intake%20details%20for%20courses', external: true },
+        { label: 'View Courses Page', url: 'courses.html' }
+      ]
+    },
+
+    // 12. 4 CORE PILLARS OF SERVICES
+    {
+      keywords: ['pillar', 'pillars', 'services overview', 'capabilities', '4 pillars', 'char pillar', 'all services', 'what services', 'service'],
+      response: `<b>ICTS Consulting 4 Core Pillars of Service</b>:
+<ul>
+  <li><b>1. Project Management Services:</b> Feasibility analysis, Earned Value Management (EVM), Primavera P6 &amp; MS Project baselines, PMO setup, and PMI standards.</li>
+  <li><b>2. ICT &amp; Digital Services:</b> Corporate websites, student portals, cloud infrastructures (AWS/GCP/Azure), SaaS systems, and cybersecurity hardening.</li>
+  <li><b>3. Foreign Languages &amp; Education:</b> Accredited Mandarin training for HSK 1–6, YCT for Kids, and BCT Business Chinese with official Wo Hui AI Mock testing platform.</li>
+  <li><b>4. Business Promotion Consultancy:</b> China-Pakistan CPEC bilateral trade linkages, supplier vetting, commercial negotiations, and institutional network growth.</li>
+</ul>`,
+      actions: [
+        { label: 'Explore 4 Pillars in Detail', url: 'services.html' },
+        { label: 'Open a Chinese Language Center', url: 'services.html#center-setup' },
+        { label: 'WhatsApp Services Desk', url: 'https://wa.me/923229223022', external: true }
+      ]
+    },
+
+    // 13. PILLAR 1: PROJECT MANAGEMENT SERVICES
+    {
+      keywords: ['project management', 'primavera', 'p6', 'evm', 'earned value', 'ms project', 'pmo', 'pmp', 'capm', 'scheduling', 'variance', 'cpm', 'wbs'],
+      response: `<b>Project Management Services (Pillar 01)</b>:
+<p>ICTS provides industry-certified project management advisory aligned with PMI &amp; PMBOK standards:</p>
+<ul>
+  <li><b>Planning &amp; Baseline Scheduling:</b> Work Breakdown Structure (WBS), Critical Path Method (CPM), and Primavera P6 / MS Project architectures.</li>
+  <li><b>EVM Control &amp; Variance Analysis:</b> Earned Value Management tracking (SPI, CPI, cost variance prevention, and executive stakeholder dashboards).</li>
+  <li><b>PMO Governance &amp; Setup:</b> Establishment of corporate Project Management Offices, phase-gate audits, and risk mitigation registers.</li>
+  <li><b>Corporate Capacity Building:</b> PMP, CAPM, and engineering project management preparation.</li>
 </ul>`,
       actions: [
         { label: 'Project Services Details', url: 'services.html#project-management' },
         { label: 'WhatsApp Consultant', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20am%20interested%20in%20Project%20Management%20Services', external: true }
       ]
     },
+
+    // 14. PILLAR 2: ICT & DIGITAL SERVICES
     {
-      keywords: ['ict', 'digital', 'technology', 'web', 'website', 'cloud', 'cyber', 'cybersecurity', 'software', 'app', 'portal', 'erp', 'crm'],
-      response: `<b>ICT & Digital Services (Pillar 02)</b>:
-We engineer robust, enterprise-grade technology ecosystems:
+      keywords: ['ict', 'digital', 'technology', 'web', 'website', 'cloud', 'cyber', 'cybersecurity', 'software', 'app', 'portal', 'erp', 'crm', 'saas', 'seo'],
+      response: `<b>ICT &amp; Digital Services (Pillar 02)</b>:
+<p>We build robust, high-performance technology ecosystems:</p>
 <ul>
-  <li><b>Custom Web Development:</b> High-performance corporate websites, student portals, CMS, and web apps.</li>
-  <li><b>Cloud & Infrastructure:</b> Cloud migration, automated backups, and 99.9% uptime architectures.</li>
-  <li><b>Cybersecurity:</b> Vulnerability testing, SSL encryption, endpoint protection, and security audits.</li>
-  <li><b>Business Automation:</b> ERP/CRM integration and automated business workflow systems.</li>
+  <li><b>Web Portals &amp; SaaS Systems:</b> Responsive corporate websites, student learning portals, LMS, and API integrations.</li>
+  <li><b>Cloud &amp; Infrastructure:</b> Cloud migration (AWS, Google Cloud, Azure), SSL security, daily backups, and 99.9% uptime architecture.</li>
+  <li><b>Cybersecurity:</b> Vulnerability assessments, endpoint protection, and security audits.</li>
+  <li><b>SEO, Analytics &amp; Automation:</b> Technical search engine optimization, automated CRM pipelines, and intelligent WhatsApp bots.</li>
 </ul>`,
       actions: [
         { label: 'Explore Digital Services', url: 'services.html#ict-digital' },
-        { label: 'Discuss Tech Project', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20have%20an%20ICT/Web%20project%20inquiry', external: true }
+        { label: 'Discuss Tech Project on WhatsApp', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20have%20an%20ICT/Web%20project%20inquiry', external: true }
       ]
     },
+
+    // 15. PILLAR 4: BUSINESS PROMOTION & CHINA-PAKISTAN TRADE
     {
-      keywords: ['business promotion', 'trade', 'china', 'pakistan', 'cpec', 'b2b', 'supplier', 'vetting', 'delegation', 'contract', 'import', 'export'],
+      keywords: ['business promotion', 'trade', 'china', 'pakistan', 'cpec', 'b2b', 'supplier', 'vetting', 'delegation', 'contract', 'import', 'export', 'due diligence', 'factory verification'],
       response: `<b>Business Promotion Consultancy (Pillar 04)</b>:
-Connecting businesses across the China-Pakistan economic corridor:
+<p>Connecting businesses across the China-Pakistan Economic Corridor (CPEC):</p>
 <ul>
-  <li><b>Cross-Border B2B Matchmaking:</b> Facilitating bilateral trade agreements between Pakistani and Chinese enterprises.</li>
-  <li><b>Supplier Vetting & Due Diligence:</b> On-ground factory audits, product quality inspections, and vendor credentials verification.</li>
-  <li><b>Trade Delegation Support:</b> Commercial delegations, visa advisory, and bilingual business negotiations.</li>
-  <li><b>Institutional Network:</b> Direct linkages with 800+ partner nodes globally.</li>
+  <li><b>Cross-Border B2B Matchmaking:</b> Facilitating bilateral commercial agreements between Pakistani and Chinese enterprises.</li>
+  <li><b>Supplier Vetting &amp; Due Diligence:</b> On-ground factory audits, product quality inspections, and vendor credentials verification in China.</li>
+  <li><b>Trade Delegation Support:</b> Commercial delegations, expo representation, visa advisory, and bilingual negotiations.</li>
+  <li><b>Joint Venture Advisory:</b> Direct linkages with 800+ partner nodes globally.</li>
 </ul>`,
       actions: [
         { label: 'Trade Promotion Details', url: 'services.html#business-promotion' },
-        { label: 'Inquire on WhatsApp', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20am%20interested%20in%20China-Pakistan%20Trade%20Consultancy', external: true }
+        { label: 'WhatsApp Trade Desk', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20am%20interested%20in%20China-Pakistan%20Trade%20Consultancy', external: true }
       ]
     },
+
+    // 16. OPEN A CHINESE LANGUAGE CENTER (TURNKEY SETUP)
     {
-      keywords: ['contact', 'address', 'location', 'phone', 'whatsapp', 'email', 'office', 'kahan hai', 'head office', 'lahore', 'call', 'number'],
-      response: `<b>ICTS Consulting (SMC-Private) Limited Contact Details</b>:
-<ul style="list-style:none; padding-left:0; margin:8px 0;">
-  <li style="margin-bottom:6px;"><i class="fa-solid fa-location-dot" style="color:var(--brand-red); margin-right:6px;"></i><b>Head Office:</b> WAPDA Town Phase-I, Lahore, Punjab, Pakistan</li>
-  <li style="margin-bottom:6px;"><i class="fa-solid fa-phone" style="color:var(--brand-red); margin-right:6px;"></i><b>Landline:</b> <a href="tel:+924235450375" style="color:var(--brand-red); font-weight:800;">+92 423 5450375</a></li>
-  <li style="margin-bottom:6px;"><i class="fa-brands fa-whatsapp" style="color:#25D366; margin-right:6px;"></i><b>Official WhatsApp:</b> <a href="https://wa.me/923229223022" target="_blank" style="color:var(--brand-red); font-weight:800;">+92 322 9223022</a></li>
-  <li style="margin-bottom:6px;"><i class="fa-solid fa-envelope" style="color:var(--brand-red); margin-right:6px;"></i><b>Email:</b> info@ictsconsulting.com</li>
-  <li style="margin-bottom:6px;"><i class="fa-regular fa-clock" style="color:var(--brand-red); margin-right:6px;"></i><b>Office Hours:</b> Mon–Fri: 9:00 AM – 6:00 PM PKT | Daily Free Zoom: 10:00 PM PKT</li>
+      keywords: ['open center', 'center setup', 'franchise', 'start center', 'language center', 'smart classroom', 'open chinese center', 'licensing center'],
+      response: `<b>Turnkey Educational Advisory: Open a Chinese Language Center</b>:
+<p>ICTS guides you step-by-step on how to open, license, equip, staff, and run a high-performing Chinese Language Center:</p>
+<ul>
+  <li><b>Step 1: Feasibility &amp; Business Planning:</b> Demographic catchment study, CAPEX/OPEX budgeting &amp; cash flow forecasts.</li>
+  <li><b>Step 2: Licensing &amp; Accreditations:</b> Institutional registration, regulatory compliance &amp; HSK testing platform affiliation.</li>
+  <li><b>Step 3: Smart Classroom Setup:</b> Interactive touchscreens, dual-audio Zoom broadcasting &amp; LMS student portals.</li>
+  <li><b>Step 4: Ministry Curriculum Supply:</b> Direct provision of official HSK 1–6 books, YCT flashcards &amp; Wo Hui AI Mock access.</li>
+  <li><b>Step 5: Faculty Recruitment:</b> Vetting and screening of certified native and bilingual instructors.</li>
+  <li><b>Step 6: Marketing &amp; Admissions:</b> Student mobilization funnels and institutional revenue sharing up to 20%.</li>
 </ul>`,
       actions: [
-        { label: 'WhatsApp Admissions & Support', url: 'https://wa.me/923229223022', external: true },
-        { label: 'View Contact Page & Map', url: 'contact.html' }
+        { label: 'Open Chinese Center Guide', url: 'services.html#center-setup' },
+        { label: 'Chat with Center Advisor', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20want%20guidance%20on%20how%20to%20open%20a%20Chinese%20Language%20Center', external: true }
       ]
     },
+
+    // 17. COLLABORATIONS & INSTITUTIONAL ALLIANCES
     {
-      keywords: ['register', 'enroll', 'admission', 'apply', 'form', 'admission form', 'kaise register karein', 'registration', 'recorded', 'recording', 'live lecture', 'recorded lecture'],
-      response: `<b>How to Register & Enroll (Live Classes & Recorded Lectures)</b>:
+      keywords: ['collaboration', 'collaborations', 'partner', 'partners', 'partnership', 'cit', 'cit pvt ltd', 'wo hui', 'wohui', 'uaf', 'university', 'alliances', 'institutional'],
+      response: `<b>Official Collaborations &amp; Institutional Alliances</b>:
+<ul>
+  <li><b>ICTS &amp; CIT Pvt. Ltd. Strategic Partnership:</b> A nationwide initiative uniting ICTS's accredited Mandarin curriculum and teacher provisioning with CIT's network of <b>800+ learning centres</b> in Pakistan.</li>
+  <li><b>Wo Hui Mandarin (Singapore / Global):</b> Official HSK Mock platform partner delivering AI-graded exam simulations across an 800+ global partner network.</li>
+  <li><b>University of Agriculture Faisalabad (UAF):</b> Institutional Chinese examination partnership where candidates achieved a <b>100% exam pass rate</b>.</li>
+  <li><b>School &amp; College Partnerships:</b> Providing schools, colleges, and academies with curriculum licensing, testing support, and up to <b>20% revenue sharing</b>.</li>
+</ul>`,
+      actions: [
+        { label: 'View Collaboration Page', url: 'collaboration.html' },
+        { label: 'Discuss Institutional Partnership', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20our%20institution%20wants%20to%20partner%20with%20ICTS', external: true }
+      ]
+    },
+
+    // 18. EVENTS, LEARN N EARN & 20% COMMISSION MODEL
+    {
+      keywords: ['event', 'events', 'learn n earn', 'learn and earn', 'commission', '20%', '20 percent', 'referral', 'affiliate', 'student referral', 'earn money', 'kamai', 'chinese language day', 'summer camp'],
+      response: `<b>Events &amp; Learn N Earn (20% Direct Commission Model)</b>:
+<p>ICTS Consulting offers three lucrative earning pathways to monetize your network:</p>
+<ul>
+  <li><b>1. Individual Student Referral Program (20% Commission):</b> Earn an instant 20% cash commission for every student you refer to any language (HSK/YCT/BCT) or E-Commerce course (earn PKR 20,000 to 100,000+ monthly).</li>
+  <li><b>2. E-Commerce Master Program Affiliate (20% Sharing):</b> Refer entrepreneurs &amp; trainees to the 24-Week China Product Sourcing Masterclass.</li>
+  <li><b>3. Open a Chinese Center:</b> Institutional revenue sharing up to 20% for academy and center owners.</li>
+  <li><b>Community Events:</b> International Chinese Language Day celebration in Lahore, Youth Certification Award ceremonies, and 6-week Summer Camps.</li>
+</ul>`,
+      actions: [
+        { label: 'Explore Learn N Earn', url: 'events.html' },
+        { label: 'Start Referring on WhatsApp (20%)', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20want%20to%20earn%2020%25%20by%20referring%20students', external: true }
+      ]
+    },
+
+    // 19. FREE LIVE ZOOM WORKSHOP
+    {
+      keywords: ['free', 'zoom', 'workshop', 'trial', 'demo', 'time', 'timing', 'daily', '10 pm', 'live class', 'free class', 'meeting id', 'passcode'],
+      response: `<b>Free Scheduled Live Zoom Workshop</b>:
+<p><b>Chinese Language &amp; Business Promotional Workshop</b></p>
+<ul>
+  <li><b>Schedule:</b> Monday, Tuesday, Wednesday &amp; Thursday at <b>10:00 PM PKT</b></li>
+  <li><b>Meeting Access:</b> Online Zoom Live · <b>100% Free Entry</b></li>
+  <li><b>Meeting ID:</b> <code style="color:var(--yellow-main); font-weight:800; background:#000; padding:2px 6px; border-radius:4px;">823 7234 8859</code></li>
+  <li><b>Passcode:</b> <code style="color:var(--yellow-main); font-weight:800; background:#000; padding:2px 6px; border-radius:4px;">893624</code></li>
+  <li><b>Focus:</b> 40 minutes of pronunciation, Pinyin, interactive conversation practice, and student mobilization commission breakdown.</li>
+</ul>`,
+      actions: [
+        { label: 'Join Live Zoom Stream', url: 'https://us06web.zoom.us/j/82372348859?pwd=pCsrMhFb1wW8bXUwb0jalWC5cAP1RT.1', external: true },
+        { label: 'WhatsApp Workshop Link', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20please%20send%20me%20the%20Free%20Live%20Zoom%20Workshop%20link', external: true }
+      ]
+    },
+
+    // 20. HOW TO REGISTER & ENROLL
+    {
+      keywords: ['register', 'enroll', 'admission', 'apply', 'form', 'admission form', 'kaise register karein', 'registration', 'recorded', 'recording', 'live lecture', 'recorded lecture', 'dakhla'],
+      response: `<b>How to Register &amp; Enroll (Live Classes &amp; Recorded Lectures)</b>:
 <ol>
   <li><b>Step 1:</b> Fill out our official online Google Registration Form and choose your preferred learning mode (<b>Live Interactive Zoom Batches</b> or <b>Lifetime HD Recorded Lectures</b>).</li>
-  <li><b>Step 2:</b> Our admissions coordinator will reach out to you via WhatsApp (+92 322 9223022) with batch timings and fee payment details.</li>
+  <li><b>Step 2:</b> Our admissions coordinator will reach out to you via WhatsApp (+92 322 9223022) with batch timings and registration confirmation.</li>
   <li><b>Step 3:</b> Receive your student LMS credentials, Wo Hui HSK Mock exam portal login, and Zoom classroom links!</li>
 </ol>`,
       actions: [
@@ -1087,36 +1312,63 @@ Connecting businesses across the China-Pakistan economic corridor:
         { label: 'Instant WhatsApp Admissions', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20want%20to%20register%20now', external: true }
       ]
     },
+
+    // 21. CONTACT & HEAD OFFICE
     {
-      keywords: ['about', 'who are you', 'company', 'history', 'secp', 'vision', 'mission', 'icts consulting'],
+      keywords: ['contact', 'address', 'location', 'phone', 'whatsapp', 'email', 'office', 'kahan hai', 'head office', 'lahore', 'call', 'number', 'helpline'],
+      response: `<b>ICTS Consulting (SMC-Private) Limited Contact Details</b>:
+<ul style="list-style:none; padding-left:0; margin:8px 0;">
+  <li style="margin-bottom:6px;"><i class="fa-solid fa-location-dot" style="color:var(--brand-red); margin-right:6px;"></i><b>Head Office:</b> WAPDA Town Phase-I, Lahore, Punjab, Pakistan</li>
+  <li style="margin-bottom:6px;"><i class="fa-solid fa-phone" style="color:var(--brand-red); margin-right:6px;"></i><b>Landline:</b> <a href="tel:+924235450375" style="color:var(--brand-red); font-weight:800;">+92 423 5450375</a></li>
+  <li style="margin-bottom:6px;"><i class="fa-brands fa-whatsapp" style="color:#25D366; margin-right:6px;"></i><b>Admissions WhatsApp:</b> <a href="https://wa.me/923229223022" target="_blank" style="color:var(--brand-red); font-weight:800;">+92 322 9223022</a></li>
+  <li style="margin-bottom:6px;"><i class="fa-brands fa-whatsapp" style="color:#25D366; margin-right:6px;"></i><b>Spiritual Sciences WhatsApp:</b> <a href="https://wa.me/923214223022" target="_blank" style="color:var(--brand-red); font-weight:800;">+92 321 4223022</a></li>
+  <li style="margin-bottom:6px;"><i class="fa-solid fa-envelope" style="color:var(--brand-red); margin-right:6px;"></i><b>Email:</b> info@ictsconsulting.com</li>
+  <li style="margin-bottom:6px;"><i class="fa-regular fa-clock" style="color:var(--brand-red); margin-right:6px;"></i><b>Office Hours:</b> Mon–Fri: 9:00 AM – 6:00 PM PKT | Free Zoom: 10:00 PM PKT</li>
+</ul>`,
+      actions: [
+        { label: 'WhatsApp Admissions', url: 'https://wa.me/923229223022', external: true },
+        { label: 'WhatsApp Spiritual Counseling', url: 'https://wa.me/923214223022', external: true },
+        { label: 'View Contact Page & Map', url: 'contact.html' }
+      ]
+    },
+
+    // 22. ABOUT COMPANY & PROFILE
+    {
+      keywords: ['about', 'who are you', 'company', 'history', 'secp', 'vision', 'mission', 'icts consulting', 'company profile'],
       response: `<b>About ICTS Consulting (SMC-Private) Limited</b>:
 <ul>
-  <li>Registered corporate consulting entity based in Lahore, Pakistan (SECP compliant).</li>
+  <li>SECP-registered corporate consulting, technology, and language education enterprise based in Lahore, Pakistan.</li>
   <li><b>Motto:</b> <i>Plan Better. Manage Smarter. Deliver Successfully.</i></li>
-  <li><b>Core Verticals:</b> Project Management (EVM/P6), ICT & Digital Transformation, Foreign Language Education (Mandarin HSK 1-6), and Business Promotion Consultancy.</li>
-  <li>Partnered with Wo Hui HSK Mock platform across 800+ global partner centres.</li>
+  <li><b>Leadership:</b> Mr. Ibrar Hussain Bhatti Azeemi (CEO &amp; Managing Director).</li>
+  <li><b>4 Core Verticals:</b> Project Management (EVM/P6), ICT &amp; Digital Solutions, Foreign Language Education (Mandarin HSK/YCT/BCT), and China-Pakistan Business Promotion.</li>
+  <li><b>Network:</b> Institutional alliance with CIT Pvt. Ltd. (800+ learning centres) and Wo Hui Mandarin (800+ global partner network).</li>
 </ul>`,
       actions: [
         { label: 'Read Company Profile', url: 'about.html' },
         { label: 'Institutional Collaboration', url: 'collaboration.html' }
       ]
     },
+
+    // 23. GREETINGS
     {
       keywords: ['hi', 'hello', 'hey', 'ni hao', 'nǐ hǎo', 'salam', 'assalam', 'aoa', 'halo', 'greeting', '你好'],
       response: `<b>Nǐ Hǎo (你好) and Welcome to ICTS Consulting!</b>
-<p>I am <b>AI gùwèn (智能顾问)</b>, your dedicated AI consultant robot. I am trained on all services, course schedules, fee tables, project management methodologies, and trade solutions across ICTS Consulting.</p>
-<p>How may I assist you today? You can tap one of the quick chips below or type any question!</p>`,
+<p>I am <b>AI gùwèn (智能顾问)</b>, your dedicated AI consultant robot. I am trained on all services, course curriculums, spiritual sciences counseling, CEO vision, collaborations, and events across ICTS Consulting.</p>
+<p>How may I assist you today? Feel free to click any suggestion below or type your question!</p>`,
       actions: [
-        { label: 'View 4 Pillars', url: 'services.html' },
-        { label: 'Courses & Fees', url: 'courses.html' },
+        { label: 'View CEO Message', url: 'about.html#ceo-leadership' },
+        { label: 'Explore All Courses', url: 'courses.html' },
+        { label: 'Spiritual Sciences', url: 'spiritual-sciences.html' },
         { label: 'Free Zoom Session', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20want%20to%20join%20the%20Free%20Zoom%20Workshop', external: true }
       ]
     },
+
+    // 24. THANK YOU & CLOSING
     {
       keywords: ['thanks', 'thank you', 'shukriya', 'xie xie', 'xièxie', 'great', 'awesome', 'good', 'ok', 'okay', '谢谢'],
       response: `<b>You're very welcome! (不客气 · Bù kèqì)</b>
-<p>At ICTS Consulting, we are always here to help you plan better, work smarter, and communicate globally.</p>
-<p>Feel free to ask another question or connect with our human advisors directly on WhatsApp at <b>+92 322 9223022</b>.</p>`,
+<p>At ICTS Consulting, we are always here to help you plan better, work smarter, communicate globally, and grow sustainably.</p>
+<p>Feel free to ask another question or connect directly with our advisors on WhatsApp at <b>+92 322 9223022</b>.</p>`,
       actions: [
         { label: 'Chat on WhatsApp', url: 'https://wa.me/923229223022', external: true },
         { label: 'Explore Home', url: 'index.html' }
@@ -1128,14 +1380,17 @@ Connecting businesses across the China-Pakistan economic corridor:
     appendBotMessage(`<b>Nǐ Hǎo! I am AI gùwèn (智能顾问)</b>
 <p>I am ICTS Consulting's official intelligent assistant, trained on all data across our website including:</p>
 <ul>
-  <li><b>4 Core Pillars of Service</b> (Project Management, ICT, Foreign Languages, Trade)</li>
-  <li><b>Mandarin Chinese Courses &amp; Curriculum</b> (HSK 1-6, YCT, BCT, Wo Hui Mock Test)</li>
-  <li><b>Daily Free Live Zoom Workshop</b> (Mon-Thu at 10:00 PM PKT)</li>
-  <li><b>Admissions, Registration &amp; Contact Details</b></li>
+  <li><b>Core Message of CEO &amp; Leadership</b> (Mr. Ibrar Hussain Bhatti Azeemi)</li>
+  <li><b>Spiritual Sciences &amp; Loh-o-Qalam</b> (1-on-1 Counseling &amp; 3-Month Training)</li>
+  <li><b>All Courses &amp; Programs</b> (HSK 1-6, YCT Kids, BCT Business, 24-Wk E-Com Master, Digital Commerce, Languages)</li>
+  <li><b>4 Pillars of Service &amp; Turnkey Center Setup</b> (Project Management, ICT, Languages, Trade)</li>
+  <li><b>Learn N Earn (20% Direct Commission Model) &amp; Daily Free Live Zoom Workshop</b></li>
+  <li><b>Collaborations</b> (CIT Pvt. Ltd. 800+ Centers &amp; Wo Hui Global Network)</li>
 </ul>
-<p>Feel free to click any suggestion below or ask me a question!</p>`, [
-      { label: '<i class="fa-solid fa-building-columns"></i> 4 Pillars of Service', query: 'What are the 4 pillars of service?' },
-      { label: '<i class="fa-solid fa-graduation-cap"></i> Courses & Curriculum', query: 'Tell me about Chinese HSK courses & fees' },
+<p>Feel free to click any suggestion below or ask me any question!</p>`, [
+      { label: '<i class="fa-solid fa-bullhorn"></i> CEO Message', query: 'Tell me about the CEO Message & Vision' },
+      { label: '<i class="fa-solid fa-graduation-cap"></i> All Courses', query: 'What courses do you offer?' },
+      { label: '<i class="fa-solid fa-feather-pointed"></i> Spiritual Sciences', query: 'Tell me about Spiritual Sciences & Loh-o-Qalam' },
       { label: '<i class="fa-solid fa-video"></i> Free Zoom Class', query: 'When is the Free Live Zoom Workshop?' }
     ]);
   }
@@ -1156,7 +1411,7 @@ Connecting businesses across the China-Pakistan economic corridor:
     if (actions && actions.length) {
       actionBtnsHtml = `<div class="ai-msg-actions">` + actions.map(act => {
         if (act.query) {
-          return `<button class="ai-action-btn" data-query="${escapeHtml(act.query)}">${escapeHtml(act.label)}</button>`;
+          return `<button class="ai-action-btn" data-query="${escapeHtml(act.query)}">${act.label}</button>`;
         }
         const target = act.external ? 'target="_blank" rel="noopener"' : '';
         return `<a href="${act.url}" ${target} class="ai-action-btn">${escapeHtml(act.label)} →</a>`;
@@ -1217,8 +1472,11 @@ Connecting businesses across the China-Pakistan economic corridor:
     knowledgeBase.forEach(item => {
       let score = 0;
       item.keywords.forEach(kw => {
-        if (cleanQuery.includes(kw)) {
-          score += kw.length; // Longer matches carry more weight
+        const cleanKw = kw.toLowerCase();
+        if (cleanQuery === cleanKw) {
+          score += 100; // Exact match bonus
+        } else if (cleanQuery.includes(cleanKw)) {
+          score += cleanKw.length * 2; // Longer keyword match carries higher priority
         }
       });
       if (score > highestScore) {
@@ -1234,12 +1492,13 @@ Connecting businesses across the China-Pakistan economic corridor:
     // Default Fallback Response
     return {
       response: `Thank you for your question! 
-<p>As <b>AI gùwèn</b>, I can help you with anything regarding <b>ICTS Consulting</b>, including our <b>4 Pillars</b> (Project Management, ICT & Digital Services, Foreign Languages Mandarin HSK/YCT/BCT, and China-Pakistan Business Promotion), our <b>Daily 10 PM Free Zoom Workshops</b>, or <b>Registration & Fees</b>.</p>
-<p>Would you like to speak directly with an admissions consultant on WhatsApp?</p>`,
+<p>As <b>AI gùwèn</b>, I can assist you with anything regarding <b>ICTS Consulting</b>, including our <b>CEO Message &amp; Vision</b>, <b>Spiritual Sciences &amp; Loh-o-Qalam</b>, <b>All Language &amp; E-Commerce Courses</b>, our <b>4 Service Pillars</b>, <b>Learn N Earn 20% Commission</b>, <b>Institutional Collaborations</b>, and our <b>Daily 10 PM Free Zoom Workshops</b>.</p>
+<p>Would you like to connect directly with an advisor on WhatsApp?</p>`,
       actions: [
         { label: 'Chat on WhatsApp', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20have%20an%20inquiry%20regarding%20' + encodeURIComponent(query), external: true },
-        { label: 'View 4 Pillars', url: 'services.html' },
-        { label: 'Check Courses & Fees', url: 'courses.html' }
+        { label: 'Explore All Courses', url: 'courses.html' },
+        { label: 'Spiritual Sciences', url: 'spiritual-sciences.html' },
+        { label: 'View 4 Pillars', url: 'services.html' }
       ]
     };
   }
@@ -1251,12 +1510,12 @@ Connecting businesses across the China-Pakistan economic corridor:
     appendUserMessage(trimmed);
     showTypingIndicator();
 
-    // AI reasoning delay simulation (400ms)
+    // AI reasoning delay simulation (350ms)
     setTimeout(() => {
       removeTypingIndicator();
       const result = findBestAnswer(trimmed);
       appendBotMessage(result.response, result.actions);
-    }, 450);
+    }, 380);
   }
 
   chatForm.addEventListener('submit', (e) => {
