@@ -102,7 +102,7 @@
   /* Layout & Spacing */
   --max-width: 1320px;
   --gutter: clamp(16px, 2.5vw, 32px);
-  --section-pad: clamp(54px, 6vw, 90px);
+  --section-pad: clamp(28px, 3.2vw, 44px);
 
   /* Radii */
   --radius-sm: 8px;
@@ -1666,6 +1666,15 @@ h3 i {
   position: relative;
 }
 
+.section-pad + .section-pad {
+  padding-top: clamp(10px, 1.5vw, 20px);
+}
+
+.section-pad.bg-cream + .section-pad.bg-cream,
+.section-pad.bg-white + .section-pad.bg-white {
+  padding-top: 0;
+}
+
 .bg-cream {
   background-color: var(--bg-cream);
 }
@@ -1679,7 +1688,7 @@ h3 i {
 .sec-head {
   text-align: center;
   max-width: 820px;
-  margin: 0 auto clamp(32px, 4vw, 54px);
+  margin: 0 auto clamp(16px, 2.5vw, 28px);
 }
 
 .sec-eyebrow {

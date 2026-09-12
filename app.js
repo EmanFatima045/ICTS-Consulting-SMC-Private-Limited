@@ -996,7 +996,7 @@ function initAiGuwenChatbot() {
 </ul>`,
       actions: [
         { label: 'Explore Spiritual Sciences Page', url: 'spiritual-sciences.html' },
-        { label: 'Fill Enrollment Form', url: 'https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform', external: true }
+        { label: 'WhatsApp Spiritual Counseling', url: 'https://wa.me/923214223022?text=Hello%20Mr.%20Ibrar%20Hussain%20Bhatti,%20I%20would%20like%20to%20consult%20you%20regarding%20Spiritual%20Counseling%20and%20Loh-o-Qalam.', external: true }
       ]
     },
     {
