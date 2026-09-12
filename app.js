@@ -170,7 +170,7 @@ function initWorkshopModal() {
       if (textToCopy && navigator.clipboard) {
         navigator.clipboard.writeText(textToCopy).then(() => {
           const originalHTML = btn.innerHTML;
-          btn.innerHTML = '<span>✓ Copied!</span>';
+          btn.innerHTML = '<i class="fa-solid fa-check" style="margin-right: 4px;"></i><span>Copied!</span>';
           btn.classList.add('copied');
           setTimeout(() => {
             btn.innerHTML = originalHTML;
@@ -986,6 +986,20 @@ function initAiGuwenChatbot() {
       ]
     },
     {
+      keywords: ['spiritual', 'spiritual sciences', 'mindfulness', 'meditation', 'philosophy', 'metaphysics', 'contemplative', 'breathwork', 'stoicism'],
+      response: `<b>Spiritual Sciences & Classical Wisdom Programs</b>:
+<ul>
+  <li><b>Contemplative Psychology & Mindfulness:</b> Scientific breathwork, emotional equilibrium & neuro-cognitive attention drills.</li>
+  <li><b>Classical Metaphysics & Philosophy:</b> Comparative Eastern & Western philosophical traditions.</li>
+  <li><b>Mindful Leadership & Ethics:</b> Value-based decision systems and burnout prevention for leaders.</li>
+  <li><b>Format:</b> Live Interactive Zoom Seminars & Full HD Lifetime Recorded Lectures.</li>
+</ul>`,
+      actions: [
+        { label: 'Explore Spiritual Sciences Page', url: 'spiritual-sciences.html' },
+        { label: 'Fill Enrollment Form', url: 'https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform', external: true }
+      ]
+    },
+    {
       keywords: ['free', 'zoom', 'workshop', 'trial', 'demo', 'time', 'timing', 'daily', '10 pm', 'live class', 'free class'],
       response: `<b>Free Live Zoom Mandarin Workshop</b>:
 <ul>
@@ -1061,15 +1075,15 @@ Connecting businesses across the China-Pakistan economic corridor:
       ]
     },
     {
-      keywords: ['register', 'enroll', 'admission', 'apply', 'form', 'admission form', 'kaise register karein', 'registration'],
-      response: `<b>How to Register & Enroll at ICTS Consulting</b>:
+      keywords: ['register', 'enroll', 'admission', 'apply', 'form', 'admission form', 'kaise register karein', 'registration', 'recorded', 'recording', 'live lecture', 'recorded lecture'],
+      response: `<b>How to Register & Enroll (Live Classes & Recorded Lectures)</b>:
 <ol>
-  <li><b>Step 1:</b> Fill out our official online Google Registration Form.</li>
-  <li><b>Step 2:</b> Our admissions coordinator will reach out to you via WhatsApp (+92 322 9223022) with batch schedules and fee payment methods.</li>
+  <li><b>Step 1:</b> Fill out our official online Google Registration Form and choose your preferred learning mode (<b>Live Interactive Zoom Batches</b> or <b>Lifetime HD Recorded Lectures</b>).</li>
+  <li><b>Step 2:</b> Our admissions coordinator will reach out to you via WhatsApp (+92 322 9223022) with batch timings and fee payment details.</li>
   <li><b>Step 3:</b> Receive your student LMS credentials, Wo Hui HSK Mock exam portal login, and Zoom classroom links!</li>
 </ol>`,
       actions: [
-        { label: 'Open Registration Form', url: 'https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform', external: true },
+        { label: 'Fill Registration Form (Live & Recorded)', url: 'https://docs.google.com/forms/d/e/1FAIpQLSfu58wEK60URVaBsQEgCcEPFz9A6HcU3x0G4nj8HsfsjZu_gg/viewform', external: true },
         { label: 'Instant WhatsApp Admissions', url: 'https://wa.me/923229223022?text=Hello%20ICTS,%20I%20want%20to%20register%20now', external: true }
       ]
     },

@@ -818,7 +818,7 @@ ol {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: clamp(4px, 0.8vw, 14px);
+  gap: clamp(2px, 0.6vw, 10px);
   flex-wrap: nowrap;
 }
 
@@ -837,10 +837,10 @@ ol {
 
 .nav-link {
   font-family: var(--font-display);
-  font-size: 14.5px;
+  font-size: clamp(12px, 0.9vw, 14px);
   font-weight: 800;
   color: var(--bg-cream) !important;
-  padding: 6px 10px;
+  padding: 6px clamp(4px, 0.5vw, 8px);
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -849,6 +849,23 @@ ol {
   position: relative;
   letter-spacing: 0.01em;
   white-space: nowrap;
+}
+
+.nav-badge-soon {
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--yellow-main);
+  color: #000000;
+  padding: 2px 5px;
+  border-radius: 99px;
+  line-height: 1;
+  margin-left: 3px;
+  vertical-align: middle;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
 }
 
 .nav-link::after {
