@@ -21,7 +21,14 @@ AddDefaultCharset UTF-8
   RewriteRule ^spiritual/?$ spiritual-sciences.html [R=301,L,NC]
   RewriteRule ^about-us/?$ about.html [R=301,L,NC]
   RewriteRule ^aboutus\.html$ about.html [R=301,L,NC]
+  RewriteRule ^aboutus/?$ about.html [R=301,L,NC]
   RewriteRule ^learn-earn/?$ events.html [R=301,L,NC]
+  RewriteRule ^contact-us/?$ contact.html [R=301,L,NC]
+  RewriteRule ^contact-us\.html$ contact.html [R=301,L,NC]
+  RewriteRule ^contactus/?$ contact.html [R=301,L,NC]
+  RewriteRule ^contactus\.html$ contact.html [R=301,L,NC]
+  RewriteRule ^contact/?$ contact.html [R=301,L,NC]
+  RewriteRule ^contacts/?$ contact.html [R=301,L,NC]
 
   # Allow extensionless URLs (e.g. visiting /courses will load courses.html)
   RewriteCond %{REQUEST_FILENAME} !-d
