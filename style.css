@@ -8345,39 +8345,187 @@ img, video {
   touch-action: manipulation;
 }
 
+/* ==========================================================================
+   GLOBAL MASTER RESPONSIVE & SPACE OPTIMIZATION (ALL PAGES)
+   ========================================================================== */
+
+/* Universal Spacing Refinement */
+.section-pad {
+  padding: clamp(30px, 4vw, 52px) 0 !important;
+}
+
+.sec-title {
+  font-size: clamp(22px, 3.5vw, 36px) !important;
+  line-height: 1.22 !important;
+  margin-top: 8px !important;
+  margin-bottom: 10px !important;
+}
+
+.sec-desc {
+  font-size: clamp(14px, 1.8vw, 16px) !important;
+  line-height: 1.6 !important;
+  margin-bottom: 16px !important;
+  max-width: 860px;
+}
+
+.page-hero {
+  padding: clamp(36px, 5vw, 60px) 0 clamp(24px, 3.5vw, 40px) !important;
+}
+
+.page-hero-title {
+  font-size: clamp(24px, 4.5vw, 44px) !important;
+  line-height: 1.2 !important;
+  margin-bottom: 10px !important;
+}
+
+.page-hero-subtitle {
+  font-size: clamp(14px, 2vw, 16.5px) !important;
+  line-height: 1.55 !important;
+  margin: 10px auto 18px !important;
+  max-width: 860px !important;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(24px, 3.5vw, 44px);
+  align-items: center;
+}
+
+.about-split-grid {
+  margin-bottom: clamp(16px, 2.5vw, 28px) !important;
+  gap: clamp(20px, 3vw, 36px) !important;
+}
+
+/* Universal Grid Protection against Mobile Overflow */
+.grid,
+.services-grid,
+.courses-grid,
+.programs-grid,
+.pillars-grid,
+.testimonials-grid,
+.features-grid,
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)) !important;
+  gap: clamp(14px, 2vw, 24px) !important;
+}
+
+/* Card Density & Aesthetic Upgrades */
+.card,
+.who-card,
+.pillar-card,
+.service-feature-card,
+.program-card,
+.stat-banner-item {
+  padding: clamp(16px, 2.5vw, 28px) !important;
+  border-radius: var(--radius-lg) !important;
+}
+
+/* Table Responsive Wrapper */
+.table-responsive,
+.table-card {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Media Element Restraints */
+img,
+video,
+iframe,
+canvas,
+svg {
+  max-width: 100% !important;
+  height: auto;
+}
+
+/* Global Breakpoints for Mobile & Tablet */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .about-split-grid,
+  .partnership-split-grid,
+  .ecommerce-top-grid,
+  .summer-camp-card {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 @media (max-width: 768px) {
+  .container {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .section-pad {
+    padding: clamp(24px, 5vw, 40px) 0 !important;
+  }
+
   .btn {
-    min-height: 46px;
-    font-size: 14.5px;
+    min-height: 44px;
+    font-size: 14px;
+    padding: 10px 18px !important;
   }
 
   input, select, textarea {
     font-size: 16px !important; /* Prevents auto zoom in iOS Safari */
+    padding: 12px 14px !important;
   }
 
-  .floating-whatsapp-btn {
-    bottom: max(20px, env(safe-area-inset-bottom, 20px)) !important;
-    right: max(18px, env(safe-area-inset-right, 18px)) !important;
+  .floating-whatsapp-btn,
+  .floating-whatsapp {
+    bottom: max(16px, env(safe-area-inset-bottom, 16px)) !important;
+    right: max(14px, env(safe-area-inset-right, 14px)) !important;
+    width: 48px !important;
+    height: 48px !important;
   }
-  
+
   .brand-name {
-    font-size: 16px !important;
+    font-size: 15px !important;
   }
 
   .brand-sub {
-    font-size: 10px !important;
-  }
-
-  .page-hero-title {
-    font-size: clamp(24px, 6vw, 34px) !important;
-  }
-
-  .page-hero-subtitle {
-    font-size: 14.5px !important;
+    font-size: 9.5px !important;
   }
 
   .footer-grid {
     grid-template-columns: 1fr !important;
-    gap: 32px !important;
+    gap: 24px !important;
+  }
+
+  .footer-bottom-bar {
+    padding-top: 16px !important;
+    margin-top: 20px !important;
+    font-size: 12px !important;
   }
 }
+
+@media (max-width: 540px) {
+  .btn-group,
+  .hero-actions,
+  .event-showcase-actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .btn-group .btn,
+  .hero-actions .btn,
+  .event-showcase-actions .btn {
+    width: 100%;
+    justify-content: center !important;
+  }
+
+  .live-marquee-actions {
+    display: none !important; /* Keep mobile live bar ultra-clean and uncrowded */
+  }
+
+  .live-marquee-track {
+    gap: 24px !important;
+  }
+}
